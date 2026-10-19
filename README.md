@@ -53,7 +53,7 @@ npm run package:desktop   # 当前平台 ZIP
 
 ## 已验证的范围
 
-- 严格 TypeScript 检查通过，23 项运行时测试通过。
+- 严格 TypeScript 检查通过，24 项运行时测试通过。
 - 3 项原生 Electron 测试覆盖普通文件夹与 Git 项目的创建、执行、真实检查、审核、持久化恢复，以及暂停继续；模型使用确定性夹具。
 - macOS 上已通过真实 Codex → 主机测试 → 真实 Claude Code 的桌面闭环，源目录保持不变，审核绑定测试时的源文件指纹。
 - Windows、Linux、macOS 的原生夹具测试与 ZIP 构建通过 CI；这与三平台真实模型认证验证分开记录。

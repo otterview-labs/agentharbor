@@ -34,7 +34,7 @@ export async function directoryManifest(root: string): Promise<DirectoryManifest
   await walk(''); return result;
 }
 export function manifestFingerprint(manifest: DirectoryManifest): string {
-  return createHash('sha256').update(JSON.stringify(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)))).digest('hex');
+  return createHash('sha256').update(JSON.stringify(Object.entries(manifest).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0))).digest('hex');
 }
 export async function copyDirectory(source: string, target: string, manifest: DirectoryManifest) {
   await mkdir(target, { recursive: false, mode: 0o700 });

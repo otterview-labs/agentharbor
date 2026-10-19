@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { DesktopService } from '../src/desktop.js';
 import { executeMission } from '../src/engine.js';
 import { fingerprint, createMission } from '../src/workspace.js';
-import { directoryManifest, directoryChanges } from '../src/directory.js';
+import { directoryManifest, directoryChanges, manifestFingerprint } from '../src/directory.js';
 import { Store } from '../src/store.js';
 import type { Agent } from '../src/types.js';
 
@@ -93,4 +93,11 @@ test('ordinary-folder copies and fingerprints files beyond the old individual an
   assert.match(await directoryChanges(f.home,m.id,m.workspace),/修改 "large.bin"/);
   const original=await open(join(f.folder,'large.bin'),'r');
   try {const tail=Buffer.alloc(1);await original.read(tail,0,1,size-1);assert.equal(tail.toString(),'A');} finally {await original.close();}
+});
+
+
+test('directory fingerprints are independent of streamed entry order for collating Unicode names',()=>{
+  const names=['\u00e9.txt','e\u0301.txt'],a={hash:'first',mode:0o644,size:1},b={hash:'second',mode:0o644,size:1};
+  const forward={[names[0]!]:a,[names[1]!]:b},reverse={[names[1]!]:b,[names[0]!]:a};
+  assert.equal(manifestFingerprint(forward),manifestFingerprint(reverse));
 });

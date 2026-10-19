@@ -46,7 +46,7 @@ The separate mobile project remains in its existing repository.
 
 ## Validation
 
-Strict TypeScript checks and 23 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
+Strict TypeScript checks and 24 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
 
 ## CLI and upstream
 
