@@ -1,0 +1,562 @@
+{
+  "regions": [
+    {
+      "id": "titlebar",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 48
+      },
+      "note": "Flat black desktop title bar",
+      "container": true
+    },
+    {
+      "id": "sidebar",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 0,
+        "y": 48,
+        "w": 287,
+        "h": 976
+      },
+      "note": "Flat black project and meeting pane",
+      "container": true
+    },
+    {
+      "id": "conversation",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 287,
+        "y": 48,
+        "w": 841,
+        "h": 976
+      },
+      "note": "Flat black conversation pane",
+      "container": true
+    },
+    {
+      "id": "inspector",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 1128,
+        "y": 48,
+        "w": 408,
+        "h": 976
+      },
+      "note": "Flat black current-task pane",
+      "container": true
+    },
+    {
+      "id": "brand",
+      "kind": "text",
+      "pixelBox": {
+        "x": 62,
+        "y": 13,
+        "w": 113,
+        "h": 23
+      },
+      "note": "AgentHarbor application title"
+    },
+    {
+      "id": "preview-label",
+      "kind": "text",
+      "pixelBox": {
+        "x": 197,
+        "y": 14,
+        "w": 154,
+        "h": 22
+      },
+      "note": "Design preview and synthetic data label"
+    },
+    {
+      "id": "window-controls",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1361,
+        "y": 5,
+        "w": 169,
+        "h": 36
+      },
+      "note": "Minimize maximize and close actions"
+    },
+    {
+      "id": "project-label",
+      "kind": "text",
+      "pixelBox": {
+        "x": 28,
+        "y": 79,
+        "w": 155,
+        "h": 22
+      },
+      "note": "Project field label"
+    },
+    {
+      "id": "project-select",
+      "kind": "control",
+      "pixelBox": {
+        "x": 28,
+        "y": 110,
+        "w": 236,
+        "h": 46
+      },
+      "note": "Current project dropdown"
+    },
+    {
+      "id": "new-meeting",
+      "kind": "control",
+      "pixelBox": {
+        "x": 28,
+        "y": 176,
+        "w": 236,
+        "h": 47
+      },
+      "note": "Create meeting action"
+    },
+    {
+      "id": "recent-label",
+      "kind": "text",
+      "pixelBox": {
+        "x": 28,
+        "y": 262,
+        "w": 101,
+        "h": 24
+      },
+      "note": "Recent meetings heading"
+    },
+    {
+      "id": "meeting-active",
+      "kind": "control",
+      "pixelBox": {
+        "x": 13,
+        "y": 301,
+        "w": 263,
+        "h": 52
+      },
+      "note": "Selected meeting with amber incomplete indicator"
+    },
+    {
+      "id": "meeting-second",
+      "kind": "control",
+      "pixelBox": {
+        "x": 27,
+        "y": 371,
+        "w": 220,
+        "h": 31
+      },
+      "note": "Second meeting navigation row"
+    },
+    {
+      "id": "meeting-third",
+      "kind": "control",
+      "pixelBox": {
+        "x": 27,
+        "y": 426,
+        "w": 220,
+        "h": 32
+      },
+      "note": "Third meeting navigation row"
+    },
+    {
+      "id": "manage-assistants",
+      "kind": "control",
+      "pixelBox": {
+        "x": 27,
+        "y": 882,
+        "w": 181,
+        "h": 37
+      },
+      "note": "Assistant manager navigation"
+    },
+    {
+      "id": "settings",
+      "kind": "control",
+      "pixelBox": {
+        "x": 27,
+        "y": 942,
+        "w": 120,
+        "h": 40
+      },
+      "note": "Application settings navigation"
+    },
+    {
+      "id": "room-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 314,
+        "y": 81,
+        "w": 202,
+        "h": 31
+      },
+      "note": "Login retry repair meeting title"
+    },
+    {
+      "id": "members",
+      "kind": "control",
+      "pixelBox": {
+        "x": 971,
+        "y": 77,
+        "w": 132,
+        "h": 34
+      },
+      "note": "Three assistants membership control"
+    },
+    {
+      "id": "avatar-host-first",
+      "kind": "control",
+      "pixelBox": {
+        "x": 314,
+        "y": 157,
+        "w": 54,
+        "h": 55
+      },
+      "note": "Host letter avatar"
+    },
+    {
+      "id": "host-header-first",
+      "kind": "text",
+      "pixelBox": {
+        "x": 391,
+        "y": 161,
+        "w": 124,
+        "h": 25
+      },
+      "note": "Host name and timestamp"
+    },
+    {
+      "id": "host-bubble-first",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 392,
+        "y": 195,
+        "w": 592,
+        "h": 53
+      },
+      "note": "First message background",
+      "container": true
+    },
+    {
+      "id": "host-message-first",
+      "kind": "text",
+      "pixelBox": {
+        "x": 411,
+        "y": 210,
+        "w": 552,
+        "h": 25
+      },
+      "note": "Host describes the task and independent review"
+    },
+    {
+      "id": "avatar-builder",
+      "kind": "control",
+      "pixelBox": {
+        "x": 314,
+        "y": 285,
+        "w": 54,
+        "h": 55
+      },
+      "note": "Builder letter avatar"
+    },
+    {
+      "id": "builder-header",
+      "kind": "text",
+      "pixelBox": {
+        "x": 391,
+        "y": 290,
+        "w": 180,
+        "h": 25
+      },
+      "note": "Builder name role and timestamp"
+    },
+    {
+      "id": "builder-bubble",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 392,
+        "y": 326,
+        "w": 435,
+        "h": 55
+      },
+      "note": "Builder message background",
+      "container": true
+    },
+    {
+      "id": "builder-message",
+      "kind": "text",
+      "pixelBox": {
+        "x": 411,
+        "y": 343,
+        "w": 397,
+        "h": 25
+      },
+      "note": "Builder reports existing regression results"
+    },
+    {
+      "id": "change-link",
+      "kind": "control",
+      "pixelBox": {
+        "x": 397,
+        "y": 398,
+        "w": 91,
+        "h": 25
+      },
+      "note": "Inspect code changes action"
+    },
+    {
+      "id": "test-link",
+      "kind": "control",
+      "pixelBox": {
+        "x": 519,
+        "y": 398,
+        "w": 96,
+        "h": 25
+      },
+      "note": "Inspect tests action"
+    },
+    {
+      "id": "avatar-reviewer",
+      "kind": "control",
+      "pixelBox": {
+        "x": 314,
+        "y": 462,
+        "w": 54,
+        "h": 55
+      },
+      "note": "Reviewer letter avatar"
+    },
+    {
+      "id": "reviewer-header",
+      "kind": "text",
+      "pixelBox": {
+        "x": 391,
+        "y": 467,
+        "w": 218,
+        "h": 26
+      },
+      "note": "Reviewer name role and timestamp"
+    },
+    {
+      "id": "reviewer-bubble",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 392,
+        "y": 502,
+        "w": 344,
+        "h": 56
+      },
+      "note": "Reviewer unresolved finding background",
+      "container": true
+    },
+    {
+      "id": "reviewer-message",
+      "kind": "text",
+      "pixelBox": {
+        "x": 411,
+        "y": 518,
+        "w": 307,
+        "h": 26
+      },
+      "note": "Reviewer identifies missing concurrency coverage"
+    },
+    {
+      "id": "avatar-host-last",
+      "kind": "control",
+      "pixelBox": {
+        "x": 314,
+        "y": 594,
+        "w": 54,
+        "h": 55
+      },
+      "note": "Latest host letter avatar"
+    },
+    {
+      "id": "host-header-last",
+      "kind": "text",
+      "pixelBox": {
+        "x": 391,
+        "y": 599,
+        "w": 123,
+        "h": 25
+      },
+      "note": "Latest host name and timestamp"
+    },
+    {
+      "id": "host-bubble-last",
+      "kind": "chrome",
+      "pixelBox": {
+        "x": 392,
+        "y": 632,
+        "w": 435,
+        "h": 57
+      },
+      "note": "Latest handoff message background",
+      "container": true
+    },
+    {
+      "id": "host-message-last",
+      "kind": "text",
+      "pixelBox": {
+        "x": 411,
+        "y": 648,
+        "w": 397,
+        "h": 26
+      },
+      "note": "Host returns work to builder for verification"
+    },
+    {
+      "id": "activity",
+      "kind": "control",
+      "pixelBox": {
+        "x": 392,
+        "y": 706,
+        "w": 316,
+        "h": 29
+      },
+      "note": "Builder activity indicator and text"
+    },
+    {
+      "id": "composer",
+      "kind": "control",
+      "pixelBox": {
+        "x": 314,
+        "y": 845,
+        "w": 790,
+        "h": 139
+      },
+      "note": "Fixed message composer with attachment and Send"
+    },
+    {
+      "id": "task-heading",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 81,
+        "w": 115,
+        "h": 27
+      },
+      "note": "Current task section title"
+    },
+    {
+      "id": "task-status",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1162,
+        "y": 129,
+        "w": 110,
+        "h": 39
+      },
+      "note": "Amber task status"
+    },
+    {
+      "id": "task-title",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 187,
+        "w": 296,
+        "h": 34
+      },
+      "note": "Current concurrency test task title"
+    },
+    {
+      "id": "executor",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 240,
+        "w": 170,
+        "h": 28
+      },
+      "note": "Assigned builder name"
+    },
+    {
+      "id": "next-heading",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 335,
+        "w": 113,
+        "h": 26
+      },
+      "note": "Next action section title"
+    },
+    {
+      "id": "next-action",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 375,
+        "w": 341,
+        "h": 31
+      },
+      "note": "Next verification and independent review action"
+    },
+    {
+      "id": "blocker-heading",
+      "kind": "text",
+      "pixelBox": {
+        "x": 1161,
+        "y": 463,
+        "w": 107,
+        "h": 25
+      },
+      "note": "Unresolved blocker heading"
+    },
+    {
+      "id": "blocker",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1163,
+        "y": 502,
+        "w": 344,
+        "h": 59
+      },
+      "note": "Concurrency verification blocker"
+    },
+    {
+      "id": "acceptance-disclosure",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1161,
+        "y": 594,
+        "w": 345,
+        "h": 70
+      },
+      "note": "Collapsed acceptance criteria section"
+    },
+    {
+      "id": "evidence-disclosure",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1161,
+        "y": 664,
+        "w": 345,
+        "h": 71
+      },
+      "note": "Collapsed changes and tests section"
+    },
+    {
+      "id": "history-disclosure",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1161,
+        "y": 735,
+        "w": 345,
+        "h": 71
+      },
+      "note": "Collapsed execution history section"
+    },
+    {
+      "id": "pause",
+      "kind": "control",
+      "pixelBox": {
+        "x": 1162,
+        "y": 913,
+        "w": 345,
+        "h": 56
+      },
+      "note": "Pause the current task action"
+    }
+  ]
+}

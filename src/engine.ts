@@ -17,6 +17,7 @@ export function parseReview(text: string): Omit<Review, 'fingerprint'> {
 export async function executeMission(id: string, deps: {
   store: Store; builder: Agent; reviewer: Agent; runner?: Runner; signal?: AbortSignal;
   onEvent?: (mission: Mission) => void;
+  onAgentMessage?: (role: 'builder' | 'reviewer', text: string) => Promise<void>;
 }): Promise<Mission> {
   const unlock = await deps.store.lock(id);
   let mission: Mission | undefined;
@@ -36,9 +37,10 @@ export async function executeMission(id: string, deps: {
     while (mission.round < mission.maxRounds) {
       remaining(); mission.round++; delete mission.review;
       await transition('executing', `Round ${mission.round}: ${mission.builder} implementing the goal`);
-      await deps.builder.run({ role: 'builder', workspace: mission.workspace, timeoutMs: remaining(),
+      const builderText = await deps.builder.run({ role: 'builder', workspace: mission.workspace, timeoutMs: remaining(),
         prompt: basePrompt + '\nImplement the goal. The host runs the verification commands after your edits.\nPrior findings:\n' + mission.feedback,
         ...(deps.signal ? { signal: deps.signal } : {}) });
+      await deps.onAgentMessage?.('builder', builderText);
       await transition('verifying', 'Running the registered verification commands');
       const revision = await fingerprint(mission.workspace);
       let passed = true;
@@ -57,6 +59,7 @@ export async function executeMission(id: string, deps: {
       remaining();
       if (revision !== await fingerprint(mission.workspace)) throw new Error('Source changed during review; approval does not apply to current files');
       mission.review = { ...parseReview(output), fingerprint: revision };
+      await deps.onAgentMessage?.('reviewer', output);
       if (mission.review.verdict === 'approve') {
         await transition('completed', mission.review.summary);
         return mission;

@@ -9,3 +9,14 @@ coverage/
 .DS_Store
 .impeccable/cache/
 .impeccable/mocks/decision/
+dist-desktop/
+dist-electron/
+release/
+playwright-report/
+test-results/
+.impeccable/build/map-inspections/
+.impeccable/build/scaffold/
+.impeccable/build/font-match/
+.impeccable/build/comp-grid.png
+.impeccable/build/comp-grid.json
+.impeccable/review/

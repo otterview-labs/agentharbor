@@ -1,6 +1,6 @@
 {
   "name": "@otterview-labs/agentharbor",
-  "version": "0.1.0-alpha.1",
+  "version": "0.2.0-alpha.1",
   "description": "Local multi-agent missions with persistent execution, verification and independent review",
   "license": "MIT",
   "private": true,
@@ -16,10 +16,64 @@
     "check": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node scripts/test.mjs",
     "doctor": "npm run build && node dist/src/cli.js doctor",
-    "start": "node dist/src/cli.js"
+    "start": "node dist/src/cli.js",
+    "check:desktop": "tsc -p apps/desktop/tsconfig.json",
+    "build:desktop": "node scripts/build-desktop.mjs",
+    "desktop": "npm run build:desktop && node scripts/start-desktop.mjs",
+    "preview:desktop": "vite preview --config apps/desktop/vite.config.ts",
+    "package:desktop": "npm run build:desktop && electron-builder --publish never",
+    "test:desktop": "playwright test --config apps/desktop/playwright.config.ts"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/node": "^22.0.0",
-    "typescript": "~5.9.0"
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "typescript": "~5.9.0",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "main": "dist-electron/main.cjs",
+  "author": "AgentHarbor contributors",
+  "homepage": "https://github.com/otterview-labs/agentharbor",
+  "build": {
+    "appId": "org.otterview.agentharbor",
+    "productName": "AgentHarbor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist-desktop/**/*",
+      "LICENSE",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "identity": null,
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "zip"
+      ],
+      "category": "Development"
+    },
+    "artifactName": "AgentHarbor-${version}-${os}-${arch}.${ext}"
   }
 }

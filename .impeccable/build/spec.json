@@ -1,0 +1,3104 @@
+{
+  "tool": "comp-spec",
+  "version": 1,
+  "createdAt": "2026-10-19T10:15:27.726Z",
+  "comp": ".impeccable/mocks/desktop-chat-black.png",
+  "warnings": [
+    "region titlebar: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region sidebar: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region conversation: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region inspector: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region host-bubble-first: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region builder-bubble: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region reviewer-bubble: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)",
+    "region host-bubble-last: \"container\": true set in the regions file (the region-size refusal is overridden: one undivided element)"
+  ],
+  "uncoveredInkCells": [],
+  "compSize": {
+    "width": 1536,
+    "height": 1024
+  },
+  "aspect": 1.5,
+  "orientation": "landscape",
+  "palette": [
+    {
+      "hex": "#080808",
+      "coverage": 0.9437
+    },
+    {
+      "hex": "#261908",
+      "coverage": 0.0231
+    },
+    {
+      "hex": "#0e1525",
+      "coverage": 0.012
+    },
+    {
+      "hex": "#34373e",
+      "coverage": 0.0108
+    },
+    {
+      "hex": "#f3f3f3",
+      "coverage": 0.0104
+    }
+  ],
+  "bands": [
+    {
+      "y": 0.0824,
+      "strength": 0.3918
+    },
+    {
+      "y": 0.1059,
+      "strength": 0.2792
+    },
+    {
+      "y": 0.1882,
+      "strength": 0.2923
+    },
+    {
+      "y": 0.2235,
+      "strength": 0.3298
+    },
+    {
+      "y": 0.3529,
+      "strength": 0.2911
+    },
+    {
+      "y": 0.3882,
+      "strength": 0.2033
+    },
+    {
+      "y": 0.5059,
+      "strength": 0.2313
+    },
+    {
+      "y": 0.5294,
+      "strength": 0.2245
+    }
+  ],
+  "regions": [
+    {
+      "id": "titlebar",
+      "kind": "chrome",
+      "note": "Flat black desktop title bar",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 1,
+        "h": 0.0469
+      },
+      "px": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 48
+      },
+      "aspect": 32,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9848
+        },
+        {
+          "hex": "#373841",
+          "coverage": 0.0058
+        },
+        {
+          "hex": "#f2f2f2",
+          "coverage": 0.0052
+        },
+        {
+          "hex": "#797981",
+          "coverage": 0.003
+        },
+        {
+          "hex": "#b0b8c8",
+          "coverage": 0.0012
+        }
+      ],
+      "detail": {
+        "energy": 14.8653
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": true
+      }
+    },
+    {
+      "id": "sidebar",
+      "kind": "chrome",
+      "note": "Flat black project and meeting pane",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0,
+        "y": 0.0469,
+        "w": 0.1868,
+        "h": 0.9531
+      },
+      "px": {
+        "x": 0,
+        "y": 48,
+        "w": 287,
+        "h": 976
+      },
+      "aspect": 0.2941,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9451
+        },
+        {
+          "hex": "#0c1828",
+          "coverage": 0.0467
+        },
+        {
+          "hex": "#f2f4f6",
+          "coverage": 0.0048
+        },
+        {
+          "hex": "#989898",
+          "coverage": 0.0018
+        },
+        {
+          "hex": "#a1b1c1",
+          "coverage": 0.0016
+        }
+      ],
+      "detail": {
+        "energy": 10.5199
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": true
+      }
+    },
+    {
+      "id": "conversation",
+      "kind": "chrome",
+      "note": "Flat black conversation pane",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.1868,
+        "y": 0.0469,
+        "w": 0.5475,
+        "h": 0.9531
+      },
+      "px": {
+        "x": 287,
+        "y": 48,
+        "w": 841,
+        "h": 976
+      },
+      "aspect": 0.8617,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.9442
+        },
+        {
+          "hex": "#291908",
+          "coverage": 0.0191
+        },
+        {
+          "hex": "#34353f",
+          "coverage": 0.018
+        },
+        {
+          "hex": "#f3f3f3",
+          "coverage": 0.0113
+        },
+        {
+          "hex": "#196cf8",
+          "coverage": 0.0075
+        }
+      ],
+      "detail": {
+        "energy": 12.2692
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": true
+      }
+    },
+    {
+      "id": "inspector",
+      "kind": "chrome",
+      "note": "Flat black current-task pane",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.7344,
+        "y": 0.0469,
+        "w": 0.2656,
+        "h": 0.9531
+      },
+      "px": {
+        "x": 1128,
+        "y": 48,
+        "w": 408,
+        "h": 976
+      },
+      "aspect": 0.418,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9222
+        },
+        {
+          "hex": "#241808",
+          "coverage": 0.0518
+        },
+        {
+          "hex": "#f4f4f4",
+          "coverage": 0.0136
+        },
+        {
+          "hex": "#303335",
+          "coverage": 0.0103
+        },
+        {
+          "hex": "#676767",
+          "coverage": 0.0021
+        }
+      ],
+      "detail": {
+        "energy": 14.6381
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": true
+      }
+    },
+    {
+      "id": "brand",
+      "kind": "text",
+      "note": "AgentHarbor application title",
+      "grid": null,
+      "box": {
+        "x": 0.0404,
+        "y": 0.0127,
+        "w": 0.0736,
+        "h": 0.0225
+      },
+      "px": {
+        "x": 62,
+        "y": 13,
+        "w": 113,
+        "h": 23
+      },
+      "aspect": 4.913,
+      "palette": [
+        {
+          "hex": "#0a090a",
+          "coverage": 0.7756
+        },
+        {
+          "hex": "#efefef",
+          "coverage": 0.0792
+        },
+        {
+          "hex": "#838489",
+          "coverage": 0.0594
+        },
+        {
+          "hex": "#464746",
+          "coverage": 0.0528
+        },
+        {
+          "hex": "#b8b8b8",
+          "coverage": 0.033
+        }
+      ],
+      "detail": {
+        "energy": 51.0401
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 11,
+          "capHeightPx": 14.6,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6011,
+          "advTall": 0.6869,
+          "advX": 0.5839,
+          "gap": 0.103,
+          "xRatio": 0.7371,
+          "stemW": 0.1549,
+          "contrast": 1.0069,
+          "serif": null,
+          "densTall": 0.4702,
+          "densX": 0.5216,
+          "weight": 0.4702
+        },
+        "widthClass": "condensed",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "preview-label",
+      "kind": "text",
+      "note": "Design preview and synthetic data label",
+      "grid": null,
+      "box": {
+        "x": 0.1283,
+        "y": 0.0137,
+        "w": 0.1003,
+        "h": 0.0215
+      },
+      "px": {
+        "x": 197,
+        "y": 14,
+        "w": 154,
+        "h": 22
+      },
+      "aspect": 7,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.7189
+        },
+        {
+          "hex": "#b4bfce",
+          "coverage": 0.1493
+        },
+        {
+          "hex": "#5f6570",
+          "coverage": 0.0547
+        },
+        {
+          "hex": "#32343c",
+          "coverage": 0.0423
+        },
+        {
+          "hex": "#d5e2e7",
+          "coverage": 0.0348
+        }
+      ],
+      "detail": {
+        "energy": 66.1167
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 9,
+          "capHeightPx": 16,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9356,
+          "advTall": 0.9356,
+          "advX": null,
+          "gap": 0.1403,
+          "xRatio": 0.6785,
+          "stemW": 0.1177,
+          "contrast": 0.9379,
+          "serif": 1.6174,
+          "densTall": 0.5214,
+          "densX": null,
+          "weight": 0.5214
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "window-controls",
+      "kind": "control",
+      "note": "Minimize maximize and close actions",
+      "grid": null,
+      "box": {
+        "x": 0.8861,
+        "y": 0.0049,
+        "w": 0.11,
+        "h": 0.0352
+      },
+      "px": {
+        "x": 1361,
+        "y": 5,
+        "w": 169,
+        "h": 36
+      },
+      "aspect": 4.6944,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9678
+        },
+        {
+          "hex": "#dddadb",
+          "coverage": 0.0205
+        },
+        {
+          "hex": "#525252",
+          "coverage": 0.0073
+        },
+        {
+          "hex": "#b0b8b8",
+          "coverage": 0.0029
+        },
+        {
+          "hex": "#282818",
+          "coverage": 0.0015
+        }
+      ],
+      "detail": {
+        "energy": 9.4649
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "project-label",
+      "kind": "text",
+      "note": "Project field label",
+      "grid": null,
+      "box": {
+        "x": 0.0182,
+        "y": 0.0771,
+        "w": 0.1009,
+        "h": 0.0215
+      },
+      "px": {
+        "x": 28,
+        "y": 79,
+        "w": 155,
+        "h": 22
+      },
+      "aspect": 7.0455,
+      "palette": [
+        {
+          "hex": "#09090a",
+          "coverage": 0.7694
+        },
+        {
+          "hex": "#d9e4ee",
+          "coverage": 0.0801
+        },
+        {
+          "hex": "#606870",
+          "coverage": 0.0704
+        },
+        {
+          "hex": "#9097ab",
+          "coverage": 0.0534
+        },
+        {
+          "hex": "#3b3c45",
+          "coverage": 0.0267
+        }
+      ],
+      "detail": {
+        "energy": 60.1483
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 13,
+          "capHeightPx": 15,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5337,
+          "advTall": 0.7005,
+          "advX": 0.5337,
+          "gap": 0.1001,
+          "xRatio": 0.6586,
+          "stemW": 0.1379,
+          "contrast": 1.0657,
+          "serif": 0.7985,
+          "densTall": 0.4193,
+          "densX": 0.5459,
+          "weight": 0.4193
+        },
+        "widthClass": "condensed",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "project-select",
+      "kind": "control",
+      "note": "Current project dropdown",
+      "grid": null,
+      "box": {
+        "x": 0.0182,
+        "y": 0.1074,
+        "w": 0.1536,
+        "h": 0.0449
+      },
+      "px": {
+        "x": 28,
+        "y": 110,
+        "w": 236,
+        "h": 46
+      },
+      "aspect": 5.1304,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.884
+        },
+        {
+          "hex": "#282b32",
+          "coverage": 0.0786
+        },
+        {
+          "hex": "#f2f3f3",
+          "coverage": 0.0278
+        },
+        {
+          "hex": "#565a56",
+          "coverage": 0.0056
+        },
+        {
+          "hex": "#8b8b8b",
+          "coverage": 0.004
+        }
+      ],
+      "detail": {
+        "energy": 24.1516
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "new-meeting",
+      "kind": "control",
+      "note": "Create meeting action",
+      "grid": null,
+      "box": {
+        "x": 0.0182,
+        "y": 0.1719,
+        "w": 0.1536,
+        "h": 0.0459
+      },
+      "px": {
+        "x": 28,
+        "y": 176,
+        "w": 236,
+        "h": 47
+      },
+      "aspect": 5.0213,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8732
+        },
+        {
+          "hex": "#1755a7",
+          "coverage": 0.0671
+        },
+        {
+          "hex": "#225d93",
+          "coverage": 0.0229
+        },
+        {
+          "hex": "#5fb7f2",
+          "coverage": 0.0213
+        },
+        {
+          "hex": "#4996e5",
+          "coverage": 0.0155
+        }
+      ],
+      "detail": {
+        "energy": 18.237
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "recent-label",
+      "kind": "text",
+      "note": "Recent meetings heading",
+      "grid": null,
+      "box": {
+        "x": 0.0182,
+        "y": 0.2559,
+        "w": 0.0658,
+        "h": 0.0234
+      },
+      "px": {
+        "x": 28,
+        "y": 262,
+        "w": 101,
+        "h": 24
+      },
+      "aspect": 4.2083,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.8206
+        },
+        {
+          "hex": "#95a3b4",
+          "coverage": 0.0687
+        },
+        {
+          "hex": "#4f5464",
+          "coverage": 0.0496
+        },
+        {
+          "hex": "#c2d7e8",
+          "coverage": 0.042
+        },
+        {
+          "hex": "#282b3b",
+          "coverage": 0.0191
+        }
+      ],
+      "detail": {
+        "energy": 32.0826
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 4,
+          "capHeightPx": 17.3,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.8799,
+          "advTall": 0.8799,
+          "advX": null,
+          "gap": 0.1154,
+          "xRatio": null,
+          "stemW": 0.1303,
+          "contrast": 1.0849,
+          "serif": null,
+          "densTall": 0.4461,
+          "densX": null,
+          "weight": 0.4461
+        },
+        "widthClass": "wide",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "meeting-active",
+      "kind": "control",
+      "note": "Selected meeting with amber incomplete indicator",
+      "grid": null,
+      "box": {
+        "x": 0.0085,
+        "y": 0.2939,
+        "w": 0.1712,
+        "h": 0.0508
+      },
+      "px": {
+        "x": 13,
+        "y": 301,
+        "w": 263,
+        "h": 52
+      },
+      "aspect": 5.0577,
+      "palette": [
+        {
+          "hex": "#0c1829",
+          "coverage": 0.9169
+        },
+        {
+          "hex": "#74b9f0",
+          "coverage": 0.032
+        },
+        {
+          "hex": "#203d6c",
+          "coverage": 0.0288
+        },
+        {
+          "hex": "#8bdbf6",
+          "coverage": 0.0118
+        },
+        {
+          "hex": "#5287cb",
+          "coverage": 0.0105
+        }
+      ],
+      "detail": {
+        "energy": 22.1323
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "meeting-second",
+      "kind": "control",
+      "note": "Second meeting navigation row",
+      "grid": null,
+      "box": {
+        "x": 0.0176,
+        "y": 0.3623,
+        "w": 0.1432,
+        "h": 0.0303
+      },
+      "px": {
+        "x": 27,
+        "y": 371,
+        "w": 220,
+        "h": 31
+      },
+      "aspect": 7.0968,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.8812
+        },
+        {
+          "hex": "#f2f1f1",
+          "coverage": 0.0506
+        },
+        {
+          "hex": "#babfc5",
+          "coverage": 0.0291
+        },
+        {
+          "hex": "#626464",
+          "coverage": 0.0253
+        },
+        {
+          "hex": "#393c3c",
+          "coverage": 0.0139
+        }
+      ],
+      "detail": {
+        "energy": 48.2533
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "meeting-third",
+      "kind": "control",
+      "note": "Third meeting navigation row",
+      "grid": null,
+      "box": {
+        "x": 0.0176,
+        "y": 0.416,
+        "w": 0.1432,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 27,
+        "y": 426,
+        "w": 220,
+        "h": 32
+      },
+      "aspect": 6.875,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.8453
+        },
+        {
+          "hex": "#f1f2f2",
+          "coverage": 0.078
+        },
+        {
+          "hex": "#aeb5c2",
+          "coverage": 0.0309
+        },
+        {
+          "hex": "#858585",
+          "coverage": 0.0297
+        },
+        {
+          "hex": "#464448",
+          "coverage": 0.0161
+        }
+      ],
+      "detail": {
+        "energy": 47.0987
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "manage-assistants",
+      "kind": "control",
+      "note": "Assistant manager navigation",
+      "grid": null,
+      "box": {
+        "x": 0.0176,
+        "y": 0.8613,
+        "w": 0.1178,
+        "h": 0.0361
+      },
+      "px": {
+        "x": 27,
+        "y": 882,
+        "w": 181,
+        "h": 37
+      },
+      "aspect": 4.8919,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8818
+        },
+        {
+          "hex": "#282931",
+          "coverage": 0.0429
+        },
+        {
+          "hex": "#a0adc2",
+          "coverage": 0.026
+        },
+        {
+          "hex": "#c7d8ea",
+          "coverage": 0.026
+        },
+        {
+          "hex": "#4d555c",
+          "coverage": 0.0234
+        }
+      ],
+      "detail": {
+        "energy": 30.8504
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "settings",
+      "kind": "control",
+      "note": "Application settings navigation",
+      "grid": null,
+      "box": {
+        "x": 0.0176,
+        "y": 0.9199,
+        "w": 0.0781,
+        "h": 0.0391
+      },
+      "px": {
+        "x": 27,
+        "y": 942,
+        "w": 120,
+        "h": 40
+      },
+      "aspect": 3,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.85
+        },
+        {
+          "hex": "#cfdfec",
+          "coverage": 0.0571
+        },
+        {
+          "hex": "#95a2b1",
+          "coverage": 0.0464
+        },
+        {
+          "hex": "#545b65",
+          "coverage": 0.0375
+        },
+        {
+          "hex": "#2e2e38",
+          "coverage": 0.0089
+        }
+      ],
+      "detail": {
+        "energy": 23.2658
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "room-title",
+      "kind": "text",
+      "note": "Login retry repair meeting title",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.0791,
+        "w": 0.1315,
+        "h": 0.0303
+      },
+      "px": {
+        "x": 314,
+        "y": 81,
+        "w": 202,
+        "h": 31
+      },
+      "aspect": 6.5161,
+      "palette": [
+        {
+          "hex": "#0a0a0a",
+          "coverage": 0.6305
+        },
+        {
+          "hex": "#f3f3f3",
+          "coverage": 0.2329
+        },
+        {
+          "hex": "#4d4f4f",
+          "coverage": 0.0576
+        },
+        {
+          "hex": "#909190",
+          "coverage": 0.0522
+        },
+        {
+          "hex": "#c3c5c6",
+          "coverage": 0.0268
+        }
+      ],
+      "detail": {
+        "energy": 93.9439
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 7,
+          "capHeightPx": 26.5,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9434,
+          "advTall": 0.9434,
+          "advX": null,
+          "gap": 0.1132,
+          "xRatio": 0.8044,
+          "stemW": 0.1189,
+          "contrast": 1.1559,
+          "serif": null,
+          "densTall": 0.5016,
+          "densX": null,
+          "weight": 0.5016
+        },
+        "widthClass": "wide",
+        "weightClass": "medium",
+        "chosen": {
+          "family": "Michroma",
+          "weight": 400,
+          "fontSizePx": 30,
+          "source": "index",
+          "fp": {
+            "lines": 1,
+            "glyphs": 7,
+            "capHeightPx": 26.5,
+            "inkIsDark": true,
+            "allCaps": false,
+            "advance": 0.9811,
+            "advTall": 0.9811,
+            "advX": null,
+            "gap": 0.1132,
+            "xRatio": 0.8374,
+            "stemW": 0.0977,
+            "contrast": 1.0932,
+            "serif": null,
+            "densTall": 0.4542,
+            "densX": null,
+            "weight": 0.4542
+          },
+          "stamp": "f992f5f32624"
+        }
+      }
+    },
+    {
+      "id": "members",
+      "kind": "control",
+      "note": "Three assistants membership control",
+      "grid": null,
+      "box": {
+        "x": 0.6322,
+        "y": 0.0752,
+        "w": 0.0859,
+        "h": 0.0332
+      },
+      "px": {
+        "x": 971,
+        "y": 77,
+        "w": 132,
+        "h": 34
+      },
+      "aspect": 3.8824,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.8308
+        },
+        {
+          "hex": "#929eb2",
+          "coverage": 0.0798
+        },
+        {
+          "hex": "#5c6370",
+          "coverage": 0.0361
+        },
+        {
+          "hex": "#363840",
+          "coverage": 0.0266
+        },
+        {
+          "hex": "#c6d7eb",
+          "coverage": 0.0266
+        }
+      ],
+      "detail": {
+        "energy": 30.5414
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "avatar-host-first",
+      "kind": "control",
+      "note": "Host letter avatar",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.1533,
+        "w": 0.0352,
+        "h": 0.0537
+      },
+      "px": {
+        "x": 314,
+        "y": 157,
+        "w": 54,
+        "h": 55
+      },
+      "aspect": 0.9818,
+      "palette": [
+        {
+          "hex": "#373a48",
+          "coverage": 0.6667
+        },
+        {
+          "hex": "#09090a",
+          "coverage": 0.2602
+        },
+        {
+          "hex": "#f3f3f5",
+          "coverage": 0.0497
+        },
+        {
+          "hex": "#202e2e",
+          "coverage": 0.0234
+        }
+      ],
+      "detail": {
+        "energy": 5.7049
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "host-header-first",
+      "kind": "text",
+      "note": "Host name and timestamp",
+      "grid": null,
+      "box": {
+        "x": 0.2546,
+        "y": 0.1572,
+        "w": 0.0807,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 391,
+        "y": 161,
+        "w": 124,
+        "h": 25
+      },
+      "aspect": 4.96,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8301
+        },
+        {
+          "hex": "#393d3c",
+          "coverage": 0.0603
+        },
+        {
+          "hex": "#ecedee",
+          "coverage": 0.0493
+        },
+        {
+          "hex": "#8d93a8",
+          "coverage": 0.0356
+        },
+        {
+          "hex": "#2c2d3f",
+          "coverage": 0.0247
+        }
+      ],
+      "detail": {
+        "energy": 35.8197
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 7,
+          "capHeightPx": 17,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9701,
+          "advTall": 0.9701,
+          "advX": null,
+          "gap": 0.1176,
+          "xRatio": 0.8192,
+          "stemW": 0.1067,
+          "contrast": 0.7825,
+          "serif": null,
+          "densTall": 0.4537,
+          "densX": null,
+          "weight": 0.4537
+        },
+        "widthClass": "wide",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "host-bubble-first",
+      "kind": "chrome",
+      "note": "First message background",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.2552,
+        "y": 0.1904,
+        "w": 0.3854,
+        "h": 0.0518
+      },
+      "px": {
+        "x": 392,
+        "y": 195,
+        "w": 592,
+        "h": 53
+      },
+      "aspect": 11.1698,
+      "palette": [
+        {
+          "hex": "#0b0b0c",
+          "coverage": 0.8672
+        },
+        {
+          "hex": "#f2f3f3",
+          "coverage": 0.0732
+        },
+        {
+          "hex": "#adadaf",
+          "coverage": 0.0257
+        },
+        {
+          "hex": "#4e4e4f",
+          "coverage": 0.024
+        },
+        {
+          "hex": "#838183",
+          "coverage": 0.0099
+        }
+      ],
+      "detail": {
+        "energy": 46.032
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": false
+      }
+    },
+    {
+      "id": "host-message-first",
+      "kind": "text",
+      "note": "Host describes the task and independent review",
+      "grid": null,
+      "box": {
+        "x": 0.2676,
+        "y": 0.2051,
+        "w": 0.3594,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 411,
+        "y": 210,
+        "w": 552,
+        "h": 25
+      },
+      "aspect": 22.08,
+      "palette": [
+        {
+          "hex": "#0b0b0c",
+          "coverage": 0.7162
+        },
+        {
+          "hex": "#f4f5f5",
+          "coverage": 0.1512
+        },
+        {
+          "hex": "#c9caca",
+          "coverage": 0.056
+        },
+        {
+          "hex": "#4f5051",
+          "coverage": 0.0448
+        },
+        {
+          "hex": "#a0a0a2",
+          "coverage": 0.0317
+        }
+      ],
+      "detail": {
+        "energy": 123.9518
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 29,
+          "capHeightPx": 18,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9438,
+          "advTall": 0.9438,
+          "advX": null,
+          "gap": 0.1388,
+          "xRatio": 0.8451,
+          "stemW": 0.1228,
+          "contrast": 1.0809,
+          "serif": 1.0661,
+          "densTall": 0.5035,
+          "densX": null,
+          "weight": 0.5035
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "avatar-builder",
+      "kind": "control",
+      "note": "Builder letter avatar",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.2783,
+        "w": 0.0352,
+        "h": 0.0537
+      },
+      "px": {
+        "x": 314,
+        "y": 285,
+        "w": 54,
+        "h": 55
+      },
+      "aspect": 0.9818,
+      "palette": [
+        {
+          "hex": "#353847",
+          "coverage": 0.7047
+        },
+        {
+          "hex": "#080909",
+          "coverage": 0.2515
+        },
+        {
+          "hex": "#f3f3f6",
+          "coverage": 0.0263
+        },
+        {
+          "hex": "#b4b4bc",
+          "coverage": 0.0117
+        },
+        {
+          "hex": "#586068",
+          "coverage": 0.0058
+        }
+      ],
+      "detail": {
+        "energy": 5.5173
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "builder-header",
+      "kind": "text",
+      "note": "Builder name role and timestamp",
+      "grid": null,
+      "box": {
+        "x": 0.2546,
+        "y": 0.2832,
+        "w": 0.1172,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 391,
+        "y": 290,
+        "w": 180,
+        "h": 25
+      },
+      "aspect": 7.2,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.834
+        },
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.0717
+        },
+        {
+          "hex": "#909498",
+          "coverage": 0.0358
+        },
+        {
+          "hex": "#c9cacd",
+          "coverage": 0.0321
+        },
+        {
+          "hex": "#636566",
+          "coverage": 0.0264
+        }
+      ],
+      "detail": {
+        "energy": 56.3201
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 13,
+          "capHeightPx": 16,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.5633,
+          "advTall": 0.6728,
+          "advX": null,
+          "gap": 0.1252,
+          "xRatio": null,
+          "stemW": 0.1676,
+          "contrast": 1.1274,
+          "serif": null,
+          "densTall": 0.4825,
+          "densX": null,
+          "weight": 0.4825
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "builder-bubble",
+      "kind": "chrome",
+      "note": "Builder message background",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.2552,
+        "y": 0.3184,
+        "w": 0.2832,
+        "h": 0.0537
+      },
+      "px": {
+        "x": 392,
+        "y": 326,
+        "w": 435,
+        "h": 55
+      },
+      "aspect": 7.9091,
+      "palette": [
+        {
+          "hex": "#0a0a0a",
+          "coverage": 0.8711
+        },
+        {
+          "hex": "#f5f5f5",
+          "coverage": 0.0591
+        },
+        {
+          "hex": "#363636",
+          "coverage": 0.0288
+        },
+        {
+          "hex": "#c2c2c4",
+          "coverage": 0.0259
+        },
+        {
+          "hex": "#686768",
+          "coverage": 0.0151
+        }
+      ],
+      "detail": {
+        "energy": 46.0589
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": true,
+        "rules": false
+      }
+    },
+    {
+      "id": "builder-message",
+      "kind": "text",
+      "note": "Builder reports existing regression results",
+      "grid": null,
+      "box": {
+        "x": 0.2676,
+        "y": 0.335,
+        "w": 0.2585,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 411,
+        "y": 343,
+        "w": 397,
+        "h": 25
+      },
+      "aspect": 15.88,
+      "palette": [
+        {
+          "hex": "#0b0b0c",
+          "coverage": 0.7126
+        },
+        {
+          "hex": "#f0f0f1",
+          "coverage": 0.1059
+        },
+        {
+          "hex": "#b4b3b4",
+          "coverage": 0.0689
+        },
+        {
+          "hex": "#6a6a6c",
+          "coverage": 0.0681
+        },
+        {
+          "hex": "#414042",
+          "coverage": 0.0445
+        }
+      ],
+      "detail": {
+        "energy": 119.5229
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 19,
+          "capHeightPx": 19.1,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9163,
+          "advTall": 0.9163,
+          "advX": 0.5498,
+          "gap": 0.1309,
+          "xRatio": 0.8263,
+          "stemW": 0.11,
+          "contrast": 1.0416,
+          "serif": 1.095,
+          "densTall": 0.5277,
+          "densX": 0.5505,
+          "weight": 0.5277
+        },
+        "widthClass": "condensed",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "change-link",
+      "kind": "control",
+      "note": "Inspect code changes action",
+      "grid": null,
+      "box": {
+        "x": 0.2585,
+        "y": 0.3887,
+        "w": 0.0592,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 397,
+        "y": 398,
+        "w": 91,
+        "h": 25
+      },
+      "aspect": 3.64,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.7109
+        },
+        {
+          "hex": "#55b4ee",
+          "coverage": 0.125
+        },
+        {
+          "hex": "#081632",
+          "coverage": 0.0625
+        },
+        {
+          "hex": "#14366f",
+          "coverage": 0.0586
+        },
+        {
+          "hex": "#4799e9",
+          "coverage": 0.043
+        }
+      ],
+      "detail": {
+        "energy": 30.1996
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "test-link",
+      "kind": "control",
+      "note": "Inspect tests action",
+      "grid": null,
+      "box": {
+        "x": 0.3379,
+        "y": 0.3887,
+        "w": 0.0625,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 519,
+        "y": 398,
+        "w": 96,
+        "h": 25
+      },
+      "aspect": 3.84,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.7354
+        },
+        {
+          "hex": "#57b4ef",
+          "coverage": 0.0934
+        },
+        {
+          "hex": "#091432",
+          "coverage": 0.0584
+        },
+        {
+          "hex": "#4696ea",
+          "coverage": 0.0584
+        },
+        {
+          "hex": "#0a194d",
+          "coverage": 0.0545
+        }
+      ],
+      "detail": {
+        "energy": 29.8516
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "avatar-reviewer",
+      "kind": "control",
+      "note": "Reviewer letter avatar",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.4512,
+        "w": 0.0352,
+        "h": 0.0537
+      },
+      "px": {
+        "x": 314,
+        "y": 462,
+        "w": 54,
+        "h": 55
+      },
+      "aspect": 0.9818,
+      "palette": [
+        {
+          "hex": "#373948",
+          "coverage": 0.7
+        },
+        {
+          "hex": "#090909",
+          "coverage": 0.2588
+        },
+        {
+          "hex": "#eef0f4",
+          "coverage": 0.0235
+        },
+        {
+          "hex": "#4d585d",
+          "coverage": 0.0088
+        },
+        {
+          "hex": "#cdcdd3",
+          "coverage": 0.0088
+        }
+      ],
+      "detail": {
+        "energy": 5.4033
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "reviewer-header",
+      "kind": "text",
+      "note": "Reviewer name role and timestamp",
+      "grid": null,
+      "box": {
+        "x": 0.2546,
+        "y": 0.4561,
+        "w": 0.1419,
+        "h": 0.0254
+      },
+      "px": {
+        "x": 391,
+        "y": 467,
+        "w": 218,
+        "h": 26
+      },
+      "aspect": 8.3846,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.774
+        },
+        {
+          "hex": "#f1f1f2",
+          "coverage": 0.0885
+        },
+        {
+          "hex": "#7c7c80",
+          "coverage": 0.0519
+        },
+        {
+          "hex": "#3e3f43",
+          "coverage": 0.0458
+        },
+        {
+          "hex": "#b7bdbd",
+          "coverage": 0.0397
+        }
+      ],
+      "detail": {
+        "energy": 65.1477
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 15,
+          "capHeightPx": 16,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5952,
+          "advTall": 0.6265,
+          "advX": 0.5638,
+          "gap": 0.1253,
+          "xRatio": 0.6805,
+          "stemW": 0.1641,
+          "contrast": 1.0648,
+          "serif": null,
+          "densTall": 0.5274,
+          "densX": 0.6364,
+          "weight": 0.5274
+        },
+        "widthClass": "condensed",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "reviewer-bubble",
+      "kind": "chrome",
+      "note": "Reviewer unresolved finding background",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.2552,
+        "y": 0.4902,
+        "w": 0.224,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 392,
+        "y": 502,
+        "w": 344,
+        "h": 56
+      },
+      "aspect": 6.1429,
+      "palette": [
+        {
+          "hex": "#281908",
+          "coverage": 0.8815
+        },
+        {
+          "hex": "#f3f3f2",
+          "coverage": 0.0621
+        },
+        {
+          "hex": "#090909",
+          "coverage": 0.0212
+        },
+        {
+          "hex": "#8b8176",
+          "coverage": 0.0179
+        },
+        {
+          "hex": "#52453a",
+          "coverage": 0.0174
+        }
+      ],
+      "detail": {
+        "energy": 45.1491
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": true
+      }
+    },
+    {
+      "id": "reviewer-message",
+      "kind": "text",
+      "note": "Reviewer identifies missing concurrency coverage",
+      "grid": null,
+      "box": {
+        "x": 0.2676,
+        "y": 0.5059,
+        "w": 0.1999,
+        "h": 0.0254
+      },
+      "px": {
+        "x": 411,
+        "y": 518,
+        "w": 307,
+        "h": 26
+      },
+      "aspect": 11.8077,
+      "palette": [
+        {
+          "hex": "#251609",
+          "coverage": 0.7108
+        },
+        {
+          "hex": "#f3f2f0",
+          "coverage": 0.1357
+        },
+        {
+          "hex": "#8b8073",
+          "coverage": 0.0679
+        },
+        {
+          "hex": "#42351f",
+          "coverage": 0.0467
+        },
+        {
+          "hex": "#bbafaa",
+          "coverage": 0.0389
+        }
+      ],
+      "detail": {
+        "energy": 106.6466
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 14,
+          "capHeightPx": 19.6,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.8917,
+          "advTall": 0.8917,
+          "advX": null,
+          "gap": 0.1146,
+          "xRatio": 0.7826,
+          "stemW": 0.1111,
+          "contrast": 1.1128,
+          "serif": null,
+          "densTall": 0.4679,
+          "densX": null,
+          "weight": 0.4679
+        },
+        "widthClass": "wide",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "avatar-host-last",
+      "kind": "control",
+      "note": "Latest host letter avatar",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.5801,
+        "w": 0.0352,
+        "h": 0.0537
+      },
+      "px": {
+        "x": 314,
+        "y": 594,
+        "w": 54,
+        "h": 55
+      },
+      "aspect": 0.9818,
+      "palette": [
+        {
+          "hex": "#373b49",
+          "coverage": 0.6959
+        },
+        {
+          "hex": "#090909",
+          "coverage": 0.2456
+        },
+        {
+          "hex": "#f1f3f4",
+          "coverage": 0.0497
+        },
+        {
+          "hex": "#1d2d2d",
+          "coverage": 0.0088
+        }
+      ],
+      "detail": {
+        "energy": 5.6488
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "host-header-last",
+      "kind": "text",
+      "note": "Latest host name and timestamp",
+      "grid": null,
+      "box": {
+        "x": 0.2546,
+        "y": 0.585,
+        "w": 0.0801,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 391,
+        "y": 599,
+        "w": 123,
+        "h": 25
+      },
+      "aspect": 4.92,
+      "palette": [
+        {
+          "hex": "#090809",
+          "coverage": 0.8263
+        },
+        {
+          "hex": "#f6f6f6",
+          "coverage": 0.07
+        },
+        {
+          "hex": "#636872",
+          "coverage": 0.0364
+        },
+        {
+          "hex": "#bdc1c4",
+          "coverage": 0.0336
+        },
+        {
+          "hex": "#8c94a4",
+          "coverage": 0.0336
+        }
+      ],
+      "detail": {
+        "energy": 34.4809
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 7,
+          "capHeightPx": 17.1,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9365,
+          "advTall": 0.9365,
+          "advX": null,
+          "gap": 0.1463,
+          "xRatio": 0.8358,
+          "stemW": 0.099,
+          "contrast": 0.7033,
+          "serif": null,
+          "densTall": 0.479,
+          "densX": null,
+          "weight": 0.479
+        },
+        "widthClass": "wide",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "host-bubble-last",
+      "kind": "chrome",
+      "note": "Latest handoff message background",
+      "grid": null,
+      "container": true,
+      "box": {
+        "x": 0.2552,
+        "y": 0.6172,
+        "w": 0.2832,
+        "h": 0.0557
+      },
+      "px": {
+        "x": 392,
+        "y": 632,
+        "w": 435,
+        "h": 57
+      },
+      "aspect": 7.6316,
+      "palette": [
+        {
+          "hex": "#0a0a0b",
+          "coverage": 0.9015
+        },
+        {
+          "hex": "#f3f4f4",
+          "coverage": 0.0524
+        },
+        {
+          "hex": "#404041",
+          "coverage": 0.0171
+        },
+        {
+          "hex": "#b7b8b7",
+          "coverage": 0.0149
+        },
+        {
+          "hex": "#606161",
+          "coverage": 0.0141
+        }
+      ],
+      "detail": {
+        "energy": 48.8592
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": true
+      }
+    },
+    {
+      "id": "host-message-last",
+      "kind": "text",
+      "note": "Host returns work to builder for verification",
+      "grid": null,
+      "box": {
+        "x": 0.2676,
+        "y": 0.6328,
+        "w": 0.2585,
+        "h": 0.0254
+      },
+      "px": {
+        "x": 411,
+        "y": 648,
+        "w": 397,
+        "h": 26
+      },
+      "aspect": 15.2692,
+      "palette": [
+        {
+          "hex": "#0a0a0b",
+          "coverage": 0.705
+        },
+        {
+          "hex": "#f0f1f1",
+          "coverage": 0.116
+        },
+        {
+          "hex": "#aeafb0",
+          "coverage": 0.0639
+        },
+        {
+          "hex": "#383839",
+          "coverage": 0.0613
+        },
+        {
+          "hex": "#707172",
+          "coverage": 0.0538
+        }
+      ],
+      "detail": {
+        "energy": 127.7157
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 23,
+          "capHeightPx": 18.9,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.7393,
+          "advTall": 0.7921,
+          "advX": null,
+          "gap": 0.1056,
+          "xRatio": null,
+          "stemW": 0.1207,
+          "contrast": 1.051,
+          "serif": 0.7932,
+          "densTall": 0.4916,
+          "densX": null,
+          "weight": 0.4916
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "activity",
+      "kind": "control",
+      "note": "Builder activity indicator and text",
+      "grid": null,
+      "box": {
+        "x": 0.2552,
+        "y": 0.6895,
+        "w": 0.2057,
+        "h": 0.0283
+      },
+      "px": {
+        "x": 392,
+        "y": 706,
+        "w": 316,
+        "h": 29
+      },
+      "aspect": 10.8966,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.858
+        },
+        {
+          "hex": "#9eadc1",
+          "coverage": 0.0562
+        },
+        {
+          "hex": "#505560",
+          "coverage": 0.0343
+        },
+        {
+          "hex": "#798391",
+          "coverage": 0.0305
+        },
+        {
+          "hex": "#262431",
+          "coverage": 0.021
+        }
+      ],
+      "detail": {
+        "energy": 41.5394
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "composer",
+      "kind": "control",
+      "note": "Fixed message composer with attachment and Send",
+      "grid": null,
+      "box": {
+        "x": 0.2044,
+        "y": 0.8252,
+        "w": 0.5143,
+        "h": 0.1357
+      },
+      "px": {
+        "x": 314,
+        "y": 845,
+        "w": 790,
+        "h": 139
+      },
+      "aspect": 5.6835,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9036
+        },
+        {
+          "hex": "#196bf8",
+          "coverage": 0.0551
+        },
+        {
+          "hex": "#474953",
+          "coverage": 0.0342
+        },
+        {
+          "hex": "#9aacc0",
+          "coverage": 0.0049
+        },
+        {
+          "hex": "#1848b8",
+          "coverage": 0.0022
+        }
+      ],
+      "detail": {
+        "energy": 10.337
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "task-heading",
+      "kind": "text",
+      "note": "Current task section title",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.0791,
+        "w": 0.0749,
+        "h": 0.0264
+      },
+      "px": {
+        "x": 1161,
+        "y": 81,
+        "w": 115,
+        "h": 27
+      },
+      "aspect": 4.2593,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.6029
+        },
+        {
+          "hex": "#f2f2f3",
+          "coverage": 0.2029
+        },
+        {
+          "hex": "#3c3c3c",
+          "coverage": 0.0857
+        },
+        {
+          "hex": "#7c7b7e",
+          "coverage": 0.0714
+        },
+        {
+          "hex": "#b7b9b9",
+          "coverage": 0.0371
+        }
+      ],
+      "detail": {
+        "energy": 55.7155
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 5,
+          "capHeightPx": 22.2,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.854,
+          "advTall": 0.854,
+          "advX": null,
+          "gap": 0.1461,
+          "xRatio": 0.6418,
+          "stemW": 0.1323,
+          "contrast": 1.0445,
+          "serif": 1.0315,
+          "densTall": 0.5335,
+          "densX": null,
+          "weight": 0.5335
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "task-status",
+      "kind": "control",
+      "note": "Amber task status",
+      "grid": null,
+      "box": {
+        "x": 0.7565,
+        "y": 0.126,
+        "w": 0.0716,
+        "h": 0.0381
+      },
+      "px": {
+        "x": 1162,
+        "y": 129,
+        "w": 110,
+        "h": 39
+      },
+      "aspect": 2.8205,
+      "palette": [
+        {
+          "hex": "#2a1a08",
+          "coverage": 0.8549
+        },
+        {
+          "hex": "#f7e385",
+          "coverage": 0.0491
+        },
+        {
+          "hex": "#101008",
+          "coverage": 0.0357
+        },
+        {
+          "hex": "#e3ba61",
+          "coverage": 0.0313
+        },
+        {
+          "hex": "#f7a93a",
+          "coverage": 0.029
+        }
+      ],
+      "detail": {
+        "energy": 18.2267
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "task-title",
+      "kind": "text",
+      "note": "Current concurrency test task title",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.1826,
+        "w": 0.1927,
+        "h": 0.0332
+      },
+      "px": {
+        "x": 1161,
+        "y": 187,
+        "w": 296,
+        "h": 34
+      },
+      "aspect": 8.7059,
+      "palette": [
+        {
+          "hex": "#090808",
+          "coverage": 0.7074
+        },
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.1773
+        },
+        {
+          "hex": "#97989a",
+          "coverage": 0.0448
+        },
+        {
+          "hex": "#3f4040",
+          "coverage": 0.0396
+        },
+        {
+          "hex": "#c9c9cb",
+          "coverage": 0.031
+        }
+      ],
+      "detail": {
+        "energy": 104.2357
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 10,
+          "capHeightPx": 26.6,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9038,
+          "advTall": 0.9038,
+          "advX": null,
+          "gap": 0.113,
+          "xRatio": 0.8369,
+          "stemW": 0.1228,
+          "contrast": 1.0254,
+          "serif": 0.9254,
+          "densTall": 0.4603,
+          "densX": null,
+          "weight": 0.4603
+        },
+        "widthClass": "wide",
+        "weightClass": "regular",
+        "chosen": {
+          "family": "Noto Sans SC",
+          "weight": 600,
+          "fontSizePx": 29,
+          "source": "index",
+          "fp": {
+            "lines": 1,
+            "glyphs": 10,
+            "capHeightPx": 26.7,
+            "inkIsDark": true,
+            "allCaps": false,
+            "advance": 0.9728,
+            "advTall": 0.9728,
+            "advX": null,
+            "gap": 0.0748,
+            "xRatio": 0.8232,
+            "stemW": 0.1368,
+            "contrast": 1.1033,
+            "serif": null,
+            "densTall": 0.5038,
+            "densX": null,
+            "weight": 0.5038
+          },
+          "stamp": "b29e431b1c31"
+        }
+      }
+    },
+    {
+      "id": "executor",
+      "kind": "text",
+      "note": "Assigned builder name",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.2344,
+        "w": 0.1107,
+        "h": 0.0273
+      },
+      "px": {
+        "x": 1161,
+        "y": 240,
+        "w": 170,
+        "h": 28
+      },
+      "aspect": 6.0714,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8652
+        },
+        {
+          "hex": "#9dacc4",
+          "coverage": 0.0601
+        },
+        {
+          "hex": "#bed2e6",
+          "coverage": 0.0328
+        },
+        {
+          "hex": "#596170",
+          "coverage": 0.0219
+        },
+        {
+          "hex": "#747f8c",
+          "coverage": 0.02
+        }
+      ],
+      "detail": {
+        "energy": 31.9434
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 9,
+          "capHeightPx": 17.3,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6341,
+          "advTall": 0.6918,
+          "advX": 0.6053,
+          "gap": 0.1153,
+          "xRatio": 0.7074,
+          "stemW": 0.1354,
+          "contrast": 1.0548,
+          "serif": null,
+          "densTall": 0.4004,
+          "densX": 0.4946,
+          "weight": 0.4004
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "next-heading",
+      "kind": "text",
+      "note": "Next action section title",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.3271,
+        "w": 0.0736,
+        "h": 0.0254
+      },
+      "px": {
+        "x": 1161,
+        "y": 335,
+        "w": 113,
+        "h": 26
+      },
+      "aspect": 4.3462,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8713
+        },
+        {
+          "hex": "#f6f5f5",
+          "coverage": 0.0468
+        },
+        {
+          "hex": "#cbcacb",
+          "coverage": 0.0468
+        },
+        {
+          "hex": "#969698",
+          "coverage": 0.0263
+        },
+        {
+          "hex": "#5d5d63",
+          "coverage": 0.0088
+        }
+      ],
+      "detail": {
+        "energy": 19.5863
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 2,
+          "capHeightPx": 10.1,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": null,
+          "advTall": null,
+          "advX": null,
+          "gap": 0,
+          "xRatio": 0.3187,
+          "stemW": 0.2644,
+          "contrast": 1.047,
+          "serif": null,
+          "densTall": null,
+          "densX": null,
+          "weight": null
+        },
+        "widthClass": "normal",
+        "weightClass": "black"
+      }
+    },
+    {
+      "id": "next-action",
+      "kind": "text",
+      "note": "Next verification and independent review action",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.3662,
+        "w": 0.222,
+        "h": 0.0303
+      },
+      "px": {
+        "x": 1161,
+        "y": 375,
+        "w": 341,
+        "h": 31
+      },
+      "aspect": 11,
+      "palette": [
+        {
+          "hex": "#080809",
+          "coverage": 0.7837
+        },
+        {
+          "hex": "#b4c6d9",
+          "coverage": 0.0759
+        },
+        {
+          "hex": "#8b97ac",
+          "coverage": 0.0508
+        },
+        {
+          "hex": "#3c4049",
+          "coverage": 0.046
+        },
+        {
+          "hex": "#616a7b",
+          "coverage": 0.0436
+        }
+      ],
+      "detail": {
+        "energy": 67.3769
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 19,
+          "capHeightPx": 18.6,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.9253,
+          "advTall": 0.9253,
+          "advX": null,
+          "gap": 0.1341,
+          "xRatio": 0.6925,
+          "stemW": 0.1189,
+          "contrast": 1.053,
+          "serif": 0.6312,
+          "densTall": 0.528,
+          "densX": null,
+          "weight": 0.528
+        },
+        "widthClass": "wide",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "blocker-heading",
+      "kind": "text",
+      "note": "Unresolved blocker heading",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.4521,
+        "w": 0.0697,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 1161,
+        "y": 463,
+        "w": 107,
+        "h": 25
+      },
+      "aspect": 4.28,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.7429
+        },
+        {
+          "hex": "#f5f5f5",
+          "coverage": 0.1778
+        },
+        {
+          "hex": "#4c4d4d",
+          "coverage": 0.0286
+        },
+        {
+          "hex": "#bababf",
+          "coverage": 0.0286
+        },
+        {
+          "hex": "#838686",
+          "coverage": 0.0222
+        }
+      ],
+      "detail": {
+        "energy": 39.8158
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      },
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 4,
+          "capHeightPx": 19.6,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.8424,
+          "advTall": 0.8424,
+          "advX": null,
+          "gap": 0.1021,
+          "xRatio": null,
+          "stemW": 0.1446,
+          "contrast": 1.0801,
+          "serif": null,
+          "densTall": 0.5815,
+          "densX": null,
+          "weight": 0.5815
+        },
+        "widthClass": "wide",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "blocker",
+      "kind": "control",
+      "note": "Concurrency verification blocker",
+      "grid": null,
+      "box": {
+        "x": 0.7572,
+        "y": 0.4902,
+        "w": 0.224,
+        "h": 0.0576
+      },
+      "px": {
+        "x": 1163,
+        "y": 502,
+        "w": 344,
+        "h": 59
+      },
+      "aspect": 5.8305,
+      "palette": [
+        {
+          "hex": "#221708",
+          "coverage": 0.925
+        },
+        {
+          "hex": "#4d310f",
+          "coverage": 0.0226
+        },
+        {
+          "hex": "#765224",
+          "coverage": 0.019
+        },
+        {
+          "hex": "#f7dc74",
+          "coverage": 0.0167
+        },
+        {
+          "hex": "#f8a532",
+          "coverage": 0.0167
+        }
+      ],
+      "detail": {
+        "energy": 25.3281
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "acceptance-disclosure",
+      "kind": "control",
+      "note": "Collapsed acceptance criteria section",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.5801,
+        "w": 0.2246,
+        "h": 0.0684
+      },
+      "px": {
+        "x": 1161,
+        "y": 594,
+        "w": 345,
+        "h": 70
+      },
+      "aspect": 4.9286,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.9617
+        },
+        {
+          "hex": "#f2f2f2",
+          "coverage": 0.0226
+        },
+        {
+          "hex": "#4f4d4f",
+          "coverage": 0.008
+        },
+        {
+          "hex": "#989898",
+          "coverage": 0.0051
+        },
+        {
+          "hex": "#c3c8cd",
+          "coverage": 0.0026
+        }
+      ],
+      "detail": {
+        "energy": 16.3131
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "evidence-disclosure",
+      "kind": "control",
+      "note": "Collapsed changes and tests section",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.6484,
+        "w": 0.2246,
+        "h": 0.0693
+      },
+      "px": {
+        "x": 1161,
+        "y": 664,
+        "w": 345,
+        "h": 71
+      },
+      "aspect": 4.8592,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.9427
+        },
+        {
+          "hex": "#f3f3f3",
+          "coverage": 0.023
+        },
+        {
+          "hex": "#2a2f2f",
+          "coverage": 0.0223
+        },
+        {
+          "hex": "#b2b2b2",
+          "coverage": 0.0062
+        },
+        {
+          "hex": "#6e6e6e",
+          "coverage": 0.0058
+        }
+      ],
+      "detail": {
+        "energy": 19.8621
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "history-disclosure",
+      "kind": "control",
+      "note": "Collapsed execution history section",
+      "grid": null,
+      "box": {
+        "x": 0.7559,
+        "y": 0.7178,
+        "w": 0.2246,
+        "h": 0.0693
+      },
+      "px": {
+        "x": 1161,
+        "y": 735,
+        "w": 345,
+        "h": 71
+      },
+      "aspect": 4.8592,
+      "palette": [
+        {
+          "hex": "#090909",
+          "coverage": 0.9628
+        },
+        {
+          "hex": "#f3f3f3",
+          "coverage": 0.0204
+        },
+        {
+          "hex": "#3a3a3a",
+          "coverage": 0.0098
+        },
+        {
+          "hex": "#989898",
+          "coverage": 0.0036
+        },
+        {
+          "hex": "#666666",
+          "coverage": 0.0033
+        }
+      ],
+      "detail": {
+        "energy": 16.6593
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    },
+    {
+      "id": "pause",
+      "kind": "control",
+      "note": "Pause the current task action",
+      "grid": null,
+      "box": {
+        "x": 0.7565,
+        "y": 0.8916,
+        "w": 0.2246,
+        "h": 0.0547
+      },
+      "px": {
+        "x": 1162,
+        "y": 913,
+        "w": 345,
+        "h": 56
+      },
+      "aspect": 6.1607,
+      "palette": [
+        {
+          "hex": "#080808",
+          "coverage": 0.8462
+        },
+        {
+          "hex": "#404344",
+          "coverage": 0.0885
+        },
+        {
+          "hex": "#262834",
+          "coverage": 0.0324
+        },
+        {
+          "hex": "#f1f1f1",
+          "coverage": 0.0273
+        },
+        {
+          "hex": "#b1bbd4",
+          "coverage": 0.0056
+        }
+      ],
+      "detail": {
+        "energy": 20.2152
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "surface": {
+        "flat": false,
+        "rules": false
+      }
+    }
+  ],
+  "compSha256": "ef1d453603dc975fe8478405d43a8acd894a6d83adafa63d44310ac5e220a5ba",
+  "regionsSource": {
+    "path": ".impeccable/build/regions.json",
+    "sha256": "5d1481d2017854e7e7804ff969b15696570a9dee7f747000a7a16d1c4a0d5dad"
+  }
+}
