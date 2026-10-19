@@ -24,6 +24,7 @@ Users work in ordinary local folders or Git repositories with Codex, Claude Code
 - Windows, Linux and macOS have native fixture tests and ZIP builds; alpha packages are unsigned, with real harness access currently verified on macOS only.
 - Public repository destination: otterview-labs/agentharbor.
 - Keep the existing agentBridge phone application in its separate repository.
+- Ordinary-folder project files have no fixed count or size ceiling; task rounds and execution budgets remain independently configurable.
 - Prefer bounded unattended execution within the registered project and configured commands.
 - Review is not proof of correctness; require verification evidence before completion.
 - Jev is an optional future review integration; no live Jev credentials or validation are available.

@@ -2,7 +2,7 @@
 
 让本机的 AI 编程助手围绕一个目标协作，并用真实测试和独立审核判断任务是否完成。
 
-**桌面首版：0.2.0-alpha.2。** 采用 Electron + React，共用 Windows、Linux、macOS 代码。界面以助手会议为中心：左侧选择项目和会议，中间查看执行与审核对话，右侧查看任务、改动和测试证据。
+**桌面首版：0.2.0-alpha.3。** 采用 Electron + React，共用 Windows、Linux、macOS 代码。界面以助手会议为中心：左侧选择项目和会议，中间查看执行与审核对话，右侧查看任务、改动和测试证据。
 
 [English](README.en.md) · [下载与发布](https://github.com/otterview-labs/agentharbor/releases) · [桌面使用说明](docs/desktop-alpha.md) · [测试记录](docs/verification.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md)
 
@@ -53,7 +53,7 @@ npm run package:desktop   # 当前平台 ZIP
 
 ## 已验证的范围
 
-- 严格 TypeScript 检查通过，22 项运行时测试通过。
+- 严格 TypeScript 检查通过，23 项运行时测试通过。
 - 3 项原生 Electron 测试覆盖普通文件夹与 Git 项目的创建、执行、真实检查、审核、持久化恢复，以及暂停继续；模型使用确定性夹具。
 - macOS 上已通过真实 Codex → 主机测试 → 真实 Claude Code 的桌面闭环，源目录保持不变，审核绑定测试时的源文件指纹。
 - Windows、Linux、macOS 的原生夹具测试与 ZIP 构建通过 CI；这与三平台真实模型认证验证分开记录。
@@ -92,4 +92,4 @@ MIT License.
 
 副本和文件指纹排除 `.git`、`node_modules`、Python 虚拟环境/缓存、`dist`、`build`、`coverage`、`.next`、`.nuxt`、`.cache`、`target`、`.gradle` 等依赖与构建目录，暂不解析 `.gitignore` 自定义规则。请在任务副本准备依赖，并为任务指定真实、可信的检查命令。排除的输出不属于源文件指纹。
 
-当前普通文件夹限制为 10000 个文件、总计 256 MiB、单文件 64 MiB，暂不支持符号链接或特殊文件。请选择具体的项目或工作目录；不要选择包含 AgentHarbor 数据目录的上级目录。
+普通文件夹不设置文件数量、目录条目数、单文件大小或总大小的人为上限。文件内容按流读取和校验，系统支持时复制使用写时复制（reflink），不支持时正常复制。实际可处理规模取决于本机资源。暂不支持符号链接或特殊文件。请选择具体的项目或工作目录；不要选择包含 AgentHarbor 数据目录的上级目录。

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, writeFile, readFile, rm, access, readdir, symlink, truncate } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile, rm, access, readdir, symlink, open, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { DesktopService } from '../src/desktop.js';
@@ -55,11 +55,8 @@ test('ordinary-folder approval cannot survive reviewer source changes',async t=>
   assert.equal(result.phase,'blocked');assert.match(result.events.at(-1)!.message,/changed during review/);
 });
 
-test('ordinary folder rejects oversized files, cleans failed copies and does not include app state recursively',async t=>{
+test('ordinary folder does not include app state recursively and requires a directory',async t=>{
   const f=await fixture(t),store=new Store(f.home),input={repository:f.folder,goal:'Work',acceptance:['done'],builder:'codex' as const,reviewer:'claude' as const,checks:[check]};
-  await writeFile(join(f.folder,'large.bin'),'');await truncate(join(f.folder,'large.bin'),64*1024*1024+1);
-  await assert.rejects(createMission(input,store),/64 MiB/);assert.deepEqual(await readdir(join(f.home,'workspaces')),[]);
-  await rm(join(f.folder,'large.bin'));
   await assert.rejects(createMission(input,new Store(join(f.folder,'task-state'))),/AgentHarbor/);
   await assert.rejects(f.service.addProject(join(f.folder,'answer.txt')),/文件夹/);
 });
@@ -67,6 +64,8 @@ test('ordinary folder rejects oversized files, cleans failed copies and does not
 test('ordinary folder refuses source symlinks rather than copying links back to original data', {skip:process.platform==='win32'}, async t=>{
   const f=await fixture(t);await symlink(join(f.folder,'answer.txt'),join(f.folder,'shortcut'));
   await assert.rejects(directoryManifest(f.folder),/符号链接/);
+  await assert.rejects(createMission({repository:f.folder,goal:'Work',acceptance:['done'],builder:'codex',reviewer:'claude',checks:[check]},new Store(f.home)),/符号链接/);
+  assert.deepEqual(await readdir(join(f.home,'workspaces')),[]);
 });
 
 test('ordinary-folder change inspection reports no changes immediately after copy',async t=>{
@@ -80,4 +79,18 @@ test('ordinary-folder checks may create excluded build outputs without invalidat
   const m=await createMission({repository:f.folder,goal:'Inspect source',acceptance:['answer.txt is present'],builder:'codex',reviewer:'claude',checks:[{file:process.execPath,args:['-e',"const fs=require('fs');fs.mkdirSync('dist');fs.writeFileSync('dist/generated.js','build output');if(!fs.existsSync('answer.txt'))process.exit(1)"]}]},store);
   const result=await executeMission(m.id,{store,builder:{id:'codex',async run(){return 'ready';}},reviewer:{id:'claude',async run(){return approve;}}});
   assert.equal(result.phase,'completed');assert.equal(result.review?.fingerprint,result.evidence[0]?.fingerprint);
+});
+
+
+test('ordinary-folder copies and fingerprints files beyond the old individual and total size caps',async t=>{
+  const f=await fixture(t),store=new Store(f.home),size=257*1024*1024+1;
+  const file=await open(join(f.folder,'large.bin'),'wx');
+  try {await file.truncate(size);await file.write(Buffer.from('A'),0,1,size-1);} finally {await file.close();}
+  const m=await createMission({repository:f.folder,goal:'Inspect large files',acceptance:['all source bytes preserved'],builder:'codex',reviewer:'claude',checks:[check]},store);
+  assert.equal((await stat(join(m.workspace,'large.bin'))).size,size);
+  const copied=await open(join(m.workspace,'large.bin'),'r+');
+  try {const tail=Buffer.alloc(1);await copied.read(tail,0,1,size-1);assert.equal(tail.toString(),'A');await copied.write(Buffer.from('B'),0,1,size-1);} finally {await copied.close();}
+  assert.match(await directoryChanges(f.home,m.id,m.workspace),/修改 "large.bin"/);
+  const original=await open(join(f.folder,'large.bin'),'r');
+  try {const tail=Buffer.alloc(1);await original.read(tail,0,1,size-1);assert.equal(tail.toString(),'A');} finally {await original.close();}
 });

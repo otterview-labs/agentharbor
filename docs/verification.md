@@ -60,3 +60,9 @@ The local suite now contains 22 runtime tests and 3 native Electron tests. Folde
 A live macOS folder smoke also completed in one round using actual Codex and Claude Code: real check exit 0, structured approval bound to the verified fingerprint, unchanged original directory and no Git metadata. See [sanitized report](live-directory-smoke-20261019.json). This was a runtime/CLI smoke; native desktop folder execution is separately covered with deterministic agents.
 
 The final native regression exposed a fast pause/resume race. Worker lifetimes now remain registered until process exit, stale exit callbacks cannot remove a replacement worker, concurrent starts are reserved, and renderer snapshots discard superseded responses. The native pause/resume case now performs three immediate pause/resume cycles before requiring completion.
+
+## Project file ceilings removed — alpha.3
+
+No application-imposed file-count, entry-count, individual-size or total-size ceiling remains in ordinary-folder workspaces. The runtime suite contains 23 tests. A 257 MiB-plus-one-byte regression creates a real task copy, checks its last byte, edits that byte in the copy, verifies change detection and confirms the source file remains intact.
+
+A separate reproducible integration smoke (`npm run build && node scripts/check-large-folder.mjs`) creates and copies 20001 real files, exceeding both former count ceilings. It creates no Git metadata and invokes no models. See [sanitized report](large-folder-smoke-20261019.json). The three native Electron regression tests also pass. Directory entries/file contents are streamed; metadata scales with file count and actual capacity depends on system resources.

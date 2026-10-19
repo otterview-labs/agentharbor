@@ -1,4 +1,4 @@
-# Desktop alpha — 0.2.0-alpha.2
+# Desktop alpha — 0.2.0-alpha.3
 
 This first desktop version implements the approved pure-black, three-pane meeting workspace. The center is an assistant conversation, the left selects local projects/meetings and the right shows the current task, next action and blocker. Acceptance, evidence and history are collapsed by default.
 
@@ -39,4 +39,4 @@ First alpha packages are unsigned. Native application signing, stable icons and 
 
 Ordinary folders are detected from filesystem metadata, with no Git subprocess needed. The copy and its baseline manifest are private local state. Codex receives `--skip-git-repo-check` only for directory-copy tasks; verification/review use directory fingerprints. No source `.git` is created and no result is applied automatically. Open the workspace to retrieve completed files. File changes are shown as additions/modifications/deletions, not a Git patch.
 
-Excluded directory names, copy limits and symlink restrictions are documented in README. Empty directories are not copied; file content and permission bits are preserved. Old mission snapshots without `workspaceKind` continue using Git fingerprints.
+Excluded directory names and symlink restrictions are documented in README. There is no fixed application cap on file counts or sizes; directory entries and file contents are streamed. Empty directories are not copied; file content and permission bits are preserved. Old mission snapshots without `workspaceKind` continue using Git fingerprints.
