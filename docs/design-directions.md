@@ -63,3 +63,7 @@ The user explicitly requested further visual polish and a black-background tool.
 - Preserve the concise discussion, current task/next action/blocker inspector, collapsed details and one fixed composer.
 
 Latest target: `.impeccable/mocks/desktop-chat-dark.png`, a generated concept with synthetic data, pending approval. The user has pinned the dark direction; the exact complete comp still needs approval before renderer implementation.
+
+## Correction: pure black, not charcoal
+
+The user repeated “要黑底呢” after the charcoal proposal. Treat pure black (#000000) as the binding surface colour across the conversation, both side panes and title bar. Keep the layout and readable text; use subtle dividers and small raised controls for separation. No gradient, sheen or blue cast on the background. Latest complete proposal: `.impeccable/mocks/desktop-chat-black.png`, pending approval.

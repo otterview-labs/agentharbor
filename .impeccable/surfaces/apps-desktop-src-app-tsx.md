@@ -15,7 +15,7 @@ The user explicitly chose a chat application: assistants meet in the center; tas
 
 THESIS: One meeting that advances a goal, with one clearly visible next action. The main view should not require reading multiple duplicated status panels.
 
-OWN-WORLD: User-pinned black/charcoal desktop tool. Near-black conversation area, subtly lighter sidebar and task inspector, readable off-white Chinese sans-serif text, muted cool-blue selection and Send, amber only for incomplete work. Separate surfaces through charcoal values and sparse fine dividers. No neon, decorative glow or large colored panels. Standard desktop title bar, split panes and fixed composer.
+OWN-WORLD: User-pinned pure-black (#000000) desktop tool. Flat black conversation, sidebar, task inspector and title bar; readable off-white Chinese sans-serif text, muted blue selection and Send, amber only for incomplete work. Separate panes through fine dark dividers; confine slightly raised values to small controls. No neon, decorative glow or large colored panels. Standard desktop title bar, split panes and fixed composer.
 
 STORY: Choose a project meeting, describe the goal, read assistant handoffs, and see the current task and blocker in the right inspector. Inspect acceptance criteria, changed files, tests or history only when needed.
 
@@ -27,4 +27,4 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## Approval state
 
-No complete mockup is approved. The latest refinement is the black-background `.impeccable/mocks/desktop-chat-dark.png`; the light simplified comp and A/B/C remain unapproved comparison material. No renderer code before the user approves a complete comp. Preview conversation, task records and status are synthetic and visibly labeled.
+No complete mockup is approved. The latest refinement is the black-background `.impeccable/mocks/desktop-chat-black.png`; the light simplified comp and A/B/C remain unapproved comparison material. No renderer code before the user approves a complete comp. Preview conversation, task records and status are synthetic and visibly labeled.
