@@ -5,45 +5,26 @@ primary_target: "apps/desktop/src/App.tsx"
 related_targets: []
 ---
 
-# Desktop workbench design study
+# Desktop assistant meeting workspace
 
-User decision: complete design previews before renderer implementation. Product facts in PRODUCT.md; all example task records in the previews are synthetic and labeled 设计预览 · 示例数据.
+Mode: Operate. Audience: individual developers coordinating local coding assistants.
 
-Mode: Operate. Seed 92ca0942 assigned grounded direction 5. No direction is approved yet.
+The user explicitly chose a chat application: assistants meet in the center; tasks and results remain beside it. The earlier dashboard layouts were rejected as insufficiently desktop-like. The first desktop-chat proposals were then judged cluttered. Keep discussion primary and use progressive disclosure for evidence.
 
-Grounded systems, ordered by relevance:
-1. Technical publication index: strong scan order, restrained headings and compact evidence rows.
-2. Scientific figure captions: proofs adjacent to claims, a clear evidence inspector.
-3. Transit wayfinding graphics: a legible path through execution, verification and review.
-4. Library catalogue tabs: predictable project navigation and durable task identities.
-5. Contemporary book series: blue ink, cool-white space, a consistent indexed chapter strip. Applied only as type, palette, density and a task-stage signature; conventional desktop navigation and controls.
-6. Conference programme typography: clearly distinguished agents, responsibility and activity.
-7. Colour-coded software documentation editions: consistent role colours across dense and quiet states.
+## Direction contract
 
-Assigned direction: **任务索引**. Navy-blue navigation and cool white work area. A compact stage strip always identifies the current step and the evidence required for completion. Left navigation, mission list, main evidence work area, narrow team inspector. Physical scene: a developer working in a normally lit room for long sessions; readable light work area with a distinct blue navigation region.
+THESIS: One meeting that advances a goal, with one clearly visible next action. The main view should not require reading multiple duplicated status panels.
 
-Top grounded alternative: **协作工作台**. Same clear type family with a task-focused split view and discussion thread. Its familiarity helps learnability but may resemble other development workspaces.
+OWN-WORLD: Cool white work areas, a pale blue-gray meeting sidebar, dark readable Chinese sans-serif text, blue selection and Send, amber only for incomplete work. Standard desktop title bar, split panes and a fixed composer.
 
-Challenger verdicts against assigned direction (audience identification / product clarity):
-- emission-line-rail: declined / declined. Keep redundant state encoding (text and shape, never colour alone).
-- design-annual-plate-section: competitive / competitive. Keep disciplined alignment and complete attribution for evidence. Full alternative **证据审阅台**, neutral work surface with a periwinkle review region.
-- doujin-event-catalog: declined / declined. Keep stable IDs and compact scanning; omit miniature image cells and physical-hall navigation.
-- crouwel-grid-specimen: declined / declined. Keep a consistent column rhythm; omit construction grid and oversized specimen lettering.
-- jet-age-ticket-wallet: declined / declined. Keep cancelled and superseded records visible; omit ticket-shaped controls.
-- botanical-folio-season: declined / declined. Keep comparable before/after evidence; omit plant imagery and decorative stage language.
+STORY: Choose a project meeting, describe the goal, read assistant handoffs, and see the current task and blocker in the right inspector. Inspect acceptance criteria, changed files, tests or history only when needed.
 
-Every preview must show the goal, acceptance criteria, builder/reviewer roles, current stage, review findings, verified results, stop/resume affordances and an explicitly incomplete state. No shipping UI code is authorised by a generated image alone.
+FIRST VIEWPORT: Single native desktop title bar; one 220px project/meeting sidebar with three recent meetings; broad center discussion with four concise named-agent messages and small inline evidence links; a 280px right inspector showing current task, executor, next step and blocker. Membership is one header control. Three detail sections remain collapsed. Fixed composer has attachment and Send; Pause is a quiet inspector action.
 
-## User correction: desktop meeting workspace
+FORM: User-pinned desktop chat interaction. Seed 92ca0942 records earlier exploration and does not override the user's direction or simplification feedback. Signature interaction: follow an assistant handoff from the message into its task and evidence without leaving the meeting.
 
-The user rejected the first three proposals: they looked like browser administration dashboards. The user then explicitly chose a chat application interaction model: **assistants meet in the main conversation; tasks and results remain in the side panel**. This is the binding direction and overrides the original candidate layout. No original preview is approved.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 
-Direction contract:
-- THESIS: A desktop meeting room for coding assistants, where conversation turns into accountable task progress; no web analytics dashboard or page of status cards.
-- OWN-WORLD: Cool white conversation surface, marine-blue project/meeting rail, restrained blue selection, teal verification and amber blockers. Standard desktop title bar, toolbar, split panes, scrolling conversation and fixed composer.
-- STORY: Open a project meeting, assign participants, state the goal, watch the host turn discussion into execution, inspect task and evidence in the right inspector, pause/resume the mission from its real state.
-- FIRST VIEWPORT: Desktop application window, compact title/toolbar, projects/meetings on the left, named agent conversation as the largest region, participants above the thread, fixed composer below, right-hand tabs for tasks/results. Current review finding is unresolved and feeds back to the builder. Illustrative values are visibly labeled.
-- FORM: User-pinned desktop chat interaction with product-standard controls; the seed 92ca0942 remains a record of the earlier direction exploration, not authority over the user's correction. Signature move: an assistant's action message is linked to the corresponding task/evidence in the side panel, without leaving the meeting.
-- FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+## Approval state
 
-Approval pending on a new complete desktop-chat comp. No renderer code is written before that approval.
+No complete mockup is approved. The latest refinement is `.impeccable/mocks/desktop-chat-simple.png`; A/B/C remain unapproved comparison material. No renderer code before the user approves a complete comp. Preview conversation, task records and status are synthetic and visibly labeled.

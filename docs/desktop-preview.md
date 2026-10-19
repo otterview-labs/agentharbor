@@ -1,8 +1,19 @@
 # Desktop meeting workspace — design proposals
 
-These are **generated design mockups with synthetic data**, not screenshots of a working desktop application. The user selected a chat application interaction model: assistants meet in the center; tasks and results stay in the side pane. These three complete layouts are pending selection. The earlier dashboard-style proposals were rejected and are not the implementation target.
+These are **generated design mockups with synthetic data**, not screenshots of a working desktop application. The user selected a chat application interaction model: assistants meet in the center; tasks and results stay in the side pane. The current simplified layout is pending approval; previous alternatives remain comparison material. The earlier dashboard-style proposals were rejected and are not the implementation target.
 
 Window controls illustrate macOS or Windows variants, not separate codebases. The future Electron host will use the correct native chrome for the running OS. Brand mark, example dates and UI copy in generated images are provisional; completion states must derive from runtime evidence in the actual application.
+
+## Current refinement — simpler meeting workspace
+
+The user found A/B/C cluttered. This refinement keeps three panes but removes the extra activity rail, repeated task cards, member badges, expanded acceptance checklist and duplicated result blocks. The conversation holds short assistant messages and evidence links. The right inspector shows the current task, executor, next step and blocker; acceptance, changes/tests and history stay collapsed.
+
+![Simplified desktop meeting workspace, synthetic design preview](../.impeccable/mocks/desktop-chat-simple.png)
+
+[Exact generation prompt and approval state](../.impeccable/mocks/desktop-chat-simple.png.json).
+
+<details>
+<summary>Earlier A / B / C proposals — not approved</summary>
 
 ## A — Project and meeting workspace
 
@@ -21,5 +32,7 @@ Activity rail, searchable meeting list, central discussion and a persistent righ
 Project tree on the left, broad conversation in the middle, task details and selected results in the right dock. Suits frequent movement between projects and their conversations.
 
 ![C: Desktop project conversations with a docked task and result pane](../.impeccable/mocks/desktop-chat-c.png)
+
+</details>
 
 Generated with the built-in image_gen tool. Exact prompts, edit history and `approved: false` metadata accompany the files; the final generation/edit prompt is also embedded in each PNG. No renderer code should be implemented from these proposals until a complete layout is approved.

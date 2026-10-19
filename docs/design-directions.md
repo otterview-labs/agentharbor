@@ -40,3 +40,15 @@ Direction contract:
 - FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 
 Approval pending on a new complete desktop-chat comp. No renderer code is written before that approval.
+
+## User refinement: reduce visible complexity
+
+The user found the desktop chat proposals cluttered. The next draft keeps the selected chat interaction and changes only density, hierarchy and progressive disclosure:
+
+- Merge the activity rail and meeting list into one compact, pale sidebar; show three meetings rather than full navigation and history at once.
+- Keep the center devoted to readable assistant conversation. Put membership behind one header control; show test/patch references as inline links.
+- Keep the right inspector limited to current task, assigned executor, next step and the blocking reason.
+- Collapse acceptance details, file/test results and execution history. Do not repeat them in visible cards in both conversation and inspector.
+- Use one primary colour, with amber reserved for the incomplete-task status. Remove ornamental badges, dashboard cards and repeated controls.
+
+The simplified complete comp is `.impeccable/mocks/desktop-chat-simple.png`, generated and pending user review. Earlier proposals remain unapproved comparison material. This revision does not implement the desktop renderer or change the runtime.
