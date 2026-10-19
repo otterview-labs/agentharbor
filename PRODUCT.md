@@ -31,7 +31,7 @@ Users work in local Git repositories with Codex, Claude Code or OpenCode. A miss
 - Automatic discovery must distinguish an installed binary from working authentication.
 
 ## Brand Commitments
-Name: AgentHarbor. Meaning: a place where multiple coding agents gather and collaborate. Chinese product communication should be clear and readable.
+Name: AgentHarbor. Meaning: a place where multiple coding agents gather and collaborate. Chinese product communication should be clear and readable. The user explicitly requested a black-background desktop tool, retaining the simplified conversation-first layout and readable text.
 
 ## Evidence on Hand
 Primary references: nexu-io/looper, MIT, upstream commit 6abd8ffd3a66762aeb8b583aab1411124fb58e0b. No customer, performance or reliability claims are established. Design preview task records must be explicitly marked illustrative.

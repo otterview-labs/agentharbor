@@ -52,3 +52,14 @@ The user found the desktop chat proposals cluttered. The next draft keeps the se
 - Use one primary colour, with amber reserved for the incomplete-task status. Remove ornamental badges, dashboard cards and repeated controls.
 
 The simplified complete comp is `.impeccable/mocks/desktop-chat-simple.png`, generated and pending user review. Earlier proposals remain unapproved comparison material. This revision does not implement the desktop renderer or change the runtime.
+
+## User refinement: black-background desktop tool
+
+The user explicitly requested further visual polish and a black-background tool. Preserve the simplified three-pane meeting interaction; change the surface treatment and typography rather than adding information.
+
+- Near-black center, subtly lighter charcoal sidebar/inspector and a slightly raised composer. Fine separators only where needed.
+- Readable off-white body text and clear secondary text. Reduce oversized headings, heavy labels and avatar size from the light preview.
+- Muted blue for interaction, amber for unfinished work. No neon glow, decorative gradients, saturated navigation or dashboard cards.
+- Preserve the concise discussion, current task/next action/blocker inspector, collapsed details and one fixed composer.
+
+Latest target: `.impeccable/mocks/desktop-chat-dark.png`, a generated concept with synthetic data, pending approval. The user has pinned the dark direction; the exact complete comp still needs approval before renderer implementation.
