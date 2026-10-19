@@ -6,7 +6,7 @@
 web
 
 ## Stack
-Electron + React + TypeScript is the proposed shared desktop stack for Windows, Linux and macOS. The user requested design previews before UI implementation. The first implementation slice is a Node.js local runtime and CLI; renderer development waits for design approval.
+Electron + React + TypeScript is the proposed shared desktop stack for Windows, Linux and macOS. The user requested design previews before UI implementation and selected a desktop chat interaction: assistant meetings in the center, tasks and results in the side pane. The first implementation slice is a Node.js local runtime and CLI; renderer development waits for design approval.
 
 ## Users
 Individual developers managing several installed AI coding assistants and repositories on their own computer.

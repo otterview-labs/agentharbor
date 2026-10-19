@@ -4,7 +4,7 @@ A local workspace where coding agents collaborate on a goal, verify their change
 
 **Status: 0.1.0-alpha.1.** This repository currently ships a TypeScript runtime and CLI, not an Electron desktop release. Desktop mockups are under review. Windows, Linux and macOS are target platforms; native validation and installers are still pending.
 
-[中文说明](README.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md) · [Verification](docs/verification.md)
+[中文说明](README.md) · [Desktop mockups](docs/desktop-preview.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md) · [Verification](docs/verification.md)
 
 ## Working slice
 
@@ -19,7 +19,7 @@ OpenCode local execution, Jev, structured team meetings, task decomposition, bac
 
 ## Run
 
-Requires Node.js 22.13+, Git, and configured Codex and Claude Code CLIs. macOS has live model smoke coverage. Windows npm `.cmd` shims are detected but not executable through this alpha adapter.
+Requires Node.js 22.13+, Git, and configured Codex and Claude Code CLIs. macOS has live model smoke coverage. The runtime CI suite passed all six Windows/Linux/macOS jobs on Node 22/24; native harness authentication and desktop installers remain unverified. Windows npm `.cmd` shims are detected but not executable through this alpha adapter.
 
 ```bash
 npm ci --ignore-scripts

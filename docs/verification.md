@@ -10,6 +10,10 @@ Environment: macOS arm64, Node.js v25.5.0, TypeScript 5.9.3.
 
 The regression suite exercises automatic rework after rejected review, failed verification without reviewer invocation, exact structured review decisions, source changes during verification/review, snapshot reload after pause, exclusive locks, untracked source drift, process timeout/abort, literal shell metacharacters, executable discovery, and the Looper CLI argument contract.
 
+## Cross-platform CI
+
+[Runtime CI run 39216584869](https://github.com/otterview-labs/agentharbor/actions/runs/39216584869), commit `d9d9459`: **all six jobs passed** — Windows, Linux and macOS, each on Node.js 22 and 24. This validates the runtime regression suite, not native harness authentication, desktop UI or installers.
+
 ## Live model smoke
 
 A dedicated temporary Git repository contained a deliberately broken two-argument addition function and one regression test covering two inputs. The original checkout was not used as the model workspace.
@@ -24,7 +28,7 @@ The live path took approximately 85 seconds. See [sanitised machine-readable rep
 
 ## Explicitly unverified
 
-- Windows and Linux native CLI execution, npm shims, packaging and OS cancellation. A CI matrix for Node 22/24 on all three OSes is configured; its remote result must be checked after the first push.
+- Windows and Linux native CLI execution, npm shims, packaging and OS cancellation. The runtime CI matrix passed on all three OSes; this is separate from real native harness execution.
 - A complete live Looper daemon / Issue / PR / automatic-merge workflow. Adapter flags were checked against upstream source and exercised through a fixture executable. Official engine release downloads were too slow for this session; no global installation was performed.
 - Live OpenCode execution, Jev service access, long-running supervisor recovery, token/spend budgets and task decomposition.
 - Desktop usability and executable interface: mockups are proposals, not an implementation or visual regression pass. The user rejected the first dashboard-like layouts and selected a desktop chat/meeting interaction; updated comps are pending approval.

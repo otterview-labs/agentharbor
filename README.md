@@ -6,7 +6,7 @@ AgentHarbor（智能体港湾）是面向个人开发者的开源桌面工作台
 
 **当前是 `0.1.0-alpha.1`：可运行的本地任务引擎和 CLI，桌面界面正在设计，尚无桌面安装包。** 本地任务已支持真实助手执行、验证命令、独立审核和有限轮次的自动返工。它还不是能够永久无人值守地推进任意项目的完整产品。
 
-[English](README.en.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md) · [测试记录](docs/verification.md) · [Looper 接入](docs/looper.md)
+[English](README.en.md) · [桌面设计预览](docs/desktop-preview.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md) · [测试记录](docs/verification.md) · [Looper 接入](docs/looper.md)
 
 ## 为什么做这个项目
 
@@ -31,7 +31,7 @@ AgentHarbor 是独立的桌面项目，与 [agentBridge](https://github.com/otte
 
 ## 快速开始
 
-需要 Node.js 22.13+、Git，以及已安装并完成登录/模型配置的 Codex 和 Claude Code。当前实机测试环境是 macOS；Windows/Linux 会运行 CI，但原生适配、安装包和真机验证仍在路线图中，尤其是 Windows npm `.cmd` 启动器尚未支持。
+需要 Node.js 22.13+、Git，以及已安装并完成登录/模型配置的 Codex 和 Claude Code。当前实机测试环境是 macOS；Windows、Linux、macOS 的 Node 22/24 运行时 CI 已通过六组检查，但原生助手适配、安装包和真机验证仍在路线图中，尤其是 Windows npm `.cmd` 启动器尚未支持。
 
 ```bash
 git clone https://github.com/otterview-labs/agentharbor.git
