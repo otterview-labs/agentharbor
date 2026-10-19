@@ -1,0 +1,25 @@
+{
+  "name": "@otterview-labs/agentharbor",
+  "version": "0.1.0-alpha.1",
+  "description": "Local multi-agent missions with persistent execution, verification and independent review",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "agentharbor": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node scripts/test.mjs",
+    "doctor": "npm run build && node dist/src/cli.js doctor",
+    "start": "node dist/src/cli.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.0"
+  }
+}

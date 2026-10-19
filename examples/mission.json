@@ -1,0 +1,14 @@
+{
+  "repository": "/absolute/path/to/your/clean/git-repository",
+  "goal": "Fix the failing login retry behaviour without changing the public API",
+  "acceptance": [
+    "Expired sessions refresh before retrying",
+    "Concurrent retries do not submit the same request twice",
+    "The registered regression tests pass"
+  ],
+  "builder": "codex",
+  "reviewer": "claude",
+  "checks": [ { "file": "node", "args": ["--test"] } ],
+  "maxRounds": 3,
+  "timeoutMs": 1800000
+}

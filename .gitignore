@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+.agentharbor/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.impeccable/cache/
+.impeccable/mocks/decision/
