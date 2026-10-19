@@ -15,6 +15,7 @@ mkdirSync(join(stateHome, 'electron'), { recursive: true, mode: 0o700 });
 app.setName('AgentHarbor');
 app.setPath('userData', join(stateHome, 'electron'));
 const active = new Map<string, UtilityProcess>();
+const starting = new Set<string>();
 let window: BrowserWindow | undefined, service: DesktopService;
 let quitting = false;
 const fixtures = !app.isPackaged && process.env.AGENTHARBOR_E2E === '1';
@@ -40,22 +41,27 @@ function register(name: string, handler: (...args: any[]) => unknown) {
   });
 }
 async function start(id: string) {
-  if (active.has(id)) throw new Error('该会议的任务正在运行');
+  if (active.has(id) || starting.has(id)) throw new Error('该任务正在启动或运行');
+  starting.add(id);
+  try {
   const meeting = await service.meeting(id), mission = await service.missions.get(meeting.missionId);
   if (mission.phase === 'completed') throw new Error('任务已完成，请新建任务处理其他目标');
   if (mission.round >= mission.maxRounds) throw new Error('本任务已达到轮次上限，请根据审核意见调整目标后新建任务');
   const child = utilityProcess.fork(join(__dirname, 'worker.cjs'), [], { serviceName: 'AgentHarbor task' });
   active.set(id, child); notify();
   child.on('message', (message: any) => {
+    if (active.get(id) !== child) return;
     if (message.type === 'phase') {
       void service.append(id, 'host', message.body.phase === 'blocked' ? `${phaseText.blocked}\n${message.body.message}` : phaseText[message.body.phase] || message.body.message).catch(() => {});
     } else if (message.type === 'message') void service.append(id, message.body.role, message.body.text).catch(() => {});
     else if (message.type === 'error') void service.append(id, 'host', message.body.message).catch(() => {});
     notify();
-    if (message.type === 'done' || message.type === 'error') { active.delete(id); child.kill(); notify(); }
+    // The worker exits after releasing its mission lock. Keep it active until
+    // then, so a fast resume cannot race the old process's exit callback.
   });
-  child.on('exit', () => { active.delete(id); notify(); });
+  child.on('exit', () => { if (active.get(id) === child) { active.delete(id); notify(); } });
   child.postMessage({ type: 'start', home: service.home, missionId: mission.id, meetingId: id, fixture: fixtures });
+  } finally { starting.delete(id); }
 }
 async function bootstrap() {
   await hydratePath();

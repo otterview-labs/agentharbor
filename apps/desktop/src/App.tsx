@@ -16,7 +16,8 @@ export function App() {
   const [busy, setBusy] = useState(false), [attachment, setAttachment] = useState<Attachment|null>(null);
   const [changes, setChanges] = useState(''), [showChanges, setShowChanges] = useState(false), [showLeft, setShowLeft] = useState(false), [showRight, setShowRight] = useState(false);
   const messagesEnd = useRef<HTMLDivElement>(null), dialogRef = useRef<HTMLDialogElement>(null), returnFocus = useRef<HTMLElement|null>(null);
-  const refresh = async () => { const next = await bridge.snapshot(); setState(next); setSelected(id => next.meetings.some(m => m.id === id) ? id : next.meetings[0]?.id ?? ''); setProjectId(id => next.projects.some(p => p.id === id) ? id : next.projects[0]?.id ?? ''); };
+  const refreshVersion = useRef(0);
+  const refresh = async () => { const version = ++refreshVersion.current; const next = await bridge.snapshot(); if (version !== refreshVersion.current) return; setState(next); setSelected(id => next.meetings.some(m => m.id === id) ? id : next.meetings[0]?.id ?? ''); setProjectId(id => next.projects.some(p => p.id === id) ? id : next.projects[0]?.id ?? ''); };
   useEffect(() => { void refresh().catch(e => setError(String(e.message))); return bridge.onChange(() => { void refresh().catch(e => setError(e.message)); }); }, []);
   useEffect(() => { if (panel) { returnFocus.current = document.activeElement as HTMLElement; dialogRef.current?.showModal(); } else { dialogRef.current?.close(); returnFocus.current?.focus(); } }, [panel]);
   useEffect(() => { const closeDrawers = (event: KeyboardEvent) => { if (event.key === 'Escape') { setShowLeft(false); setShowRight(false); } }; window.addEventListener('keydown', closeDrawers); return () => window.removeEventListener('keydown', closeDrawers); }, []);

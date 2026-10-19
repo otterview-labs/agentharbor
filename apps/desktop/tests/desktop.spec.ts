@@ -49,13 +49,15 @@ test('native desktop pauses and resumes the task without losing messages or work
     await page.evaluate(async node=>{
       const b=(window as any).harbor;const p=await b.addProject();const m=await b.createMeeting({projectId:p.id,goal:'Pause and resume fixture',acceptance:['answer.txt is done'],builder:'codex',reviewer:'claude',checks:[{file:node,args:['-e',"if(require('fs').readFileSync('answer.txt','utf8').trim()!=='done')process.exit(1)"]}]});await b.start(m.id);
     },process.execPath);
-    await page.getByRole('button',{name:'暂停任务',exact:true}).click();
-    await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已暂停');
-    await expect(page.getByRole('button',{name:'继续任务',exact:true})).toBeEnabled();
-    await page.getByRole('button',{name:'继续任务',exact:true}).click();
+    for (let cycle=0;cycle<3;cycle++) {
+      await page.getByRole('button',{name:'暂停任务',exact:true}).click();
+      await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已暂停');
+      await expect(page.getByRole('button',{name:'继续任务',exact:true})).toBeEnabled();
+      await page.getByRole('button',{name:'继续任务',exact:true}).click();
+    }
     await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已完成',{timeout:30000});
     const phases=await page.evaluate(async()=>{const s=await (window as any).harbor.snapshot();return s.missions[0].events.map((e:any)=>e.phase);});
-    expect(phases).toContain('paused');expect(phases.at(-1)).toBe('completed');
+    expect(phases.filter((p:string)=>p==='paused').length).toBe(3);expect(phases.at(-1)).toBe('completed');
   } finally {await app.close();await rm(f.root,{recursive:true,force:true});}
 });
 
