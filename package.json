@@ -53,7 +53,9 @@
       "dist-electron/**/*",
       "dist-desktop/**/*",
       "LICENSE",
-      "package.json"
+      "package.json",
+      "THIRD_PARTY_NOTICES.md",
+      "licenses/**/*"
     ],
     "asar": true,
     "mac": {

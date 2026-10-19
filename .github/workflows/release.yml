@@ -1,0 +1,48 @@
+name: Publish tested desktop alpha
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful Desktop build and smoke run ID
+        required: true
+      tag:
+        description: New alpha tag (v0.2.0-alpha.1)
+        required: true
+        default: v0.2.0-alpha.1
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN_ID: ${{ inputs.run_id }}
+      RELEASE_TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate tested source and version
+        run: |
+          node --input-type=module <<'JS'
+          import {execFileSync} from 'node:child_process';
+          import {appendFileSync,readFileSync} from 'node:fs';
+          const repo=process.env.GITHUB_REPOSITORY,id=process.env.RUN_ID,tag=process.env.RELEASE_TAG;
+          if(!/^\d+$/.test(id)||!/^v\d+\.\d+\.\d+-alpha\.\d+$/.test(tag))throw Error('Invalid release input');
+          const run=JSON.parse(execFileSync('gh',['api',`repos/${repo}/actions/runs/${id}`],{encoding:'utf8'}));
+          if(run.conclusion!=='success'||run.name!=='Desktop build and smoke'||run.head_repository.full_name!==repo)throw Error('Expected successful desktop run from this repository');
+          const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+          if(run.head_sha!==sha)throw Error('Desktop run must test the current default-branch commit');
+          if(`v${JSON.parse(readFileSync('package.json','utf8')).version}`!==tag)throw Error('Tag must match package version');
+          appendFileSync(process.env.GITHUB_ENV,`TESTED_SHA=${sha}\n`);
+          JS
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.run_id }}
+          pattern: AgentHarbor-*
+          path: packages
+          merge-multiple: true
+      - name: Publish prerelease packages
+        run: |
+          test "$(find packages -maxdepth 1 -name '*.zip' | wc -l)" -ge 3
+          gh release create "$RELEASE_TAG" packages/*.zip --target "$TESTED_SHA" --title "AgentHarbor $RELEASE_TAG" --prerelease --notes-file docs/releases/0.2.0-alpha.1.md

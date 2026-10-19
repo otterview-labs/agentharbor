@@ -31,7 +31,9 @@ SOFTWARE.
 
 ## Runtime dependencies
 
-The runtime uses Node.js built-in modules. TypeScript and @types/node are development dependencies; their upstream licenses accompany the installed packages. Their resolved versions are recorded in package-lock.json.
+The CLI runtime uses Node.js built-in modules. The desktop bundles Electron (MIT), React and React DOM (MIT), and Lucide React (ISC; icons derived from Feather under MIT). Exact license texts are included under `licenses/` in the desktop archive. Build tools and their licenses remain in the development installation; resolved versions are recorded in package-lock.json.
+
+The self-hosted Noto Sans SC variable font is distributed by @fontsource-variable/noto-sans-sc 5.3.1 under SIL Open Font License 1.1. Its license and copyright notices are included at `dist-desktop/fonts/OFL.txt` in the app and `licenses/Noto-Sans-SC-OFL.txt` in the archive. The font is not fetched remotely at runtime.
 
 ## Design previews
 

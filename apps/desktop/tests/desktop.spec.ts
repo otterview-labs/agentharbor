@@ -39,3 +39,22 @@ test('native desktop creates, runs, verifies and restores a meeting through real
     expect(prefs.contextIsolation).toBe(true);expect(prefs.nodeIntegration).toBe(false);expect(prefs.sandbox).toBe(true);
   } finally {await app.close();await rm(f.root,{recursive:true,force:true});}
 });
+
+test('native desktop pauses and resumes the task without losing messages or worktree', async () => {
+  const f=await fixture(),env={...process.env,AGENTHARBOR_HOME:f.home,AGENTHARBOR_E2E:'1'};delete env.ELECTRON_RUN_AS_NODE;
+  const app=await electron.launch({args:[resolve('dist-electron/main.cjs')],env});
+  try {
+    await app.evaluate(({dialog},path)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[path]});},f.repo);
+    const page=await app.firstWindow();
+    await page.evaluate(async node=>{
+      const b=(window as any).harbor;const p=await b.addProject();const m=await b.createMeeting({projectId:p.id,goal:'Pause and resume fixture',acceptance:['answer.txt is done'],builder:'codex',reviewer:'claude',checks:[{file:node,args:['-e',"if(require('fs').readFileSync('answer.txt','utf8').trim()!=='done')process.exit(1)"]}]});await b.start(m.id);
+    },process.execPath);
+    await page.getByRole('button',{name:'暂停任务',exact:true}).click();
+    await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已暂停');
+    await expect(page.getByRole('button',{name:'继续任务',exact:true})).toBeEnabled();
+    await page.getByRole('button',{name:'继续任务',exact:true}).click();
+    await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已完成',{timeout:30000});
+    const phases=await page.evaluate(async()=>{const s=await (window as any).harbor.snapshot();return s.missions[0].events.map((e:any)=>e.phase);});
+    expect(phases).toContain('paused');expect(phases.at(-1)).toBe('completed');
+  } finally {await app.close();await rm(f.root,{recursive:true,force:true});}
+});

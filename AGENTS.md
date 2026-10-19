@@ -1,7 +1,7 @@
 # AgentHarbor contributor instructions
 
 - Read PRODUCT.md and docs/architecture.md before changing runtime contracts.
-- The current slice is a local TypeScript runtime/CLI. Desktop preview images are proposals; no image is approved until recorded as such. Never ship image text as functioning UI.
+- The current slice includes the TypeScript runtime/CLI and Electron + React desktop alpha. The pure-black desktop-chat comp is approved; the user accepted the two evidence-link font/icon differences for first delivery. Never ship image text as functioning UI.
 - Keep agentBridge and its mobile code in their existing repository.
 - Use `npm run check` and `npm test` for runtime changes. Tests must exercise behaviour across Git worktrees, state persistence and real child processes, not only mocks.
 - Never infer task completion from an agent claiming success. Require registered verification commands and a structured independent review bound to the verified source fingerprint.

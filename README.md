@@ -1,82 +1,87 @@
 # AgentHarbor
 
-**让多个本机 AI 编程助手围绕同一个目标持续推进，直到经过验证与独立审核。**
+让本机的 AI 编程助手围绕一个目标协作，并用真实测试和独立审核判断任务是否完成。
 
-AgentHarbor（智能体港湾）是面向个人开发者的开源桌面工作台项目。它希望自动发现本机的 Codex、Claude Code、OpenCode 等工具，安排执行与审核角色，把讨论、改动、测试、返工和交付放在同一个项目工作区里。
+**桌面首版：0.2.0-alpha.1。** 采用 Electron + React，共用 Windows、Linux、macOS 代码。界面以助手会议为中心：左侧选择项目和会议，中间查看执行与审核对话，右侧查看任务、改动和测试证据。
 
-**当前是 `0.1.0-alpha.1`：可运行的本地任务引擎和 CLI，桌面界面正在设计，尚无桌面安装包。** 本地任务已支持真实助手执行、验证命令、独立审核和有限轮次的自动返工。它还不是能够永久无人值守地推进任意项目的完整产品。
+[English](README.en.md) · [下载与发布](https://github.com/otterview-labs/agentharbor/releases) · [桌面使用说明](docs/desktop-alpha.md) · [测试记录](docs/verification.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md)
 
-[English](README.en.md) · [桌面设计预览](docs/desktop-preview.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md) · [测试记录](docs/verification.md) · [Looper 接入](docs/looper.md)
+![AgentHarbor 桌面界面：示例会议，仅展示布局](docs/screenshots/desktop-preview.png)
+
+上图来自实际运行的浏览器设计预览，会议和任务是明确标记的示例数据。原生桌面首次启动为空，可添加自己的本地项目；示例记录不会混入真实任务。
 
 ## 为什么做这个项目
 
-单个编程助手能完成一次修改，但“持续推进一个项目”还需要明确目标、保留进度、检查结果、独立审核和处理返工。我们希望用户交代目标与验收标准后，常规修改和质量审核可以继续自动推进，同时随时看清任务为什么还没完成。
+希望让已安装的多个编程助手接力解决问题：一个执行，另一个审核，测试失败或审核提出问题时继续修改，直到满足明确的验收条件或达到预算。用户能看到发生了什么、为什么停下，以及完成的证据。
 
-AgentHarbor 是独立的桌面项目，与 [agentBridge](https://github.com/otterview-labs/agentBridge) 手机项目分开维护。桌面端计划 Windows、Linux、macOS 共用 Electron + React + TypeScript；本机运行不依赖公共云服务器。跨公网连接手机、远程机器或模型服务仍然需要相应的网络与服务配置。本地运行需要电脑开机，模型访问也取决于所选助手的配置。
+AgentHarbor 是独立桌面仓库；手机端 [agentBridge](https://github.com/otterview-labs/agentBridge) 单独维护。本机使用不需要自建云端服务器；模型请求仍使用各助手已有的服务和登录配置。电脑需要保持运行。
 
-## 现在已经能做什么
+## 首版可以做什么
 
-| 能力 | 当前情况 |
-| --- | --- |
-| 发现本机工具 | 检查 Codex、Claude Code、OpenCode、Looper、Git 和 GitHub CLI；区分找到程序、版本探测成功与尚未验证的登录状态 |
-| 独立任务工作区 | 从干净 Git 仓库创建单独 worktree 和分支，保留用户原有检出目录 |
-| 自动执行与返工 | 执行助手修改 → 主机运行预设验证命令 → 独立助手审核；失败后自动把原因交回执行者 |
-| 完成判断 | 验证成功、审核结构正确且通过，并且源码未变化，才标为完成 |
-| 保存与恢复 | 持久化阶段、轮次、验证输出和审核意见；Ctrl+C 暂停，同一任务 ID 再运行 |
-| Looper 适配器 | 显式指定配置调用状态、项目、循环、Issue 执行和 PR 连续审核；不代表已完成整条 PR 自动合并实测 |
-| 桌面界面 | 设计阶段；预览图尚未获选，不是已发布界面 |
-| OpenCode / Jev | OpenCode 已纳入发现；本地执行适配器与 Jev 审核接入待实现 |
+- 检测本机 Codex、Claude Code、OpenCode、Looper、Git 和 GitHub CLI。工具存在、版本可读、账号已认证是不同状态。
+- 添加本地 Git 项目，创建带目标、验收标准和检查命令的会议。
+- 在独立 Git worktree 中执行任务，由 Codex、Claude Code 分别担任执行与审核角色。
+- 自动推进“实现 → 运行检查 → 独立审核 → 按问题返工”，限制最大轮数；不会仅凭模型说“完成”结束任务。
+- 在会议里保留助手输出、用户补充和文本附件；查看代码差异、测试结果、审核结论与执行历史。
+- 暂停、继续任务，关闭应用后保留会议和任务记录。
 
-目前本地执行角色支持 **Codex 与 Claude Code**，两者分任构建者和审核者。不同工具也可能配置同一种底层模型，项目不会把“不同 CLI”宣传为“不同模型厂商”。
+当前会议由固定流程主持，尚不支持任意多个助手自由讨论、`@助手` 路由或自动拆解大型项目。用户补充在下一次模型调用时读取；不会打断当前请求。OpenCode 当前仅能发现，Jev 尚未接入。该版本尚不是无需干预、永久运行的项目主管。
 
-## 快速开始
+## 开始使用
 
-需要 Node.js 22.13+、Git，以及已安装并完成登录/模型配置的 Codex 和 Claude Code。当前实机测试环境是 macOS；Windows、Linux、macOS 的 Node 22/24 运行时 CI 已通过六组检查，但原生助手适配、安装包和真机验证仍在路线图中，尤其是 Windows npm `.cmd` 启动器尚未支持。
+下载对应平台的 ZIP，解压运行。首版尚未签名或公证，应用图标暂沿用 Electron 默认图标。使用前需要安装 Git，以及已完成登录配置的 Codex 和 Claude Code CLI。**Windows 的 npm `.cmd` 启动器适配仍待实现：Windows 桌面构建和夹具流程通过，不代表真实 Windows 助手已跑通。**
+
+从源码启动需要 Node.js 22.13+：
 
 ```bash
-git clone https://github.com/otterview-labs/agentharbor.git
-cd agentharbor
-npm ci --ignore-scripts
+npm ci
+npm run desktop
+```
+
+1. 点击“添加本地项目”，选择可信的 Git 仓库。
+2. 提交或暂存当前改动，确保仓库干净。新建会议，填写目标、验收标准和真实检查命令。
+3. 选择不同的执行与审核工具，启动任务。需要依赖的项目应先在任务工作区准备依赖；worktree 不复制原目录的 `node_modules`。
+4. 查看右侧的“改动与测试”，确认代码和证据。改动保留在任务 worktree，首版不会自动提交、推送或合并。
+
+状态保存在 `~/.agentharbor`，可通过 `AGENTHARBOR_HOME` 切换；日志和附件可能包含项目内容，请保存在本机。worktree 提供改动隔离；模型工具和验证命令以当前用户身份运行。详细限制见[桌面说明](docs/desktop-alpha.md)。
+
+```bash
+npm run build:desktop
+npm run preview:desktop   # 浏览器示例预览，不执行本地任务
+npm run package:desktop   # 当前平台 ZIP
+```
+
+## 已验证的范围
+
+- 严格 TypeScript 检查通过，14 项运行时测试通过。
+- 原生 Electron 测试覆盖创建、执行、真实检查、审核、持久化恢复，以及暂停继续；模型使用确定性夹具。
+- macOS 上已通过真实 Codex → 主机测试 → 真实 Claude Code 的桌面闭环，源目录保持不变，审核绑定测试时的源文件指纹。
+- Windows、Linux、macOS 的原生夹具测试与 ZIP 构建通过 CI；这与三平台真实模型认证验证分开记录。
+
+可复现命令、CI 链接和已知限制见[测试记录](docs/verification.md)。
+
+## CLI 与上游
+
+原有 CLI 仍可使用：
+
+```bash
 npm run build
 node dist/src/cli.js doctor
-```
-
-`doctor` 只探测安装和版本，不会偷偷请求模型或把存在可执行文件视为认证成功。模型请求复用所选工具已有的本机配置；不要把 API Key 放进任务 JSON、仓库或聊天记录。
-
-复制并编辑 [examples/mission.json](examples/mission.json)，填入目标仓库的**绝对路径**、目标、验收标准和该项目真正使用的验证命令。目标仓库需要先提交现有修改或使用 git stash 收起修改，示例命令也需要替换成项目实际有效的测试入口。
-
-```bash
 node dist/src/cli.js create --file /absolute/path/mission.json
-node dist/src/cli.js run --id <上一步返回的任务ID>
-node dist/src/cli.js show --id <任务ID>
-node dist/src/cli.js list
+node dist/src/cli.js run --id <mission-id>
+node dist/src/cli.js show --id <mission-id>
 ```
 
-命令运行中会输出当前阶段；最终 JSON 包含工作目录、测试证据与审核结果。返回码 `0` 表示完成，`2` 表示任务仍未完成（暂停、阻塞或预算耗尽），`1` 表示命令输入/运行失败。完成后修改保留在任务 worktree；首版不会自动提交、推送或合并。
+输入格式见 [examples/mission.json](examples/mission.json)。退出码 0 表示完成，2 表示任务仍未完成，1 表示命令失败。硬崩溃留下的锁需要确认进程已退出后，按提示处理。
 
-默认状态目录是 `~/.agentharbor`；可用 `--home /absolute/state/path` 或 `AGENTHARBOR_HOME` 指定独立目录。任务数据和原始验证输出是本机私有数据，不应提交或公开。创建后保持这个状态目录位置固定，因为任务保存了 worktree 路径。
-
-## 自动推进的实际边界
-
-- 每次运行有时间预算，任务有最多 1–20 轮的预算；达到上限会保留未完成原因，不会无限消耗模型额度。
-- 测试失败直接返工；审核拒绝带着具体意见返工；审核报错、输出不符合结构或源码变化会阻塞。
-- Ctrl+C 正常暂停后可以继续；中断的轮次计入预算。进程被强杀留下的锁，需要先确认旧进程已退出，再按报错路径移除锁后恢复。
-- worktree 用于隔离修改，不是安全容器。预设验证命令是用户授权执行的本机程序；请只运行自己信任的项目与命令。Codex 使用 workspace-write/read-only；Claude 构建者只开放文件读写，审核者只开放读取，验证命令由主机执行。
-- 独立审核与测试能减少错误，但不能保证任意需求都正确。首版不包含全天候后台调度、完整分解队列、累计费用预算或自动发布；详见路线图。
-
-## 与 Looper 的关系
-
-[Looper](https://github.com/nexu-io/looper) 提供持续推进 GitHub Issue / PR 的循环执行思路和外部引擎。AgentHarbor 参考其角色分工，通过独立 CLI 适配器复用工作流；本地任务运行时是本仓库的实现。**这不是重命名后的 Looper fork，也不会自动安装或改写用户的 Looper 服务。**
-
-适配契约核对到上游提交 `6abd8ffd3a66762aeb8b583aab1411124fb58e0b`。上游为 MIT；出处与许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。外部引擎未安装时应明确提示，不能把模拟测试说成真实 PR 已走通。
-
-## 开发
+[Looper](https://github.com/nexu-io/looper) 是 MIT 开源的架构参考与可选外部引擎；本仓库是独立实现，通过适配器调用其 CLI。首版没有宣称跑通 Looper 的完整 Issue → PR → 自动合并闭环。见[集成范围](docs/looper.md)与[第三方声明](THIRD_PARTY_NOTICES.md)。
 
 ```bash
 npm run check
+npm run check:desktop
 npm test
+npm run build:desktop
+npm run test:desktop
 ```
-
-测试覆盖真实 Git worktree、持久化与恢复、验证失败返工、审核拒绝返工、错误输出、源码漂移、任务锁、命令超时和参数安全。实时模型测试与离线回归分开记录，CI 不需要模型密钥。欢迎围绕路线图提交 Issue / PR。
 
 MIT License.

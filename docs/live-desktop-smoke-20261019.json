@@ -1,0 +1,24 @@
+{
+  "phase": "completed",
+  "round": 1,
+  "evidenceCodes": [
+    0
+  ],
+  "review": "approve",
+  "matchingFingerprint": true,
+  "authors": [
+    "user",
+    "host",
+    "host",
+    "builder",
+    "host",
+    "host",
+    "reviewer",
+    "host"
+  ],
+  "testMode": false,
+  "originalCheckoutUnchanged": true,
+  "date": "2026-10-19",
+  "platform": "darwin",
+  "arch": "arm64"
+}

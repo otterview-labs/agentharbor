@@ -27,4 +27,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## Approval state
 
-No complete mockup is approved. The latest refinement is the black-background `.impeccable/mocks/desktop-chat-black.png`; the light simplified comp and A/B/C remain unapproved comparison material. No renderer code before the user approves a complete comp. Preview conversation, task records and status are synthetic and visibly labeled.
+The user approved `.impeccable/mocks/desktop-chat-black.png` for implementation on 2026-10-19. The light comp and A/B/C remain unapproved alternatives. Preview records are labeled synthetic; native state starts empty.
+
+After viewing the actual running first viewport, the user explicitly replied: “接受这两处小差异，先交付当前首版”. This accepts the evidence links' font/icon differences and authorizes delivery of the current version. Numeric visual-gate comparisons still flag those controls; two attempts to record the exception through the CLI were refused. The gate remains transparently unresolved; no fake user-review receipt was created, and this metadata must not be described as a pixel-perfect pass. The pinned black ground and three-pane design continue to apply.

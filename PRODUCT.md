@@ -6,7 +6,7 @@
 web
 
 ## Stack
-Electron + React + TypeScript is the proposed shared desktop stack for Windows, Linux and macOS. The user requested design previews before UI implementation and selected a desktop chat interaction: assistant meetings in the center, tasks and results in the side pane. The user approved the pure-black complete desktop comp for implementation on 2026-10-19. Build the Electron + React desktop host on the existing Node.js runtime and CLI.
+Electron + React + TypeScript is the implemented shared desktop stack for Windows, Linux and macOS. The user requested design previews before UI implementation and selected a desktop chat interaction: assistant meetings in the center, tasks and results in the side pane. The user approved the pure-black complete desktop comp for implementation on 2026-10-19. Build the Electron + React desktop host on the existing Node.js runtime and CLI.
 
 ## Users
 Individual developers managing several installed AI coding assistants and repositories on their own computer.
@@ -21,13 +21,13 @@ One local control surface for existing harnesses, with persistent task state, in
 Users work in local Git repositories with Codex, Claude Code or OpenCode. A mission assigns builder and reviewer roles. A rejected review returns actionable findings to the builder. Interrupted tasks can be inspected and resumed. A local desktop process requires the computer to remain awake.
 
 ## Capabilities and Constraints
-- Windows, Linux and macOS are target desktop platforms, not yet certified releases.
+- Windows, Linux and macOS have native fixture tests and ZIP builds; alpha packages are unsigned, with real harness access currently verified on macOS only.
 - Public repository destination: otterview-labs/agentharbor.
 - Keep the existing agentBridge phone application in its separate repository.
 - Prefer bounded unattended execution within the registered project and configured commands.
 - Review is not proof of correctness; require verification evidence before completion.
 - Jev is an optional future review integration; no live Jev credentials or validation are available.
-- Desktop interface implementation requires approval of a complete design preview first.
+- The pure-black complete desktop comp and current first viewport are approved for first-version delivery; the user accepted minor evidence-link font/icon differences.
 - Automatic discovery must distinguish an installed binary from working authentication.
 
 ## Brand Commitments

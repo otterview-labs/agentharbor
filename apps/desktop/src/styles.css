@@ -14,3 +14,7 @@
 @media(min-width:1101px){.meeting-list>button{height:52px;min-height:52px;padding-top:12px;padding-bottom:12px;line-height:26px;margin-bottom:6px}.message:last-of-type{margin-bottom:16px}.message-links button{font-size:18px;line-height:25px;padding:0;gap:6px}.message-links{gap:27px}.next-section p{margin-top:10px}.blocker-section{padding-top:19px}.blocker{font-size:18px}}
 .app.demo .run-button:disabled{opacity:1}
 @media(min-width:1101px){.message-links{margin-top:17px;margin-left:6px}.message:has(.message-links){margin-bottom:42px}.activity{margin-top:0}.bubble,.next-section p,.message-links button{font-weight:350}.message-links button{font-size:20px}.run-button{font-size:20px;gap:16px}.run-button>svg{width:27px;height:27px}}
+
+.drawer-close{display:none}
+@media(max-width:900px){.show-right .inspector-close{display:inline-flex;position:absolute;top:12px;right:10px}}
+@media(max-width:600px){.show-left .sidebar-close{display:inline-flex;position:absolute;top:9px;right:8px}}

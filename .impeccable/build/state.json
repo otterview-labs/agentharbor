@@ -5,7 +5,7 @@
   "comp": ".impeccable/mocks/desktop-chat-black.png",
   "direction": null,
   "breakpoint": "1536x1024",
-  "artifact": "apps/desktop/src/App.tsx",
+  "artifact": "dist-desktop/index.html",
   "phase": "hero",
   "phases": {
     "comps": {
@@ -54,115 +54,107 @@
       "status": "open",
       "openedAt": "2026-10-19T10:22:31.791Z",
       "closedAt": null,
-      "attempts": 2,
-      "notes": [],
+      "attempts": 7,
+      "notes": [
+        {
+          "at": "2026-10-19T10:48:21.719Z",
+          "text": "Corrected the capture artifact to the actual built HTML entry; preserved all three failed hero attempts and their review requirement. Source component remains apps/desktop/src/App.tsx."
+        }
+      ],
       "gate": {
         "ok": false,
         "reasons": [
-          "region change-link (control) is contradicted (structure 24%, detail added 17%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
-          "region test-link (control) is contradicted (structure 26%, detail added 19%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
-          "region reviewer-header (text) is contradicted (structure 42%, detail added 23%): the composition of this text region differs from the comp; re-derive it from the spec box",
-          "region host-header-last (text) is contradicted (structure 28%, detail added 28%): the composition of this text region differs from the comp; re-derive it from the spec box",
-          "region activity (control) is contradicted (structure 45%, detail added 23%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
-          "region pause (control) is contradicted (structure 26%, detail added 18%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
-          "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          "region change-link (control) is contradicted (structure 30%, detail added 30%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+          "region test-link (control) is contradicted (structure 15%, detail added 29%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+          "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+          "control pause drifts to 61% (structure 31%, color 94%): open .impeccable/review/diff/hero/regions/pause.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
         ],
         "regionReasons": {
           "change-link": [
-            "region change-link (control) is contradicted (structure 24%, detail added 17%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
+            "region change-link (control) is contradicted (structure 30%, detail added 30%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
           ],
           "test-link": [
-            "region test-link (control) is contradicted (structure 26%, detail added 19%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
-          ],
-          "reviewer-header": [
-            "region reviewer-header (text) is contradicted (structure 42%, detail added 23%): the composition of this text region differs from the comp; re-derive it from the spec box"
-          ],
-          "host-header-last": [
-            "region host-header-last (text) is contradicted (structure 28%, detail added 28%): the composition of this text region differs from the comp; re-derive it from the spec box"
-          ],
-          "activity": [
-            "region activity (control) is contradicted (structure 45%, detail added 23%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
-          ],
-          "pause": [
-            "region pause (control) is contradicted (structure 26%, detail added 18%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
+            "region test-link (control) is contradicted (structure 15%, detail added 29%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification"
           ],
           "members": [
             "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "pause": [
+            "control pause drifts to 61% (structure 31%, color 94%): open .impeccable/review/diff/hero/regions/pause.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
           ]
         },
-        "summary": "hero 93% (match)",
-        "score": 0.9275,
+        "summary": "hero 94% (match)",
+        "score": 0.9382,
         "verdict": "match",
         "report": ".impeccable/review/diff/hero/report.json",
-        "sideBySide": "/Users/chenhao/code/agentharbor/.impeccable/review/diff/hero/side-by-side.png",
+        "sideBySide": ".impeccable/review/diff/hero/side-by-side.png",
         "worst": [
-          "change-link contradicted 47%",
-          "test-link contradicted 48%",
-          "host-header-last contradicted 48%"
+          "test-link contradicted 42%",
+          "change-link contradicted 49%",
+          "pause drift 61%"
         ],
         "worstIds": [
-          "change-link",
           "test-link",
-          "host-header-last"
+          "change-link",
+          "pause"
         ],
         "worstCrops": [
-          {
-            "id": "change-link",
-            "verdict": "contradicted",
-            "score": {
-              "overall": 0.47,
-              "structure": 0.2429,
-              "color": 0.7494,
-              "colorIntersection": 0.6488,
-              "paletteMatch": 0.8036,
-              "detail": 0.4917,
-              "detailRaw": 0.5751,
-              "detailAdded": 0.1667,
-              "bands": 0.6825
-            },
-            "file": ".impeccable/review/diff/hero/regions/change-link.png"
-          },
           {
             "id": "test-link",
             "verdict": "contradicted",
             "score": {
-              "overall": 0.4752,
-              "structure": 0.2613,
-              "color": 0.7485,
-              "colorIntersection": 0.6458,
-              "paletteMatch": 0.8039,
-              "detail": 0.478,
-              "detailRaw": 0.5717,
-              "detailAdded": 0.1875,
-              "bands": 0.7611
+              "overall": 0.4218,
+              "structure": 0.1546,
+              "color": 0.7613,
+              "colorIntersection": 0.6651,
+              "paletteMatch": 0.8132,
+              "detail": 0.4288,
+              "detailRaw": 0.5747,
+              "detailAdded": 0.2917,
+              "bands": 0.75
             },
             "file": ".impeccable/review/diff/hero/regions/test-link.png"
           },
           {
-            "id": "host-header-last",
+            "id": "change-link",
             "verdict": "contradicted",
             "score": {
-              "overall": 0.4785,
-              "structure": 0.2832,
-              "color": 0.9459,
-              "colorIntersection": 0.9243,
-              "paletteMatch": 0.9575,
-              "detail": 0.1631,
-              "detailRaw": 0.3038,
-              "detailAdded": 0.2813,
-              "bands": 0.76
+              "overall": 0.4851,
+              "structure": 0.3019,
+              "color": 0.7562,
+              "colorIntersection": 0.6538,
+              "paletteMatch": 0.8114,
+              "detail": 0.4227,
+              "detailRaw": 0.5737,
+              "detailAdded": 0.3021,
+              "bands": 0.6764
             },
-            "file": ".impeccable/review/diff/hero/regions/host-header-last.png"
+            "file": ".impeccable/review/diff/hero/regions/change-link.png"
+          },
+          {
+            "id": "pause",
+            "verdict": "drift",
+            "score": {
+              "overall": 0.6098,
+              "structure": 0.3084,
+              "color": 0.9443,
+              "colorIntersection": 0.8931,
+              "paletteMatch": 0.9719,
+              "detail": 0.7026,
+              "detailRaw": 0.8016,
+              "detailAdded": 0.1979,
+              "bands": 0.66
+            },
+            "file": ".impeccable/review/diff/hero/regions/pause.png"
           }
         ],
         "advisories": [
-          "(advisory, above the 72% bar; fix in the polish pass before responsive) 6 readings:",
-          "  text host-header-first: ink is #f8f8f8 in the build, #393d3c in the comp; use the comp's colour",
-          "  text host-header-last: ink is #a1adba in the build, #f6f6f6 in the comp; use the comp's colour",
-          "  control meeting-third: its ink is 32px tall in the build and 19px in the comp (+13px); match the height, not only the position",
-          "  chrome host-bubble-first: its rule sits 32px into the box in the comp and 24px in the build (-8px), so the strip is shorter than the comp's; match the height, not only the position",
-          "  control test-link: its rule sits 3px into the box in the comp and 16px in the build (+13px), so the strip is taller than the comp's; match the height, not only the position",
-          "  control blocker: its rule sits 57px into the box in the comp and 2px in the build (-55px), so the strip is shorter than the comp's; match the height, not only the position"
+          "(advisory, unchanged for 3+ attempts) text host-header-first: ink is #f8f8f8 in the build, #393d3c in the comp; use the comp's colour",
+          "(advisory, unchanged for 3+ attempts) control meeting-third: its ink is 32px tall in the build and 19px in the comp (+13px); match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) chrome host-bubble-first: its rule sits 32px into the box in the comp and 24px in the build (-8px), so the strip is shorter than the comp's; match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) chrome reviewer-bubble: its rule sits 19px into the box in the comp and 1px in the build (-18px), so the strip is shorter than the comp's; match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) chrome host-bubble-last: its rule sits 34px into the box in the comp and 1px in the build (-33px), so the strip is shorter than the comp's; match the height, not only the position",
+          "(advisory, unchanged for 3+ attempts) control blocker: its rule sits 57px into the box in the comp and 2px in the build (-55px), so the strip is shorter than the comp's; match the height, not only the position"
         ],
         "regionVerdicts": {
           "titlebar": "match",
@@ -193,15 +185,15 @@
           "builder-message": "drift",
           "change-link": "contradicted",
           "test-link": "contradicted",
-          "avatar-reviewer": "match",
-          "reviewer-header": "contradicted",
+          "avatar-reviewer": "drift",
+          "reviewer-header": "drift",
           "reviewer-bubble": "drift",
           "reviewer-message": "drift",
-          "avatar-host-last": "drift",
-          "host-header-last": "contradicted",
+          "avatar-host-last": "match",
+          "host-header-last": "drift",
           "host-bubble-last": "drift",
           "host-message-last": "drift",
-          "activity": "contradicted",
+          "activity": "drift",
           "composer": "match",
           "task-heading": "match",
           "task-status": "drift",
@@ -214,26 +206,26 @@
           "acceptance-disclosure": "match",
           "evidence-disclosure": "match",
           "history-disclosure": "match",
-          "pause": "contradicted"
+          "pause": "drift"
         },
-        "at": "2026-10-19T10:38:36.457Z"
+        "at": "2026-10-19T11:00:57.822Z"
       },
       "forced": null,
       "readingsSeen": {
         "text meeting-third: cap height 12.9px in the build, 18.6px in the comp (-31%); set font-size so the cap height renders at 18.6px": 2,
         "text blocker: cap height 21.5px in the build, 17.6px in the comp (+22%); set font-size so the cap height renders at 17.6px": 2,
-        "text host-header-first: ink is #f8f8f8 in the build, #393d3c in the comp; use the comp's colour": 3,
+        "text host-header-first: ink is #f8f8f8 in the build, #393d3c in the comp; use the comp's colour": 8,
         "text blocker: ink is #e5b566 in the build, #765224 in the comp; use the comp's colour": 2,
         "text pause: ink is #b3b3b3 in the build, #f1f1f1 in the comp; use the comp's colour": 2,
-        "control meeting-third: its ink is 32px tall in the build and 19px in the comp (+13px); match the height, not only the position": 3,
-        "chrome host-bubble-first: its rule sits 32px into the box in the comp and 24px in the build (-8px), so the strip is shorter than the comp's; match the height, not only the position": 3,
-        "chrome reviewer-bubble: its rule sits 19px into the box in the comp and 1px in the build (-18px), so the strip is shorter than the comp's; match the height, not only the position": 2,
-        "chrome host-bubble-last: its rule sits 34px into the box in the comp and 1px in the build (-33px), so the strip is shorter than the comp's; match the height, not only the position": 2,
+        "control meeting-third: its ink is 32px tall in the build and 19px in the comp (+13px); match the height, not only the position": 8,
+        "chrome host-bubble-first: its rule sits 32px into the box in the comp and 24px in the build (-8px), so the strip is shorter than the comp's; match the height, not only the position": 8,
+        "chrome reviewer-bubble: its rule sits 19px into the box in the comp and 1px in the build (-18px), so the strip is shorter than the comp's; match the height, not only the position": 7,
+        "chrome host-bubble-last: its rule sits 34px into the box in the comp and 1px in the build (-33px), so the strip is shorter than the comp's; match the height, not only the position": 7,
         "control blocker: its rule sits 57px into the box in the comp and 12px in the build (-45px), so the strip is shorter than the comp's; match the height, not only the position": 2,
         "control evidence-disclosure: its rule sits 1px into the box in the comp and 14px in the build (+13px), so the strip is taller than the comp's; match the height, not only the position": 2,
         "text host-header-last: ink is #a1adba in the build, #f6f6f6 in the comp; use the comp's colour": 1,
         "control test-link: its rule sits 3px into the box in the comp and 16px in the build (+13px), so the strip is taller than the comp's; match the height, not only the position": 1,
-        "control blocker: its rule sits 57px into the box in the comp and 2px in the build (-55px), so the strip is shorter than the comp's; match the height, not only the position": 1
+        "control blocker: its rule sits 57px into the box in the comp and 2px in the build (-55px), so the strip is shorter than the comp's; match the height, not only the position": 6
       },
       "records": 1,
       "history": [
@@ -381,6 +373,210 @@
             "pause": "contradicted"
           },
           "artifactHash": "937475f54b98"
+        },
+        {
+          "at": "2026-10-19T10:42:21.714Z",
+          "score": 0.9382,
+          "worstIds": [
+            "test-link",
+            "change-link",
+            "pause"
+          ],
+          "blockingReasons": [
+            "region change-link (control) is contradicted (structure 30%, detail added 30%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "region test-link (control) is contradicted (structure 15%, detail added 29%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+            "control pause drifts to 61% (structure 31%, color 94%): open .impeccable/review/diff/hero/regions/pause.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "regionVerdicts": {
+            "titlebar": "match",
+            "sidebar": "match",
+            "conversation": "match",
+            "inspector": "match",
+            "brand": "drift",
+            "preview-label": "drift",
+            "window-controls": "drift",
+            "project-label": "drift",
+            "project-select": "drift",
+            "new-meeting": "drift",
+            "recent-label": "match",
+            "meeting-active": "match",
+            "meeting-second": "drift",
+            "meeting-third": "drift",
+            "manage-assistants": "drift",
+            "settings": "drift",
+            "room-title": "drift",
+            "members": "drift",
+            "avatar-host-first": "match",
+            "host-header-first": "drift",
+            "host-bubble-first": "drift",
+            "host-message-first": "drift",
+            "avatar-builder": "drift",
+            "builder-header": "drift",
+            "builder-bubble": "drift",
+            "builder-message": "drift",
+            "change-link": "contradicted",
+            "test-link": "contradicted",
+            "avatar-reviewer": "drift",
+            "reviewer-header": "drift",
+            "reviewer-bubble": "drift",
+            "reviewer-message": "drift",
+            "avatar-host-last": "match",
+            "host-header-last": "drift",
+            "host-bubble-last": "drift",
+            "host-message-last": "drift",
+            "activity": "drift",
+            "composer": "match",
+            "task-heading": "match",
+            "task-status": "drift",
+            "task-title": "drift",
+            "executor": "drift",
+            "next-heading": "drift",
+            "next-action": "drift",
+            "blocker-heading": "match",
+            "blocker": "drift",
+            "acceptance-disclosure": "match",
+            "evidence-disclosure": "match",
+            "history-disclosure": "match",
+            "pause": "drift"
+          },
+          "artifactHash": "937475f54b98"
+        },
+        {
+          "at": "2026-10-19T10:56:57.052Z",
+          "score": 0.9382,
+          "worstIds": [
+            "test-link",
+            "change-link",
+            "pause"
+          ],
+          "blockingReasons": [
+            "region change-link (control) is contradicted (structure 30%, detail added 30%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "region test-link (control) is contradicted (structure 15%, detail added 29%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+            "control pause drifts to 61% (structure 31%, color 94%): open .impeccable/review/diff/hero/regions/pause.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "regionVerdicts": {
+            "titlebar": "match",
+            "sidebar": "match",
+            "conversation": "match",
+            "inspector": "match",
+            "brand": "drift",
+            "preview-label": "drift",
+            "window-controls": "drift",
+            "project-label": "drift",
+            "project-select": "drift",
+            "new-meeting": "drift",
+            "recent-label": "match",
+            "meeting-active": "match",
+            "meeting-second": "drift",
+            "meeting-third": "drift",
+            "manage-assistants": "drift",
+            "settings": "drift",
+            "room-title": "drift",
+            "members": "drift",
+            "avatar-host-first": "match",
+            "host-header-first": "drift",
+            "host-bubble-first": "drift",
+            "host-message-first": "drift",
+            "avatar-builder": "drift",
+            "builder-header": "drift",
+            "builder-bubble": "drift",
+            "builder-message": "drift",
+            "change-link": "contradicted",
+            "test-link": "contradicted",
+            "avatar-reviewer": "drift",
+            "reviewer-header": "drift",
+            "reviewer-bubble": "drift",
+            "reviewer-message": "drift",
+            "avatar-host-last": "match",
+            "host-header-last": "drift",
+            "host-bubble-last": "drift",
+            "host-message-last": "drift",
+            "activity": "drift",
+            "composer": "match",
+            "task-heading": "match",
+            "task-status": "drift",
+            "task-title": "drift",
+            "executor": "drift",
+            "next-heading": "drift",
+            "next-action": "drift",
+            "blocker-heading": "match",
+            "blocker": "drift",
+            "acceptance-disclosure": "match",
+            "evidence-disclosure": "match",
+            "history-disclosure": "match",
+            "pause": "drift"
+          },
+          "artifactHash": "8a9c3d902b7a"
+        },
+        {
+          "at": "2026-10-19T10:56:58.249Z",
+          "score": 0.9382,
+          "worstIds": [
+            "test-link",
+            "change-link",
+            "pause"
+          ],
+          "blockingReasons": [
+            "region change-link (control) is contradicted (structure 30%, detail added 30%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "region test-link (control) is contradicted (structure 15%, detail added 29%): this control differs from the comp: inspect its lettering and visible shape separately against the crop and the measured readings; preserve the region's control classification",
+            "control members drifts to 62% (structure 48%, color 93%): open .impeccable/review/diff/hero/regions/members.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification",
+            "control pause drifts to 61% (structure 31%, color 94%): open .impeccable/review/diff/hero/regions/pause.png and compare its lettering and visible shape separately; use the measured readings and preserve the region's control classification"
+          ],
+          "regionVerdicts": {
+            "titlebar": "match",
+            "sidebar": "match",
+            "conversation": "match",
+            "inspector": "match",
+            "brand": "drift",
+            "preview-label": "drift",
+            "window-controls": "drift",
+            "project-label": "drift",
+            "project-select": "drift",
+            "new-meeting": "drift",
+            "recent-label": "match",
+            "meeting-active": "match",
+            "meeting-second": "drift",
+            "meeting-third": "drift",
+            "manage-assistants": "drift",
+            "settings": "drift",
+            "room-title": "drift",
+            "members": "drift",
+            "avatar-host-first": "match",
+            "host-header-first": "drift",
+            "host-bubble-first": "drift",
+            "host-message-first": "drift",
+            "avatar-builder": "drift",
+            "builder-header": "drift",
+            "builder-bubble": "drift",
+            "builder-message": "drift",
+            "change-link": "contradicted",
+            "test-link": "contradicted",
+            "avatar-reviewer": "drift",
+            "reviewer-header": "drift",
+            "reviewer-bubble": "drift",
+            "reviewer-message": "drift",
+            "avatar-host-last": "match",
+            "host-header-last": "drift",
+            "host-bubble-last": "drift",
+            "host-message-last": "drift",
+            "activity": "drift",
+            "composer": "match",
+            "task-heading": "match",
+            "task-status": "drift",
+            "task-title": "drift",
+            "executor": "drift",
+            "next-heading": "drift",
+            "next-action": "drift",
+            "blocker-heading": "match",
+            "blocker": "drift",
+            "acceptance-disclosure": "match",
+            "evidence-disclosure": "match",
+            "history-disclosure": "match",
+            "pause": "drift"
+          },
+          "artifactHash": "8a9c3d902b7a"
         }
       ]
     },

@@ -1,9 +1,9 @@
 # Runtime architecture
 
-The first slice runs without Electron. The user requested complete desktop mockups before implementing the renderer. Electron + React is the planned host; renderer code must wait for design selection.
+The desktop alpha hosts the existing runtime through Electron main, a narrow preload bridge and per-meeting utility workers. The CLI shares the same task engine.
 
 ```text
-CLI (future Electron main-process IPC)
+CLI / Electron main-process IPC
   ├─ discovery: executable discovery + bounded version probes
   ├─ workspace: validate repository → create isolated Git worktree
   ├─ store: per-mission atomic snapshots and exclusive execution lock
@@ -37,6 +37,14 @@ OpenCode is discovered but is not a local execution adapter yet. Jev is a planne
 
 Looper's PR lifecycle, role policies and daemon remain in upstream. AgentHarbor calls the public CLI with explicit configuration and JSON, not Go internals or a copied daemon. The upstream MIT implementation is a credited reference and optional engine dependency; the new repository is not a renamed fork. The bridge currently exposes status, projects, loops, issue execution and continuous PR review. Its completion semantics remain upstream's; enqueueing work does not mark an AgentHarbor local mission complete. No automatic merge is implemented locally.
 
-## Desktop boundary to implement after design approval
+## Desktop boundary
 
-Keep all filesystem/process access in Electron main or a worker utility process. Expose a narrow typed preload API with contextIsolation enabled, nodeIntegration disabled and local-only navigation. Renderer state should consume these runtime contracts. Do not expose arbitrary spawn or shell APIs over IPC. Packaging and OS-specific harness discovery need actual Windows and Linux validation.
+React renders local state through a typed preload API. Electron uses contextIsolation, a sandboxed renderer and disabled nodeIntegration. A local `harbor://app` protocol serves the bundled renderer with path validation and a restrictive CSP. IPC handlers validate the sender and expose only defined actions; navigation, popups and permission requests are denied.
+
+Filesystem access, project selection, attachments and diffs stay in main. A utility process runs the engine for each active meeting. The engine streams builder/reviewer messages through `onAgentMessage`; the main process serializes registry mutations so concurrent worker events cannot overwrite user messages. User context is reloaded before the next model invocation. Text attachments are bounded to 12 KB.
+
+The private state directory contains `desktop.json`, mission snapshots and an isolated Electron profile. Closing the app requests pause, bounds the shutdown wait and flushes registry writes. Restart restores meetings; it does not silently resume model calls. A separate state directory also has a separate single-instance lock.
+
+The unpackaged native E2E runner can opt into deterministic agents through `AGENTHARBOR_E2E=1`; it displays an explicit test-mode badge. Packaged builds ignore that flag. Browser-only preview uses labeled synthetic state and cannot execute native tasks.
+
+ZIP packaging and native fixture workflows run on Windows, Linux and macOS. Live model validation currently covers macOS. Windows npm shim execution and native model authentication on Windows/Linux remain separate pending work.
