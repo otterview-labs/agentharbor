@@ -5,10 +5,15 @@ import { pathToFileURL } from 'node:url';
 import { readFile, stat } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { execFile } from 'node:child_process';
+import { mkdirSync } from 'node:fs';
 import { DesktopService } from '../../../src/desktop.js';
 import type { MeetingInput } from '../../../src/desktop-types.js';
 
 protocol.registerSchemesAsPrivileged([{ scheme: 'harbor', privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
+const stateHome = resolve(process.env.AGENTHARBOR_HOME || join(homedir(), '.agentharbor'));
+mkdirSync(join(stateHome, 'electron'), { recursive: true, mode: 0o700 });
+app.setName('AgentHarbor');
+app.setPath('userData', join(stateHome, 'electron'));
 const active = new Map<string, UtilityProcess>();
 let window: BrowserWindow | undefined, service: DesktopService;
 let quitting = false;
@@ -54,7 +59,7 @@ async function start(id: string) {
 }
 async function bootstrap() {
   await hydratePath();
-  const home = resolve(process.env.AGENTHARBOR_HOME || join(homedir(), '.agentharbor'));
+  const home = stateHome;
   service = new DesktopService(home, notify);
   const renderer = resolve(__dirname, '../dist-desktop');
   protocol.handle('harbor', request => {
@@ -64,7 +69,7 @@ async function bootstrap() {
     if (!target.startsWith(renderer + sep)) return new Response('Forbidden', { status: 403 });
     return net.fetch(pathToFileURL(target).toString());
   });
-  register('snapshot', () => service.snapshot([...active.keys()]));
+  register('snapshot', async () => ({ ...await service.snapshot([...active.keys()]), testMode: fixtures }));
   register('addProject', async () => {
     const result = await dialog.showOpenDialog(window!, { title: '选择本地 Git 项目', properties: ['openDirectory'] });
     return result.canceled || !result.filePaths[0] ? null : await service.addProject(result.filePaths[0]);

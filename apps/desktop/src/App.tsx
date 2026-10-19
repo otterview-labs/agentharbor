@@ -31,7 +31,7 @@ export function App() {
   const status = mission ? interrupted ? '执行已中断' : phases[mission.phase] : '尚无任务';
   return <div className={`app ${state.demo?'demo':''} ${showLeft?'show-left':''} ${showRight?'show-right':''}`}>
     <header className={`titlebar ${window.harborPlatform === 'darwin'?'mac':''}`}>
-      <Sailboat size={23}/><span>AgentHarbor</span><span className="build-label">{state.demo ? '设计预览 · 示例数据' : '本地工作台'}</span>
+      <Sailboat size={23}/><span>AgentHarbor</span><span className="build-label">{state.demo ? '设计预览 · 示例数据' : state.testMode ? '自动化测试 · 模拟助手' : '本地工作台'}</span>
       {window.harborPlatform !== 'darwin' && <div className="window-buttons"><button aria-label="最小化" onClick={()=>bridge.windowAction('minimize')}><Minus/></button><button aria-label="最大化" onClick={()=>bridge.windowAction('maximize')}><Square size={16}/></button><button aria-label="关闭窗口" onClick={()=>bridge.windowAction('close')}><X/></button></div>}
     </header>
     <aside className="sidebar" aria-label="项目与会议">

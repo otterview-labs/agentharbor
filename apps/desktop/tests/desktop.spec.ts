@@ -26,7 +26,7 @@ test('native desktop creates, runs, verifies and restores a meeting through real
     await page.getByLabel('参数（JSON 数组）').fill(JSON.stringify(['-e',"if(require('fs').readFileSync('answer.txt','utf8').trim()!=='done')process.exit(1)"]));
     await page.getByRole('button',{name:'创建会议',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible();
     await page.getByRole('button',{name:'启动任务',exact:true}).click();
-    await expect(page.getByLabel('当前任务').getByText('已完成',{exact:true})).toBeVisible({timeout:30000});
+    await expect(page.getByLabel('当前任务').locator('.status').filter({hasText:'已完成'})).toBeVisible({timeout:30000});
     await page.getByText('改动与测试',{exact:true}).click();await expect(page.getByText('第 1 轮 · 检查通过')).toBeVisible();
     await expect(page.getByText('独立审核：任务验收条件已满足，验证结果通过。')).toBeVisible();
     await page.getByRole('button',{name:'查看代码改动',exact:true}).click();await expect(page.locator('.diff')).toContainText('answer.txt');
