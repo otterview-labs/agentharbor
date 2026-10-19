@@ -1,7 +1,7 @@
 import type { Mission, Command, HarnessId } from './types.js';
 import type { DiscoveredTool } from './discovery.js';
 
-export interface Project { id: string; name: string; path: string; checks: Command[] }
+export interface Project { id: string; name: string; path: string; kind?: 'git' | 'directory'; checks: Command[] }
 export interface ChatMessage { id: string; author: 'user' | 'host' | 'builder' | 'reviewer'; text: string; at: string }
 export interface Meeting { id: string; projectId: string; title: string; missionId: string; messages: ChatMessage[]; createdAt: string }
 export interface DesktopState { projects: Project[]; meetings: Meeting[]; missions: Mission[]; running: string[]; tools: DiscoveredTool[]; home: string; demo: boolean; testMode?: boolean }

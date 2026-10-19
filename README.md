@@ -2,7 +2,7 @@
 
 让本机的 AI 编程助手围绕一个目标协作，并用真实测试和独立审核判断任务是否完成。
 
-**桌面首版：0.2.0-alpha.1。** 采用 Electron + React，共用 Windows、Linux、macOS 代码。界面以助手会议为中心：左侧选择项目和会议，中间查看执行与审核对话，右侧查看任务、改动和测试证据。
+**桌面首版：0.2.0-alpha.2。** 采用 Electron + React，共用 Windows、Linux、macOS 代码。界面以助手会议为中心：左侧选择项目和会议，中间查看执行与审核对话，右侧查看任务、改动和测试证据。
 
 [English](README.en.md) · [下载与发布](https://github.com/otterview-labs/agentharbor/releases) · [桌面使用说明](docs/desktop-alpha.md) · [测试记录](docs/verification.md) · [架构](docs/architecture.md) · [路线图](docs/ROADMAP.md)
 
@@ -19,8 +19,8 @@ AgentHarbor 是独立桌面仓库；手机端 [agentBridge](https://github.com/o
 ## 首版可以做什么
 
 - 检测本机 Codex、Claude Code、OpenCode、Looper、Git 和 GitHub CLI。工具存在、版本可读、账号已认证是不同状态。
-- 添加本地 Git 项目，创建带目标、验收标准和检查命令的会议。
-- 在独立 Git worktree 中执行任务，由 Codex、Claude Code 分别担任执行与审核角色。
+- 添加普通文件夹或本地 Git 项目，创建带目标、验收标准和检查命令的任务。
+- 普通文件夹在任务副本中执行，Git 项目在独立 worktree 中执行，由 Codex、Claude Code 分别担任执行与审核角色。
 - 自动推进“实现 → 运行检查 → 独立审核 → 按问题返工”，限制最大轮数；不会仅凭模型说“完成”结束任务。
 - 在会议里保留助手输出、用户补充和文本附件；查看代码差异、测试结果、审核结论与执行历史。
 - 暂停、继续任务，关闭应用后保留会议和任务记录。
@@ -29,7 +29,7 @@ AgentHarbor 是独立桌面仓库；手机端 [agentBridge](https://github.com/o
 
 ## 开始使用
 
-下载对应平台的 ZIP，解压运行。首版尚未签名或公证，应用图标暂沿用 Electron 默认图标。使用前需要安装 Git，以及已完成登录配置的 Codex 和 Claude Code CLI。**Windows 的 npm `.cmd` 启动器适配仍待实现：Windows 桌面构建和夹具流程通过，不代表真实 Windows 助手已跑通。**
+下载对应平台的 ZIP，解压运行。首版尚未签名或公证，应用图标暂沿用 Electron 默认图标。使用前需要配置好 Codex 和 Claude Code CLI。普通文件夹无需 Git；Git 项目才需要安装 Git。**Windows 的 npm `.cmd` 启动器适配仍待实现：Windows 桌面构建和夹具流程通过，不代表真实 Windows 助手已跑通。**
 
 从源码启动需要 Node.js 22.13+：
 
@@ -38,8 +38,8 @@ npm ci
 npm run desktop
 ```
 
-1. 点击“添加本地项目”，选择可信的 Git 仓库。
-2. 提交或暂存当前改动，确保仓库干净。新建会议，填写目标、验收标准和真实检查命令。
+1. 点击“添加本地项目”，选择可信的普通文件夹或 Git 仓库。
+2. Git 项目需先提交或收起当前改动；普通文件夹无需初始化仓库。新建任务，填写目标、验收标准和真实检查命令。
 3. 选择不同的执行与审核工具，启动任务。需要依赖的项目应先在任务工作区准备依赖；worktree 不复制原目录的 `node_modules`。
 4. 查看右侧的“改动与测试”，确认代码和证据。改动保留在任务 worktree，首版不会自动提交、推送或合并。
 
@@ -53,8 +53,8 @@ npm run package:desktop   # 当前平台 ZIP
 
 ## 已验证的范围
 
-- 严格 TypeScript 检查通过，14 项运行时测试通过。
-- 原生 Electron 测试覆盖创建、执行、真实检查、审核、持久化恢复，以及暂停继续；模型使用确定性夹具。
+- 严格 TypeScript 检查通过，22 项运行时测试通过。
+- 3 项原生 Electron 测试覆盖普通文件夹与 Git 项目的创建、执行、真实检查、审核、持久化恢复，以及暂停继续；模型使用确定性夹具。
 - macOS 上已通过真实 Codex → 主机测试 → 真实 Claude Code 的桌面闭环，源目录保持不变，审核绑定测试时的源文件指纹。
 - Windows、Linux、macOS 的原生夹具测试与 ZIP 构建通过 CI；这与三平台真实模型认证验证分开记录。
 
@@ -85,3 +85,11 @@ npm run test:desktop
 ```
 
 MIT License.
+
+## 普通文件夹
+
+选择文件夹即可添加，不需要 `git init`，也不会自动创建 `.git`。创建任务时复制工作文件到独立任务目录，执行和审核均在副本中进行；原目录保持不变。完成后点击“改动与测试 → 打开工作区”查看或取回结果，首版不会自动覆盖原目录。普通文件夹的改动检查显示相对初始快照的新增、修改、删除列表；Git 模式仍提供 Git diff。
+
+副本和文件指纹排除 `.git`、`node_modules`、Python 虚拟环境/缓存、`dist`、`build`、`coverage`、`.next`、`.nuxt`、`.cache`、`target`、`.gradle` 等依赖与构建目录，暂不解析 `.gitignore` 自定义规则。请在任务副本准备依赖，并为任务指定真实、可信的检查命令。排除的输出不属于源文件指纹。
+
+当前普通文件夹限制为 10000 个文件、总计 256 MiB、单文件 64 MiB，暂不支持符号链接或特殊文件。请选择具体的项目或工作目录；不要选择包含 AgentHarbor 数据目录的上级目录。

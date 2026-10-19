@@ -25,7 +25,8 @@ const help = `AgentHarbor — local multi-agent missions (alpha)
 
 All commands accept --home <absolute-state-directory>. Ctrl+C pauses a running
 local mission. Run it again with the same ID to resume within its round budget.
-No desktop UI or automatic merge is shipped in this alpha.
+The desktop app is available separately. No automatic merge is performed.
+Project folders may be Git repositories or ordinary directories.
 `;
 async function main() {
   const { positionals, values } = parseArgs({ allowPositionals: true, options: {

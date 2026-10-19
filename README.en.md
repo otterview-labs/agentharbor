@@ -2,7 +2,7 @@
 
 A local desktop workspace where coding assistants implement a goal, run real checks and independently review the result.
 
-**Desktop alpha: 0.2.0-alpha.1.** Electron + React shares one desktop codebase across Windows, Linux and macOS. Projects and meetings sit on the left, assistant handoffs in the center, and task status and evidence on the right.
+**Desktop alpha: 0.2.0-alpha.2.** Electron + React shares one desktop codebase across Windows, Linux and macOS. Projects and meetings sit on the left, assistant handoffs in the center, and task status and evidence on the right.
 
 [中文](README.md) · [Downloads](https://github.com/otterview-labs/agentharbor/releases) · [Desktop guide](docs/desktop-alpha.md) · [Verification](docs/verification.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md)
 
@@ -13,8 +13,8 @@ The screenshot is a running browser preview with labeled sample data. The native
 ## Working slice
 
 - Discover installed Codex, Claude Code, OpenCode, Looper, Git and GitHub CLI. Installation and version probes do not establish authenticated access.
-- Add a clean local Git project; specify a goal, acceptance criteria and verification commands.
-- Run Codex and Claude Code as separate builder and reviewer roles inside an isolated Git worktree.
+- Add an ordinary folder or a clean local Git project; specify a goal, acceptance criteria and verification commands.
+- Run Codex and Claude Code as separate builder and reviewer roles inside an isolated task workspace (a folder copy or Git worktree).
 - Persist execution → host verification → independent structured review → bounded rework, with source fingerprints binding approval to verified code.
 - Inspect assistant messages, diffs, checks and history; attach small text files and send context for the next agent invocation.
 - Pause and resume tasks and restore meetings after restart.
@@ -23,7 +23,7 @@ The host follows a defined workflow. Free-form multi-agent discussions, mention 
 
 ## Run
 
-Download and unzip the package for your OS. Alpha packages are unsigned and not notarized, with the default Electron application icon. Install Git and configure authenticated Codex and Claude Code CLIs first. **Windows desktop fixture tests and packaging pass; the adapter still cannot execute Windows npm `.cmd` harness shims. Real Windows harness access remains unverified.**
+Download and unzip the package for your OS. Alpha packages are unsigned and not notarized, with the default Electron application icon. Configure authenticated Codex and Claude Code CLIs first. Ordinary folders need no Git installation or initialization; Git repositories still require Git. **Windows desktop fixture tests and packaging pass; the adapter still cannot execute Windows npm `.cmd` harness shims. Real Windows harness access remains unverified.**
 
 From source, use Node.js 22.13+:
 
@@ -46,7 +46,7 @@ The separate mobile project remains in its existing repository.
 
 ## Validation
 
-Strict TypeScript checks and 14 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
+Strict TypeScript checks and 22 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
 
 ## CLI and upstream
 
@@ -70,3 +70,9 @@ npm run test:desktop
 ```
 
 MIT License.
+
+## Ordinary folders
+
+Ordinary folders run in an isolated copy without creating Git metadata or changing the source folder. Open the task workspace to retrieve results. File changes are listed against the initial manifest; Git projects retain their diff view. Verification and review bind to the same source-file hashes. Existing snapshots without a workspace kind remain Git worktrees.
+
+Dependency/cache/build directories (`node_modules`, virtual environments, `dist`, `build`, `coverage`, `.next`, `.nuxt`, `.cache`, `target`, `.gradle`, etc.) are excluded from copying and fingerprints. Custom `.gitignore` rules are not parsed in folder mode. Prepare dependencies and register real checks for the copy. Folder limits: 10000 files, 256 MiB total, 64 MiB per file; symlinks and special files are rejected.

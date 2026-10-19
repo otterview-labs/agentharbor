@@ -18,7 +18,7 @@ AgentHarbor discovers coding assistants, assembles a task team and advances a pr
 One local control surface for existing harnesses, with persistent task state, independent review and visible completion evidence. Upstream Looper is the proposed autonomous GitHub workflow engine, integrated through an adapter rather than copied wholesale.
 
 ## Operating Context
-Users work in local Git repositories with Codex, Claude Code or OpenCode. A mission assigns builder and reviewer roles. A rejected review returns actionable findings to the builder. Interrupted tasks can be inspected and resumed. A local desktop process requires the computer to remain awake.
+Users work in ordinary local folders or Git repositories with Codex, Claude Code or OpenCode. A mission assigns builder and reviewer roles. A rejected review returns actionable findings to the builder. Interrupted tasks can be inspected and resumed. A local desktop process requires the computer to remain awake.
 
 ## Capabilities and Constraints
 - Windows, Linux and macOS have native fixture tests and ZIP builds; alpha packages are unsigned, with real harness access currently verified on macOS only.

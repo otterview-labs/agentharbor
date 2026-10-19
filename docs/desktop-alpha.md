@@ -1,4 +1,4 @@
-# Desktop alpha — 0.2.0-alpha.1
+# Desktop alpha — 0.2.0-alpha.2
 
 This first desktop version implements the approved pure-black, three-pane meeting workspace. The center is an assistant conversation, the left selects local projects/meetings and the right shows the current task, next action and blocker. Acceptance, evidence and history are collapsed by default.
 
@@ -11,10 +11,10 @@ npm run desktop
 
 The desktop app needs Electron's runtime download on the first install. The CLI still works with `npm ci --ignore-scripts && npm run build`. `npm run preview:desktop` after `npm run build:desktop` serves a **browser design demo with synthetic data**; it cannot execute tools or access local projects.
 
-1. Add a local Git repository with the folder button or first-run action.
-2. Create a meeting with a goal and explicit acceptance criteria. The repository must be clean. The form detects `npm test` where present, otherwise proposes `node --test`; expand verification settings to choose your actual project check.
+1. Add an ordinary folder or local Git repository with the folder button or first-run action.
+2. Create a meeting with a goal and explicit acceptance criteria. Git repositories must be clean; ordinary folders require no repository setup. The form detects `npm test` where present, otherwise proposes `node --test`; expand verification settings to choose your actual project check.
 3. Choose Codex or Claude Code as the executor; the other becomes the independent reviewer. Model credentials stay in those tools' existing local configuration.
-4. Start the task. The engine creates an isolated Git worktree, executes changes, runs registered checks, asks the reviewer and automatically returns rejected work within the five-round budget.
+4. Start the task. The engine creates an isolated folder copy or Git worktree, executes changes, runs registered checks, asks the reviewer and automatically returns rejected work within the five-round budget.
 5. Inspect changes, test output and review findings in the right pane. Pause/resume uses the same task record. Closing the app pauses active tasks; reopening restores projects, meetings and evidence.
 
 Verification commands run in the isolated worktree. Ignored dependencies such as node_modules are not copied there. Configure commands that prepare/use the worktree correctly; do not treat the original checkout's dependencies as automatically available. Windows native `.exe` harnesses are supported by discovery; npm `.cmd` harness launchers remain outside the alpha execution adapter.
@@ -34,3 +34,9 @@ A separate live desktop smoke on macOS arm64 used actual Codex and Claude Code. 
 Model authentication and live native harnesses on Windows/Linux are separate from the cross-platform fixture smoke. OpenCode execution, Jev, background scheduling, automatic commits/push/merge, automatic dependency installation and arbitrary external actions are not included.
 
 First alpha packages are unsigned. Native application signing, stable icons and production distribution remain release work.
+
+## Folder support in alpha.2
+
+Ordinary folders are detected from filesystem metadata, with no Git subprocess needed. The copy and its baseline manifest are private local state. Codex receives `--skip-git-repo-check` only for directory-copy tasks; verification/review use directory fingerprints. No source `.git` is created and no result is applied automatically. Open the workspace to retrieve completed files. File changes are shown as additions/modifications/deletions, not a Git patch.
+
+Excluded directory names, copy limits and symlink restrictions are documented in README. Empty directories are not copied; file content and permission bits are preserved. Old mission snapshots without `workspaceKind` continue using Git fingerprints.

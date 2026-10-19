@@ -5,7 +5,7 @@ The desktop alpha hosts the existing runtime through Electron main, a narrow pre
 ```text
 CLI / Electron main-process IPC
   ├─ discovery: executable discovery + bounded version probes
-  ├─ workspace: validate repository → create isolated Git worktree
+  ├─ workspace: inspect local folder → isolated copy or Git worktree
   ├─ store: per-mission atomic snapshots and exclusive execution lock
   ├─ engine: build → verify → review → rework / complete / pause / block
   │    ├─ CliAgent: Codex or Claude Code
@@ -48,3 +48,9 @@ The private state directory contains `desktop.json`, mission snapshots and an is
 The unpackaged native E2E runner can opt into deterministic agents through `AGENTHARBOR_E2E=1`; it displays an explicit test-mode badge. Packaged builds ignore that flag. Browser-only preview uses labeled synthetic state and cannot execute native tasks.
 
 ZIP packaging and native fixture workflows run on Windows, Linux and macOS. Live model validation currently covers macOS. Windows npm shim execution and native model authentication on Windows/Linux remain separate pending work.
+
+## Ordinary folder workspaces
+
+`inspectProject` checks ancestor `.git` metadata before invoking Git, so plain folders have no Git command dependency. `workspaceKind: directory-copy` selects bounded file copying, a private baseline manifest and Git-free source fingerprints; old schema-1 snapshots lacking this optional field retain `git-worktree` semantics. A folder containing the state directory is rejected to avoid recursive copies.
+
+`directory.ts` streams hashes with file/byte/entry limits, detects files changing while read/copied and refuses symlinks/special files. Dependency/cache/build names are excluded consistently from copying and fingerprints; custom `.gitignore` parsing is not implemented. Baseline manifests live outside task workspaces under private `baselines/`. Verification/review drift detection and mission locks remain active in both workspace modes. Empty directories are not copied. Ordinary-folder changes are compared by initial/current file hashes and permission bits. No automatic apply-back occurs.

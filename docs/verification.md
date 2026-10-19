@@ -52,3 +52,9 @@ No claim of arbitrary-project unattended completion follows from these bounded t
 Fresh finish review initially returned `fix`: narrow drawers lacked an independent close action, and formal visual-state metadata remained open. The drawer issue is addressed with local close controls and Escape handling. The user explicitly approved delivery of the current viewport: “接受这两处小差异，先交付当前首版”. The numeric hero comparison scored 0.9382, but the CLI still flags link and control differences and refused recording that exception; the hero phase remains open. This is an accepted first-version delivery, not a claim that the formal pixel comparison gate passed. No approval receipt or gate closure was fabricated.
 
 The same fresh reviewer re-read the updated captures and returned `ship` for the scored fixes: drawer dismissal and truthful delivery records resolved; no visible regressions. The disposition covers those fixes and does not close the formal hero gate.
+
+## Ordinary-folder regression — alpha.2
+
+The local suite now contains 22 runtime tests and 3 native Electron tests. Folder coverage runs with an empty PATH, real Node checks, independent fixture review/rework, restored manifests, source-drift rejection, copy limits, dependency/build exclusions and source preservation. Legacy Git snapshots without the new optional workspace kind remain covered. Native UI coverage adds selecting a non-Git folder, creating and completing a task through a real utility worker, inspecting changed files and confirming no `.git` was created.
+
+A live macOS folder smoke also completed in one round using actual Codex and Claude Code: real check exit 0, structured approval bound to the verified fingerprint, unchanged original directory and no Git metadata. See [sanitized report](live-directory-smoke-20261019.json). This was a runtime/CLI smoke; native desktop folder execution is separately covered with deterministic agents.

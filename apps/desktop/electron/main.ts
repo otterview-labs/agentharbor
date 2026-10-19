@@ -42,7 +42,7 @@ function register(name: string, handler: (...args: any[]) => unknown) {
 async function start(id: string) {
   if (active.has(id)) throw new Error('该会议的任务正在运行');
   const meeting = await service.meeting(id), mission = await service.missions.get(meeting.missionId);
-  if (mission.phase === 'completed') throw new Error('任务已完成，请新建会议处理其他目标');
+  if (mission.phase === 'completed') throw new Error('任务已完成，请新建任务处理其他目标');
   if (mission.round >= mission.maxRounds) throw new Error('本任务已达到轮次上限，请根据审核意见调整目标后新建任务');
   const child = utilityProcess.fork(join(__dirname, 'worker.cjs'), [], { serviceName: 'AgentHarbor task' });
   active.set(id, child); notify();
@@ -71,7 +71,7 @@ async function bootstrap() {
   });
   register('snapshot', async () => ({ ...await service.snapshot([...active.keys()]), testMode: fixtures }));
   register('addProject', async () => {
-    const result = await dialog.showOpenDialog(window!, { title: '选择本地 Git 项目', properties: ['openDirectory'] });
+    const result = await dialog.showOpenDialog(window!, { title: '选择本地文件夹或 Git 项目', properties: ['openDirectory'] });
     return result.canceled || !result.filePaths[0] ? null : await service.addProject(result.filePaths[0]);
   });
   register('createMeeting', (input: MeetingInput) => service.create(input));

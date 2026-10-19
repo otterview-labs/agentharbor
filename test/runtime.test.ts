@@ -112,3 +112,9 @@ test('runner keeps shell metacharacters literal and enforces timeout and abort',
   const abort = new AbortController(); abort.abort();
   await assert.rejects(runProcess({ file: process.execPath, args: ['--version'] }, { cwd: tmpdir(), timeoutMs: 3000, signal: abort.signal }));
 });
+
+test('legacy Git mission snapshots without workspaceKind still execute and verify',async t=>{
+  const {store,mission}=await fixture(t);delete mission.workspaceKind;await store.save(mission);
+  const result=await executeMission(mission.id,{store,builder:agent('codex',async r=>{await writeFile(join(r.workspace,'answer.txt'),'done');return 'implemented';}),reviewer:agent('claude',async()=>approve)});
+  assert.equal(result.phase,'completed');assert.equal(result.review?.fingerprint,result.evidence.at(-1)?.fingerprint);
+});

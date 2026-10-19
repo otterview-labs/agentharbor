@@ -19,18 +19,18 @@ test('native desktop creates, runs, verifies and restores a meeting through real
     await app.evaluate(({dialog},path)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[path]});},f.repo);
     let page=await app.firstWindow();await page.getByRole('button',{name:'添加本地项目',exact:true}).click();
     await expect(page.getByRole('combobox').first()).toHaveValue(/.+/);
-    await page.getByRole('button',{name:'新建会议',exact:true}).click();
+    await page.getByRole('button',{name:'新建任务',exact:true}).click();
     await page.getByLabel('这次要解决什么').fill('完成 answer.txt 的修改');await page.getByLabel('怎样才算完成').fill('answer.txt 内容为 done');
     await page.getByText('验证方式',{exact:true}).click();await page.getByLabel('指定验证程序').check();
     await page.getByLabel('程序',{exact:true}).fill(process.execPath);
     await page.getByLabel('参数（JSON 数组）').fill(JSON.stringify(['-e',"if(require('fs').readFileSync('answer.txt','utf8').trim()!=='done')process.exit(1)"]));
-    await page.getByRole('button',{name:'创建会议',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible();
+    await page.getByRole('button',{name:'创建任务',exact:true}).click();await expect(page.getByRole('dialog')).not.toBeVisible();
     await page.getByRole('button',{name:'启动任务',exact:true}).click();
     await expect(page.getByLabel('当前任务').locator('.status').filter({hasText:'已完成'})).toBeVisible({timeout:30000});
     await page.getByText('改动与测试',{exact:true}).click();await expect(page.getByText('第 1 轮 · 检查通过')).toBeVisible();
     await expect(page.getByText('独立审核：任务验收条件已满足，验证结果通过。')).toBeVisible();
     await page.getByRole('button',{name:'查看代码改动',exact:true}).click();await expect(page.locator('.diff')).toContainText('answer.txt');
-    await page.getByRole('textbox',{name:'会议消息'}).fill('保留这条项目说明');await page.getByRole('button',{name:'发送',exact:true}).click();
+    await page.getByRole('textbox',{name:'任务消息'}).fill('保留这条项目说明');await page.getByRole('button',{name:'发送',exact:true}).click();
     await expect(page.getByText('保留这条项目说明',{exact:true})).toBeVisible();
     expect(await readFile(join(f.repo,'answer.txt'),'utf8')).toBe('before\n');
     await app.close();app=await electron.launch({args:[resolve('dist-electron/main.cjs')],env});page=await app.firstWindow();
@@ -57,4 +57,25 @@ test('native desktop pauses and resumes the task without losing messages or work
     const phases=await page.evaluate(async()=>{const s=await (window as any).harbor.snapshot();return s.missions[0].events.map((e:any)=>e.phase);});
     expect(phases).toContain('paused');expect(phases.at(-1)).toBe('completed');
   } finally {await app.close();await rm(f.root,{recursive:true,force:true});}
+});
+
+test('native desktop accepts an ordinary folder and completes in a copy without initializing Git', async()=>{
+  const root=await mkdtemp(join(tmpdir(),'harbor-folder-e2e-')),folder=join(root,'notes'),home=join(root,'state');
+  const {mkdir,access}=await import('node:fs/promises');await mkdir(folder);await writeFile(join(folder,'answer.txt'),'before\n');
+  const env={...process.env,AGENTHARBOR_HOME:home,AGENTHARBOR_E2E:'1'};delete env.ELECTRON_RUN_AS_NODE;
+  const app=await electron.launch({args:[resolve('dist-electron/main.cjs')],env});
+  try {
+    await app.evaluate(({dialog},path)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[path]});},folder);
+    const page=await app.firstWindow();await page.getByRole('button',{name:'添加本地项目',exact:true}).click();
+    await page.getByRole('button',{name:'新建任务',exact:true}).click();
+    await expect(page.getByText(/普通文件夹将创建任务副本/)).toBeVisible();
+    await page.getByLabel('这次要解决什么').fill('Update an ordinary folder');await page.getByLabel('怎样才算完成').fill('answer.txt is done');
+    await page.getByText('验证方式',{exact:true}).click();await page.getByLabel('指定验证程序').check();
+    await page.getByLabel('程序',{exact:true}).fill(process.execPath);await page.getByLabel('参数（JSON 数组）').fill(JSON.stringify(['-e',"if(require('fs').readFileSync('answer.txt','utf8').trim()!=='done')process.exit(1)"]));
+    await page.getByRole('button',{name:'创建任务',exact:true}).click();await page.getByRole('button',{name:'启动任务',exact:true}).click();
+    await expect(page.getByLabel('当前任务').locator('.status')).toHaveText('已完成',{timeout:30000});
+    await page.getByText('改动与测试',{exact:true}).click();await page.getByRole('button',{name:'查看代码改动',exact:true}).click();await expect(page.locator('.diff')).toContainText('修改 "answer.txt"');
+    const state=await page.evaluate(()=>(window as any).harbor.snapshot());expect(state.projects[0].kind).toBe('directory');expect(state.missions[0].workspaceKind).toBe('directory-copy');
+    expect(await readFile(join(folder,'answer.txt'),'utf8')).toBe('before\n');await expect(access(join(folder,'.git'))).rejects.toThrow();await expect(access(join(state.missions[0].workspace,'.git'))).rejects.toThrow();
+  } finally {await app.close();await rm(root,{recursive:true,force:true});}
 });

@@ -6,9 +6,9 @@ on:
         description: Successful Desktop build and smoke run ID
         required: true
       tag:
-        description: New alpha tag (v0.2.0-alpha.1)
+        description: New alpha tag (v0.2.0-alpha.2)
         required: true
-        default: v0.2.0-alpha.1
+        default: v0.2.0-alpha.2
 permissions:
   actions: read
   contents: write
@@ -45,4 +45,4 @@ jobs:
       - name: Publish prerelease packages
         run: |
           test "$(find packages -maxdepth 1 -name '*.zip' | wc -l)" -ge 3
-          gh release create "$RELEASE_TAG" packages/*.zip --target "$TESTED_SHA" --title "AgentHarbor $RELEASE_TAG" --prerelease --notes-file docs/releases/0.2.0-alpha.1.md
+          gh release create "$RELEASE_TAG" packages/*.zip --target "$TESTED_SHA" --title "AgentHarbor $RELEASE_TAG" --prerelease --notes-file "docs/releases/${RELEASE_TAG#v}.md"

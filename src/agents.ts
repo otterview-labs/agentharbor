@@ -15,7 +15,7 @@ export class CliAgent implements Agent {
     const message = join(folder, 'last-message.txt');
     try {
       const args = this.id === 'codex'
-        ? ['exec', '--sandbox', request.role === 'builder' ? 'workspace-write' : 'read-only', '-C', request.workspace, '--output-last-message', message, '-']
+        ? ['exec', ...(request.workspaceKind === 'directory-copy' ? ['--skip-git-repo-check'] : []), '--sandbox', request.role === 'builder' ? 'workspace-write' : 'read-only', '-C', request.workspace, '--output-last-message', message, '-']
         : ['--print', '--output-format', 'text', '--no-session-persistence', '--permission-mode', request.role === 'builder' ? 'acceptEdits' : 'dontAsk',
           '--tools', request.role === 'builder' ? 'Read,Glob,Grep,Edit,Write' : 'Read,Glob,Grep'];
       const result = await this.runner({ file: binary, args }, { cwd: request.workspace, timeoutMs: request.timeoutMs, input: request.prompt,

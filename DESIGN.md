@@ -247,7 +247,7 @@ Avoid adding pill silhouettes to rectangular actions. The round avatar and small
 
 ### Buttons
 
-The filled primary action is compact and clearly visible. It has a fine border, a (10px) icon gap and medium (500) weight. The desktop Send variant is (55px) high with a minimum width of (120px); on mobile it becomes (42px) high with a minimum width of (90px). Secondary buttons use an outlined quiet treatment. New meeting is a blue outlined action (47px) high. Icon buttons are square controls with small rounded corners.
+The filled primary action is compact and clearly visible. It has a fine border, a (10px) icon gap and medium (500) weight. The desktop Send variant is (55px) high with a minimum width of (120px); on mobile it becomes (42px) high with a minimum width of (90px). Secondary buttons use an outlined quiet treatment. New task is a blue outlined action (47px) high. Icon buttons are square controls with small rounded corners.
 
 Enabled buttons use the dark hover surface unless a component supplies a more specific fill; primary buttons use their dedicated blue hover. Pressed buttons move down (1px). Most disabled buttons use opacity (.48), while the inspector run control uses (.75); the illustrative demo explicitly keeps that run control at full opacity. Preserve these distinctions when reproducing the current alpha.
 
@@ -281,7 +281,7 @@ Builder messages have small inline blue actions for changes and tests, each with
 
 ### Dialogs and Motion
 
-New meeting, assistant management and settings use a native modal dialog with a header and local close action. Escape and clicking the backdrop close it; focus returns to the previously focused control. The busy spinner rotates over (1.1s) with linear timing. Threads request smooth scrolling. The reduced-motion media query disables animations, transitions and smooth CSS scrolling.
+New task, assistant management and settings use a native modal dialog with a header and local close action. Escape and clicking the backdrop close it; focus returns to the previously focused control. The busy spinner rotates over (1.1s) with linear timing. Threads request smooth scrolling. The reduced-motion media query disables animations, transitions and smooth CSS scrolling.
 
 ## Do's and Don'ts
 
