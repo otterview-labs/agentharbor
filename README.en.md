@@ -2,11 +2,11 @@
 
 A local desktop workspace where coding assistants implement a goal, run real checks and independently review the result.
 
-**Desktop alpha: 0.2.0-alpha.3.** Electron + React shares one desktop codebase across Windows, Linux and macOS. Projects and meetings sit on the left, assistant handoffs in the center, and task status and evidence on the right.
+**Desktop alpha: 0.2.0-alpha.4.** Electron + React shares one desktop codebase across Windows, Linux and macOS. Projects and meetings sit on the left, assistant handoffs in the center, and task status and evidence on the right.
 
 [中文](README.md) · [Downloads](https://github.com/otterview-labs/agentharbor/releases) · [Desktop guide](docs/desktop-alpha.md) · [Verification](docs/verification.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md)
 
-![Actual browser design preview with explicitly synthetic meeting data](docs/screenshots/desktop-preview.png)
+![Actual browser design preview with explicitly synthetic meeting data](docs/screenshots/quick-task-entry.png)
 
 The screenshot is a running browser preview with labeled sample data. The native desktop starts empty and uses your own local projects.
 
@@ -32,7 +32,7 @@ npm ci
 npm run desktop
 ```
 
-Add a local repository, create a meeting with real checks, assign separate tools and start it. Prepare project dependencies inside the task worktree when necessary: existing `node_modules` directories are not copied. Inspect checks and review before using the resulting changes.
+Choose a local folder (or choose it when starting), describe a goal in the main composer and click Start. Creation starts execution immediately. The goal becomes the default acceptance criterion; registered project checks and separate Codex/Claude roles are filled by the host. Optional Task settings exposes custom acceptance, roles and commands. Cancelling the picker preserves the draft, and a startup failure retains the created task for retry. Prepare project dependencies inside the task worktree when necessary: existing `node_modules` directories are not copied. Inspect checks and review before using the resulting changes.
 
 No self-hosted cloud service is required for local use; model calls use each harness's configured provider. Keep the computer running. Private state defaults to `~/.agentharbor`, overridable through `AGENTHARBOR_HOME`. A worktree separates edits; harnesses and registered checks still run as your user. Use trusted repositories and commands.
 
@@ -46,7 +46,7 @@ The separate mobile project remains in its existing repository.
 
 ## Validation
 
-Strict TypeScript checks and 24 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
+Strict TypeScript checks and 26 runtime tests pass. Native Electron tests cover project/meeting creation, workers, verification, independent fixture review, persistence and pause/resume. A live macOS desktop smoke passed with actual Codex, real Node tests and actual Claude Code; the original checkout was unchanged. Windows, Linux and macOS native fixture tests and ZIP builds passed CI. See [verification](docs/verification.md) for evidence and limits.
 
 ## CLI and upstream
 

@@ -5,7 +5,7 @@ export interface Project { id: string; name: string; path: string; kind?: 'git' 
 export interface ChatMessage { id: string; author: 'user' | 'host' | 'builder' | 'reviewer'; text: string; at: string }
 export interface Meeting { id: string; projectId: string; title: string; missionId: string; messages: ChatMessage[]; createdAt: string }
 export interface DesktopState { projects: Project[]; meetings: Meeting[]; missions: Mission[]; running: string[]; tools: DiscoveredTool[]; home: string; demo: boolean; testMode?: boolean }
-export interface MeetingInput { projectId: string; goal: string; acceptance: string[]; builder: HarnessId; reviewer: HarnessId; checks: Command[] }
+export interface MeetingInput { projectId: string; goal: string; acceptance?: string[]; builder?: HarnessId; reviewer?: HarnessId; checks?: Command[]; context?: string }
 export interface Attachment { name: string; text: string }
 export interface DesktopBridge {
   snapshot(): Promise<DesktopState>;

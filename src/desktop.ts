@@ -46,13 +46,16 @@ export class DesktopService {
   }
   async create(input: MeetingInput): Promise<Meeting> {
     return this.serial(async () => {
+    if (input.context !== undefined && (typeof input.context !== 'string' || input.context.length > 32_000)) throw new Error('任务补充说明需要少于 32000 个字符');
     const registry = await this.read(), project = registry.projects.find(x => x.id === input.projectId);
     if (!project) throw new Error('请先选择本地项目');
-    const mission = await createMission({ repository: project.path, goal: input.goal, acceptance: input.acceptance,
-      builder: input.builder, reviewer: input.reviewer, checks: input.checks, maxRounds: 5 }, this.missions);
+    const builder = input.builder ?? 'codex';
+    const mission = await createMission({ repository: project.path, goal: input.goal, acceptance: input.acceptance ?? [input.goal],
+      builder, reviewer: input.reviewer ?? (builder === 'codex' ? 'claude' : 'codex'), checks: input.checks ?? project.checks, maxRounds: 5 }, this.missions);
     const now = new Date().toISOString();
     const meeting: Meeting = { id: randomUUID(), projectId: project.id, title: input.goal.split('\n')[0]!.slice(0, 44), missionId: mission.id, createdAt: now,
       messages: [{ id: randomUUID(), author: 'user', text: input.goal, at: now }, { id: randomUUID(), author: 'host', text: '目标和验收标准已记录。' + (mission.workspaceKind === 'directory-copy' ? '普通文件夹已创建任务副本，原目录保持不变。' : '已创建独立 Git 工作区。') + '启动后由执行助手修改，验证通过后交给独立助手审核。', at: now }] };
+    if (input.context?.trim()) meeting.messages.splice(1, 0, { id: randomUUID(), author: 'user', text: input.context, at: now });
     registry.meetings.unshift(meeting); await this.write(registry); return meeting;
     });
   }

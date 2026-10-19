@@ -1,6 +1,6 @@
 {
   "name": "@otterview-labs/agentharbor",
-  "version": "0.2.0-alpha.3",
+  "version": "0.2.0-alpha.4",
   "description": "Local multi-agent missions with persistent execution, verification and independent review",
   "license": "MIT",
   "private": true,
