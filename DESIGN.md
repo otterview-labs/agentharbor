@@ -273,6 +273,8 @@ Messages use circular author avatars, a small author-and-time row and a bounded 
 
 ### Composer
 
+New task focuses a blank goal composer instead of opening a required form. The new-task view hides the empty inspector. Start creates and runs the task; advanced acceptance, role and command fields live in an optional Task settings disclosure. Existing-task composition remains message sending. Preserve unsent goal drafts on folder-picker cancellation and history navigation.
+
 The composer is a persistent flex column with a quiet near-black surface, thin outline and a blue focus-within border. Its actions keep attachment on the left and Send on the right. The transparent textarea occupies the remaining area. Preserve visible placeholder contrast and the blue caret.
 
 ### Evidence Links and Inspector Details
@@ -281,7 +283,7 @@ Builder messages have small inline blue actions for changes and tests, each with
 
 ### Dialogs and Motion
 
-New task, assistant management and settings use a native modal dialog with a header and local close action. Escape and clicking the backdrop close it; focus returns to the previously focused control. The busy spinner rotates over (1.1s) with linear timing. Threads request smooth scrolling. The reduced-motion media query disables animations, transitions and smooth CSS scrolling.
+Task settings, assistant management and app settings use a native modal dialog with a header and local close action. Escape and clicking the backdrop close it; focus returns to the previously focused control. The busy spinner rotates over (1.1s) with linear timing. Threads request smooth scrolling. The reduced-motion media query disables animations, transitions and smooth CSS scrolling.
 
 ## Do's and Don'ts
 

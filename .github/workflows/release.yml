@@ -6,9 +6,9 @@ on:
         description: Successful Desktop build and smoke run ID
         required: true
       tag:
-        description: New alpha tag (v0.2.0-alpha.3)
+        description: New alpha tag (v0.2.0-alpha.4)
         required: true
-        default: v0.2.0-alpha.3
+        default: v0.2.0-alpha.4
 permissions:
   actions: read
   contents: write

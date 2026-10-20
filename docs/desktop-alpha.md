@@ -1,4 +1,4 @@
-# Desktop alpha — 0.2.0-alpha.3
+# Desktop alpha — 0.2.0-alpha.4
 
 This first desktop version implements the approved pure-black, three-pane meeting workspace. The center is an assistant conversation, the left selects local projects/meetings and the right shows the current task, next action and blocker. Acceptance, evidence and history are collapsed by default.
 
@@ -11,11 +11,11 @@ npm run desktop
 
 The desktop app needs Electron's runtime download on the first install. The CLI still works with `npm ci --ignore-scripts && npm run build`. `npm run preview:desktop` after `npm run build:desktop` serves a **browser design demo with synthetic data**; it cannot execute tools or access local projects.
 
-1. Add an ordinary folder or local Git repository with the folder button or first-run action.
-2. Create a meeting with a goal and explicit acceptance criteria. Git repositories must be clean; ordinary folders require no repository setup. The form detects `npm test` where present, otherwise proposes `node --test`; expand verification settings to choose your actual project check.
-3. Choose Codex or Claude Code as the executor; the other becomes the independent reviewer. Model credentials stay in those tools' existing local configuration.
-4. Start the task. The engine creates an isolated folder copy or Git worktree, executes changes, runs registered checks, asks the reviewer and automatically returns rejected work within the five-round budget.
-5. Inspect changes, test output and review findings in the right pane. Pause/resume uses the same task record. Closing the app pauses active tasks; reopening restores projects, meetings and evidence.
+1. Choose a folder or Git project, or type the goal first and choose the folder when starting. Git repositories still need a clean checkout.
+2. Type the goal in the main composer and click Start task. The desktop host fills the acceptance criterion from the goal itself, keeps the project's registered checks, and defaults to Codex execution with Claude Code review. Creation starts the task without a second start button.
+3. Use Task settings → Advanced settings only for custom acceptance, roles or verification commands. The underlying mission engine still requires real verification and structured independent review; no success is inferred from an agent's claim.
+4. Inspect source changes, checks and findings in the task inspector. Opening New task preserves a separate goal draft, while messages continue to belong to the selected existing task.
+5. Cancelling the folder picker leaves the draft intact. If creation succeeds but startup fails, the task is selected and retained with a retry action. File changes remain in the isolated copy/worktree.
 
 Verification commands run in the isolated worktree. Ignored dependencies such as node_modules are not copied there. Configure commands that prepare/use the worktree correctly; do not treat the original checkout's dependencies as automatically available. Windows native `.exe` harnesses are supported by discovery; npm `.cmd` harness launchers remain outside the alpha execution adapter.
 
@@ -40,3 +40,7 @@ First alpha packages are unsigned. Native application signing, stable icons and 
 Ordinary folders are detected from filesystem metadata, with no Git subprocess needed. The copy and its baseline manifest are private local state. Codex receives `--skip-git-repo-check` only for directory-copy tasks; verification/review use directory fingerprints. No source `.git` is created and no result is applied automatically. Open the workspace to retrieve completed files. File changes are shown as additions/modifications/deletions, not a Git patch.
 
 Excluded directory names and symlink restrictions are documented in README. There is no fixed application cap on file counts or sizes; directory entries and file contents are streamed. Empty directories are not copied; file content and permission bits are preserved. Old mission snapshots without `workspaceKind` continue using Git fingerprints.
+
+## Quick creation — alpha.4
+
+The desktop-only create input can omit acceptance, checks and role IDs. Defaults are resolved in DesktopService before calling the strict runtime createMission API: acceptance is the literal user goal, checks come from the registered project, builder is Codex and reviewer is Claude Code. This does not generate detailed acceptance rules or infer arbitrary commands from project content. The default fallback remains `node --test` when no npm test script was detected; a folder without tests has no claim of regression-test coverage. Use Task settings for task-specific checks. CLI mission files still require explicit acceptance and checks.

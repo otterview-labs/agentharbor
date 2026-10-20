@@ -18,3 +18,11 @@
 .drawer-close{display:none}
 @media(max-width:900px){.show-right .inspector-close{display:inline-flex;position:absolute;top:12px;right:10px}}
 @media(max-width:600px){.show-left .sidebar-close{display:inline-flex;position:absolute;top:9px;right:8px}}
+
+.composer-settings{display:inline-flex;align-items:center;gap:7px;margin-right:auto;margin-left:8px;padding:7px 9px;font-size:14px;color:var(--muted)}
+@media(max-width:600px){.composer-settings{font-size:12px;gap:4px;padding:6px;margin-left:2px}.composer-actions .send{min-width:90px;padding-left:10px;padding-right:10px}}
+
+.app.new-task{grid-template-columns:var(--side) minmax(0,1fr)}.app.new-task .inspector,.app.new-task .task-toggle{display:none}
+@media(max-width:600px){.app.new-task{grid-template-columns:minmax(0,1fr)}}
+
+.meeting-form .select-row .secondary{flex-shrink:0;white-space:nowrap;font-size:14px}.meeting-form .select-row select{min-width:0;flex:1}

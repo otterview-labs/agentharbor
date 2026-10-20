@@ -25,6 +25,7 @@ Users work in ordinary local folders or Git repositories with Codex, Claude Code
 - Public repository destination: otterview-labs/agentharbor.
 - Keep the existing agentBridge phone application in its separate repository.
 - Ordinary-folder project files have no fixed count or size ceiling; task rounds and execution budgets remain independently configurable.
+- Normal desktop creation needs only a folder and goal; advanced acceptance/checks/roles are optional and resolved before strict runtime validation.
 - Prefer bounded unattended execution within the registered project and configured commands.
 - Review is not proof of correctness; require verification evidence before completion.
 - Jev is an optional future review integration; no live Jev credentials or validation are available.

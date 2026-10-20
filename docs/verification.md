@@ -66,3 +66,11 @@ The final native regression exposed a fast pause/resume race. Worker lifetimes n
 No application-imposed file-count, entry-count, individual-size or total-size ceiling remains in ordinary-folder workspaces. The runtime suite contains 24 tests. A 257 MiB-plus-one-byte regression creates a real task copy, checks its last byte, edits that byte in the copy, verifies change detection and confirms the source file remains intact.
 
 A separate reproducible integration smoke (`npm run build && node scripts/check-large-folder.mjs`) creates and copies 20001 real files, exceeding both former count ceilings. It creates no Git metadata and invokes no models. See [sanitized report](large-folder-smoke-20261019.json). The three native Electron regression tests also pass. Directory entries/file contents are streamed; metadata scales with file count and actual capacity depends on system resources.
+
+## Quick task entry — alpha.4
+
+26 runtime tests cover desktop default resolution, explicit overrides, context persistence, real Node tests, verification/review and unchanged source folders. The strict CLI/runtime MissionInput contract still requires explicit checks and acceptance; only DesktopService supplies defaults from the goal and registered project.
+
+Five native Electron scenarios cover custom task creation/execution/restart, repeated pause/resume, ordinary-folder execution, goal-only creation with automatic start and picker-cancellation/draft preservation, and a retained task/retry after startup failure. The startup-failure fixture waits for the window before replacing an IPC handler, so it cannot race bootstrap registration. Native model calls in these tests are deterministic fixtures.
+
+The creation view and optional-settings dialog were inspected at 1440×960, 880×720 and 390×844: no horizontal overflow or browser page errors. A bounded correction hid unrelated demo activity during a new draft and kept the Add button on one line. The detector reported advisory documentation/token drift only; no new color system or unrelated palette repair was introduced.
