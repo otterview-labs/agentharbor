@@ -18,6 +18,13 @@ try {
   for (const file of ['dist-electron', 'dist-desktop', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'licenses']) {
     await cp(join(root, file), join(stage, file), { recursive: true });
   }
+  // These packages are bundled into the renderer, rather than installed in the
+  // app. Retain their full notices (including React DOM's scheduler dependency).
+  for (const name of [...Object.keys(manifest.dependencies), 'scheduler']) {
+    const target = join(stage, 'licenses', 'npm', name);
+    await mkdir(target, { recursive: true });
+    await cp(join(root, 'node_modules', name, 'LICENSE'), join(target, 'LICENSE'));
+  }
   await writeFile(join(stage, 'package.json'), JSON.stringify({
     name: manifest.name, version: manifest.version, description: manifest.description,
     author: manifest.author, license: manifest.license, main: manifest.main, type: 'module',

@@ -34,6 +34,12 @@ try {
   assert.equal(security.sandbox, true);
   assert.equal(security.contextIsolation, true);
   assert.equal(security.nodeIntegration, false);
+  const notices = await app.evaluate(async ({ app }) => {
+    const { readFile } = require('node:fs/promises');
+    const { join } = require('node:path');
+    return Promise.all(['react', 'react-dom', 'lucide-react', 'scheduler'].map(name => readFile(join(app.getAppPath(), 'licenses', 'npm', name, 'LICENSE'), 'utf8')));
+  });
+  assert.ok(notices.every(text => text.includes('Copyright') && text.length > 500), 'Bundled renderer licenses must be retained');
   assert.deepEqual(errors, []);
   console.log(`Release ZIP extracted and launched: ${archives[0]}`);
 } finally {
