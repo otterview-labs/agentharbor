@@ -40,3 +40,22 @@ First alpha packages are unsigned. Native application signing, stable icons and 
 Ordinary folders are detected from filesystem metadata, with no Git subprocess needed. The copy and its baseline manifest are private local state. Codex receives `--skip-git-repo-check` only for directory-copy tasks; verification/review use directory fingerprints. No source `.git` is created and no result is applied automatically. Open the workspace to retrieve completed files. File changes are shown as additions/modifications/deletions, not a Git patch.
 
 Excluded directory names and symlink restrictions are documented in README. There is no fixed application cap on file counts or sizes; directory entries and file contents are streamed. Empty directories are not copied; file content and permission bits are preserved. Old mission snapshots without `workspaceKind` continue using Git fingerprints.
+
+## ZIP packaging and dependency checks
+
+`npm run package:desktop` builds the current platform and architecture with
+`@electron/packager`. ZIP files remain in `release/` with the name
+`AgentHarbor-<version>-<mac|win|linux>-<arch>.zip`. They remain unsigned and
+unnotarized. The staging directory contains only the bundled main/preload/worker,
+renderer, package metadata and license notices; it excludes the checkout, local
+state and development dependencies. macOS framework symlinks and executable modes
+are preserved in the ZIP.
+
+The ASAR tool has scoped overrides for patched Glob and Minimatch releases.
+These use their named exports; older callable Minimatch consumers from the unused
+installer toolchain have been removed. Do not add a global Minimatch override to
+legacy installer packages. `npm audit --audit-level=moderate` is checked on each
+platform. After packaging, `npm run test:package` extracts the actual ZIP and
+launches it with disposable state. It verifies the renderer, preload IPC, sandbox
+settings and that production builds ignore the fixture-agent switch, without
+starting a mission or calling a model provider. Linux needs Xvfb for this GUI test.
