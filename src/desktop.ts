@@ -1,7 +1,8 @@
-import { readFile, writeFile, mkdir, rename } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 import { join, basename } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { Store } from './store.js';
+import { writeAtomicFile } from './atomic-file.js';
 import { createMission, git, inspectProject } from './workspace.js';
 import { directoryChanges } from './directory.js';
 import { discover } from './discovery.js';
@@ -20,8 +21,7 @@ export class DesktopService {
   }
   private async write(value: Registry) {
       await mkdir(this.home, { recursive: true, mode: 0o700 });
-      const target = join(this.home, 'desktop.json'), temp = target + '.' + randomUUID() + '.tmp';
-      await writeFile(temp, JSON.stringify(value, null, 2), { flag: 'wx', mode: 0o600 }); await rename(temp, target); this.changed();
+      await writeAtomicFile(join(this.home, 'desktop.json'), JSON.stringify(value, null, 2)); this.changed();
   }
   private serial<T>(operation: () => Promise<T>): Promise<T> {
     const result = this.queue.then(operation); this.queue = result.catch(() => {}); return result;
@@ -64,8 +64,7 @@ export class DesktopService {
       const registry = await this.read(), meeting = registry.meetings.find(x => x.id === id);
       if (!meeting) throw new Error('任务不存在');
       meeting.messages.push({ id: randomUUID(), author, text, at: new Date().toISOString() });
-      const target = join(this.home, 'desktop.json'), temp = target + '.' + randomUUID() + '.tmp';
-      await writeFile(temp, JSON.stringify(registry, null, 2), { flag: 'wx', mode: 0o600 }); await rename(temp, target); this.changed();
+      await this.write(registry);
     });
   }
   async changes(id: string) {
