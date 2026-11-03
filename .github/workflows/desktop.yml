@@ -31,8 +31,11 @@ jobs:
       - name: Native Electron smoke (Linux)
         if: runner.os == 'Linux'
         run: xvfb-run --auto-servernum npm run test:desktop
-      - name: Native Electron smoke (Windows and macOS)
-        if: runner.os != 'Linux'
+      - name: Native Electron smoke (Windows, repeated to exercise snapshot replacement)
+        if: runner.os == 'Windows'
+        run: npm run test:desktop -- --repeat-each=3
+      - name: Native Electron smoke (macOS)
+        if: runner.os == 'macOS'
         run: npm run test:desktop
       - name: Package desktop zip
         run: npm run package:desktop

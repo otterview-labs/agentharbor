@@ -1,6 +1,6 @@
-import { mkdir, readFile, rename, writeFile, readdir, unlink } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, readdir, unlink } from 'node:fs/promises';
 import { join } from 'node:path';
-import { randomUUID } from 'node:crypto';
+import { writeAtomicFile } from './atomic-file.js';
 import type { Mission } from './types.js';
 
 /** Single mission snapshot, atomically replaced; the execution lock is per mission. */
@@ -11,9 +11,7 @@ export class Store {
   async save(mission: Mission) {
     await this.init();
     const target = join(this.root, 'missions', this.id(mission.id) + '.json');
-    const temporary = target + '.' + randomUUID() + '.tmp';
-    await writeFile(temporary, JSON.stringify(mission, null, 2), { mode: 0o600, flag: 'wx' });
-    await rename(temporary, target);
+    await writeAtomicFile(target, JSON.stringify(mission, null, 2));
   }
   async get(id: string): Promise<Mission> {
     const mission: Mission = JSON.parse(await readFile(join(this.root, 'missions', this.id(id) + '.json'), 'utf8'));
