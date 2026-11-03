@@ -4,7 +4,7 @@ A local desktop workspace where coding assistants implement a goal, run real che
 
 **Desktop alpha: 0.2.0-alpha.3.** Electron + React shares one desktop codebase across Windows, Linux and macOS. Projects and meetings sit on the left, assistant handoffs in the center, and task status and evidence on the right.
 
-[中文](README.md) · [Downloads](https://github.com/otterview-labs/agentharbor/releases) · [Desktop guide](docs/desktop-alpha.md) · [Verification](docs/verification.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md)
+[简体中文](README.zh-CN.md) · [Downloads](https://github.com/otterview-labs/agentharbor/releases) · [Desktop guide](docs/desktop-alpha.md) · [Verification](docs/verification.md) · [Architecture](docs/architecture.md) · [Roadmap](docs/ROADMAP.md)
 
 ![Actual browser design preview with explicitly synthetic meeting data](docs/screenshots/desktop-preview.png)
 

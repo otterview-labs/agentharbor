@@ -23,6 +23,11 @@ jobs:
       - run: npm ci
       - run: npm run check:desktop
       - run: npm run build:desktop
+      - name: Install Linux Electron test dependencies
+        if: runner.os == 'Linux'
+        run: |
+          npx playwright install-deps chromium
+          sudo apt-get install -y --no-install-recommends xauth
       - name: Native Electron smoke (Linux)
         if: runner.os == 'Linux'
         run: xvfb-run --auto-servernum npm run test:desktop
