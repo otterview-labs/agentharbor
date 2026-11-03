@@ -39,6 +39,13 @@ jobs:
         run: npm run test:desktop
       - name: Package desktop zip
         run: npm run package:desktop
+      - name: Launch extracted release ZIP (Linux)
+        if: runner.os == 'Linux'
+        run: xvfb-run --auto-servernum npm run test:package
+      - name: Launch extracted release ZIP (Windows and macOS)
+        if: runner.os != 'Linux'
+        run: npm run test:package
+      - run: npm audit --audit-level=moderate
       - uses: actions/upload-artifact@v4
         with:
           name: AgentHarbor-${{ runner.os }}
