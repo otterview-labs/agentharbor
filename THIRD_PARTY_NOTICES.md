@@ -2,6 +2,10 @@
 
 AgentHarbor is an independent MIT-licensed project. Looper is an optional external engine and an acknowledged architectural reference; its source is not bundled into this runtime.
 
+The desktop renderer bundles React, React DOM, Scheduler and Lucide React. Their
+full upstream license notices are included under `licenses/npm/` inside the
+packaged application's ASAR, alongside the existing project and font notices.
+
 ## Looper
 
 - Project: https://github.com/nexu-io/looper

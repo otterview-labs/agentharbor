@@ -34,6 +34,19 @@ try {
   assert.equal(security.sandbox, true);
   assert.equal(security.contextIsolation, true);
   assert.equal(security.nodeIntegration, false);
+  const notices = await app.evaluate(async ({ app }) => {
+    const { readFile } = process.getBuiltinModule('node:fs/promises');
+    const { join } = process.getBuiltinModule('node:path');
+    return Promise.all(['react', 'react-dom', 'lucide-react', 'scheduler'].map(name => readFile(join(app.getAppPath(), 'licenses', 'npm', name, 'LICENSE'), 'utf8')));
+  });
+  assert.ok(notices.every(text => text.includes('Copyright') && text.length > 500), 'Bundled renderer licenses must be retained');
   assert.deepEqual(errors, []);
   console.log(`Release ZIP extracted and launched: ${archives[0]}`);
-} finally { if (app) await app.close(); await rm(root, { recursive: true, force: true }); }
+} finally {
+  try { if (app) await app.close(); }
+  finally {
+    // Windows can retain the executable lock briefly after Electron exits.
+    // Node retries EBUSY/EPERM with bounded backoff; a persistent lock still fails.
+    await rm(root, { recursive: true, force: true, maxRetries: 10, retryDelay: 200 });
+  }
+}
