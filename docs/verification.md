@@ -1,6 +1,10 @@
-# Verification record — 2026-10-19
+# Verification record
 
-## Local checks
+## CI environment maintenance — 2026-11-03
+
+The Linux desktop job installs Playwright’s Chromium system dependencies and `xauth` before starting Electron under `xvfb-run`. Both runtime and desktop matrices use GitHub-hosted runners so the public checks do not depend on a private runner’s startup hooks. The latest retry stalled in the self-hosted runner setup before checkout; it did not reach the repository test steps. The previous Linux run stopped before the native tests because `xvfb-run` was missing; the historical passing runs below do not establish the status of a newer checkout. Check the [current desktop workflow](https://github.com/otterview-labs/agentharbor/actions/workflows/desktop.yml) for the tested commit and platform results.
+
+## Local checks — 2026-10-19
 
 Environment: macOS arm64, Node.js v25.5.0, TypeScript 5.9.3.
 
