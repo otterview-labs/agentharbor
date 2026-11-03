@@ -36,4 +36,11 @@ try {
   assert.equal(security.nodeIntegration, false);
   assert.deepEqual(errors, []);
   console.log(`Release ZIP extracted and launched: ${archives[0]}`);
-} finally { if (app) await app.close(); await rm(root, { recursive: true, force: true }); }
+} finally {
+  try { if (app) await app.close(); }
+  finally {
+    // Windows can retain the executable lock briefly after Electron exits.
+    // Node retries EBUSY/EPERM with bounded backoff; a persistent lock still fails.
+    await rm(root, { recursive: true, force: true, maxRetries: 10, retryDelay: 200 });
+  }
+}
